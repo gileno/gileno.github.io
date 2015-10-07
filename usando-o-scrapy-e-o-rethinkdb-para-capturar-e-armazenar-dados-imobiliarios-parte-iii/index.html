@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte III</title>
+  <meta name="description" content="Introdução">
+  
+  <meta name="author" content="Gileno Filho">
+  <meta name="copyright" content="&copy; Gileno Filho 2015">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/styles/monokai_sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+	<link rel="manifest" href="/assets/icons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
+	<!-- Facebook OGP cards -->
+  <meta property="og:description" content="Introdução" />
+  <meta property="og:url" content="http://www.gilenofilho.com.br" />
+  <meta property="og:site_name" content="Gileno Filho" />
+  <meta property="og:title" content="Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte III" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://www.gilenofilho.com.br/assets/eu2-thumb.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte III">
+  <meta name="twitter:description" content="Introdução">
+  <meta name="twitter:image" content="http://www.gilenofilho.com.br/assets/eu2-thumb.png">
+  <meta name="twitter:url" content="http://www.gilenofilho.com.br">
+
+  
+
+	<!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii">
+  <link rel="alternate" type="application/rss+xml" title="Gileno Filho" href="http://www.gilenofilho.com.br//feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+    	
+      <span>Gileno Filho</span>
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+    	<i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+      	
+          
+          <li class="nav-link"><a href="/artigos/">Artigos</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+          <li class="nav-link"><a href="/sobre/">Sobre</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+	<div class="scrim ">
+		<header class="post-header">
+		  <h1 class="title">Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte III</h1>
+		  <p class="info">by <strong>Gileno Filho</strong></p>
+		</header>
+	</div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+	<div class="post-date">September 8, 2015</div>
+	<div class="post-categories">
+	in 
+	  
+		<a href="/category/tutoriais">Tutoriais</a>
+	  
+	
+	</div>
+</section>
+
+<article class="post-content">
+  <h3 id="introduo">Introdução</h3>
+
+<p>Olá pessoal, esta é a parte III da série sobre o Scrapy, abaixo os links para todos os artigos da série:</p>
+
+<ul>
+  <li><a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i/">Parte I - Configurando e rodando o Scrapy</a></li>
+  <li><a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii/">Parte II - Instalando, configurando e armazenando os dados no Rethinkdb</a></li>
+  <li><a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii/">Parte III - Deploy do projeto Scrapy</a></li>
+</ul>
+
+<p>Nos artigos anteriores mostrei como capturar os dados imobiliários do site OLX usando o scrapy e depois como armazenar em um banco de dados, no caso em questão usamos o <a href="http://www.rethinkdb.com/">Rethinkdb</a>.</p>
+
+<h3 id="vamos-l">Vamos lá</h3>
+
+<p>Agora iremos ver como colocar o nosso projeto Scrapy para rodar em um servidor na nuvem, pois quando você está fazendo um crawler um pouco maior que leva mais tempo para capturar as informações fica inviável deixar ele rodando na sua máquina já que você pode querer desligá-la, reiniciá-la ou pode simplesmente deixar em espera o que iria interromper o processamento.</p>
+
+<p>Existem algumas formas de se colocar um projeto scrapy em um <a href="https://pt.wikipedia.org/wiki/Servidor_virtual_privado">VPS</a>, vou listar algumas:</p>
+
+<ul>
+  <li>Crontab</li>
+  <li>Supervisor</li>
+  <li>Scrapyd</li>
+  <li>Scrapinghub</li>
+</ul>
+
+<p>Por hora eu irei fazer apenas uma pequena apresentação de todas essas opções expandindo apenas a Scrapyd, futuramente irei gravar um vídeo mostrando como utilizar as opções do crontab e supervisor.</p>
+
+<h4 id="crontab">Crontab</h4>
+
+<p>O <a href="https://pt.wikipedia.org/wiki/Crontab">crontab</a> é um utilitário de sistemas Unix que gerencia comandos que precisam ser executados com alguma periodicidade, assim basta acessar um VPS via ssh, baixar o seu código, instalar as dependências - realizar os passos iniciais presentes nos artigos anteriores - e depois adicionar a tarefa de acordo com o padrão que o crontab aceita (veja o link do <a href="https://pt.wikipedia.org/wiki/Crontab">crontab</a>).</p>
+
+<h4 id="supervisor">Supervisor</h4>
+
+<p>O <a href="http://supervisord.org/">Supervisor</a> é um sistema desenvolvido em Python que controla a execução de processos. Eu utilizo ele bastante em meus projetos, pois com ele eu tenho como organizar a execução de processos indicando o usuário que irá executar, o diretório de acesso, controle de log e via linha de comando posso iniciar ou terminar o processo de maneira bem simples.</p>
+
+<h4 id="scrapinghub">Scrapinghub</h4>
+
+<p><a href="http://scrapinghub.com/">Scrapinghub</a> é a empresa por trás do Scrapy, e essa plataforma dá a possibilidade de você fazer o deploy facilitado de seus crawlers que utilizam o Scrapy, além de visualizar as estatísticas e os dados gerados pelos crawlers.</p>
+
+<h4 id="scrapyd">Scrapyd</h4>
+
+<p>O <a href="http://scrapyd.readthedocs.org/en/latest/index.html">Scrapyd</a> é uma aplicação que fornece uma API REST em que você pode fazer upload de seus projetos além de iniciar ou parar a execução de crawlers presentes no seu projeto.</p>
+
+<p>Para utilizar o Scrapyd eu recomendo acessar a sua máquina VPS e em seguida baixar e instalar o Scrapyd.</p>
+
+<p>Considerando que já está no terminal do seu VPS, faça:</p>
+
+<p>Obs1: você pode criar um virtualenv ou se preferir instalar globalmente verifique se está acessando com o usuário <strong>root</strong> ou no grupo <strong>sudo</strong>.
+Obs2: linhas com o caractere “$” são comandos executados, linhas sem esse caractere é a saída esperada.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span><span class="nb">cd</span> /caminho/no/vps/para/o/projeto
+<span class="nv">$ </span>pip install scrapyd</code></pre></div>
+
+<p>Após a instalação do scrapyd, um novo comando estará disponível:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>scrapyd
+2015-09-07 20:55:03-0400 <span class="o">[</span>-<span class="o">]</span> Log opened.
+2015-09-07 20:55:03-0400 <span class="o">[</span>-<span class="o">]</span> twistd 15.2.1 <span class="o">(</span>/usr/bin/python 2.7.6<span class="o">)</span> starting up.
+2015-09-07 20:55:03-0400 <span class="o">[</span>-<span class="o">]</span> reactor class: twisted.internet.epollreactor.EPollReactor.
+2015-09-07 20:55:03-0400 <span class="o">[</span>-<span class="o">]</span> Site starting on 6800
+2015-09-07 20:55:03-0400 <span class="o">[</span>-<span class="o">]</span> Starting factory &lt;twisted.web.server.Site instance at 0x7f883b0adb48&gt;
+2015-09-07 20:55:03-0400 <span class="o">[</span>Launcher<span class="o">]</span> Scrapyd 1.0.2 started: <span class="nv">max_proc</span><span class="o">=</span>4, <span class="nv">runner</span><span class="o">=</span><span class="s1">&#39;scrapyd.runner&#39;</span></code></pre></div>
+
+<p>Ao rodar este comando você verá que ele irá ativar um servidor web na porta 6800, entretanto você não vai querer rodar o servidor dessa forma, você irá precisar colocar ele em modo daemon para que possa realizar outras atividades e deixá-lo rodando. Como estou acostumado com o supervisor, utilizei ele para monitorar e iniciar o processo do scrapyd - nesse caso ele não vai rodar o crawler em específico, vai rodar o scrapyd e este vai ser responsável pela execução dos crawlers.</p>
+
+<p>Para esse experimento estou utilizando uma máquina com Ubuntu, assim posso instalar o Supervisor dessa forma:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>apt-get install supervisor</code></pre></div>
+
+<p>Caso utilize outra distribuição Linux procure os pacotes relacionados ao Supervisor ou instale via pip:</p>
+
+<p>http://supervisord.org/installing.html#installing-via-pip</p>
+
+<p>Quando instalado via gerenciador de pacotes da distribuição ele já é executado assim que iniciar a máquina, assim basta criar um arquivo de configuração para o processo relativo ao Scrapyd:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span><span class="nb">cd</span> /etc/supervisor/conf.d/
+<span class="nv">$ </span>vi scrapyd.conf</code></pre></div>
+
+<p>Em seguida coloque o seguinte conteúdo no arquivo <strong>scrapyd.conf</strong>:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[</span>program:scrapyd<span class="o">]</span>
+<span class="nb">command</span><span class="o">=</span>scrapyd
+<span class="nv">user</span><span class="o">=</span>root
+<span class="nv">autostart</span><span class="o">=</span><span class="nb">true</span></code></pre></div>
+
+<p>Não é recomendado utilizar o usuário root mas para fins de teste irei indicar este usuário, mas lembre-se de criar um usuário para o scrapyd quando for colocar em produção.</p>
+
+<p>A parte <code>[program:scrapyd]</code> indica o nome do programa, vai ser útil na hora de iniciar ou para o processo, o <code>command=scrapyd</code> é o comando que irá ser executado, caso esteja utilizando um virtualenv será preciso indicar o caminho do script <strong>scrapyd</strong> relativo ao virtualenv. O <code>user=root</code> indica que usuário irá rodar o comando e a opção <code>autorestart=true</code> serve para reiniciar o processo sempre que ele “cair”, independente do que aconteceu, mais detalhes em:</p>
+
+<p>http://supervisord.org/configuration.html</p>
+
+<p>Agora para ativar o scrapyd iremos executar o comando:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>supervisorctl reread
+scrapyd: available
+<span class="nv">$ </span>supervisorctl reload
+Restarted supervisord
+<span class="nv">$ </span>upervisorctl status
+scrapyd       RUNNING    pid 1382, uptime 0:00:15</code></pre></div>
+
+<p>Agora já podemos acessar a interface web fornecida pelo scrapyd, basta ir no navegador e digitar:</p>
+
+<p>http://&#60;IP-DO-VPS&#62;:6800/</p>
+
+<p>Se tudo deu certo, você verá uma interface extremamente simples, agora saia do VPS e volte a trabalhar localmente.</p>
+
+<p>Acessando a basta do projeto localmente - com o virtualenv ativado caso esteja utilizando, instale:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>pip install scrapyd-client</code></pre></div>
+
+<p>Com esse pacote iremos ter um facilitador para o deploy do nosso projeto no servidor onde está o scrapyd, pois o scrapyd fornece uma API REST para fazer upload do nosso projeto no formato <a href="https://wiki.python.org/moin/egg">EGG</a>. O scrapyd-client fornece um comando <code>scrapyd-deploy</code> que facilita essa geração do egg e em seguida upload para o servidor, assim no arquivo <strong>scrapy.cfg</strong> do seu projeto adicione no final (ou substitua caso já tenha algum valor para a configuração <strong>deploy</strong>):</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="o">[</span>deploy<span class="o">]</span>
+<span class="nv">url</span> <span class="o">=</span> http://&lt;IP-DO-VPS&gt;:6800/
+<span class="nv">username</span> <span class="o">=</span> root
+<span class="nv">password</span> <span class="o">=</span> &lt;senha&gt;</code></pre></div>
+
+<p>Em seguida faça o deploy do seu projeto:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span>scrapyd-deploy -p &lt;nome-do-projeto&gt;
+Packing version 1441674561
+Deploying to project <span class="s2">&quot;&lt;nome-do-projeto&gt;&quot;</span> in http://&lt;IP-DO-VPS&gt;:6800/addversion.json
+Server response <span class="o">(</span>200<span class="o">)</span>:
+<span class="o">{</span><span class="s2">&quot;status&quot;</span>: <span class="s2">&quot;ok&quot;</span>, <span class="s2">&quot;project&quot;</span>: <span class="s2">&quot;&lt;nome-do-projeto&gt;&quot;</span>, <span class="s2">&quot;version&quot;</span>: <span class="s2">&quot;1441674561&quot;</span>, <span class="s2">&quot;spiders&quot;</span>: 2, <span class="s2">&quot;node_name&quot;</span>: <span class="s2">&quot;&lt;nome-do-servidor&gt;&quot;</span><span class="o">}</span></code></pre></div>
+
+<p>Obs: No exemplo da série o nome do projeto é <strong>scrapy_olx</strong>.</p>
+
+<p>Agora você já pode colocar um crawler para rodar, para isso é preciso acessar a API REST do Scrapyd:</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">curl http://&lt;IP-DO-VPS&gt;:6800/schedule.json -d <span class="nv">project</span><span class="o">=</span>&lt;nome-do-projeto&gt; -d <span class="nv">spider</span><span class="o">=</span>&lt;nome-do-spider&gt;</code></pre></div>
+
+<p>Eu utilizei o <a href="http://curl.haxx.se/">curl</a>, mas você poderia utilizar qualquer ferramenta que possa fazer um GET ou POST dependendo do que deseja fazer, todas as opções da API do Scrapyd, você pode ver em:</p>
+
+<p>http://scrapyd.readthedocs.org/en/latest/api.html</p>
+
+<p>Finalmente podemos ver se o nosso crawler está rodando corretamente acessando a interface web do scrapyd que visualiza os <strong>jobs</strong>:</p>
+
+<p>http://&#60;IP-DO-VPS&#62;:6800/jobs</p>
+
+<h3 id="consideraes-finais">Considerações finais</h3>
+
+<p>Eu gosto bastante da simplicidade do Scrapyd, entretanto ele não oferece muitas possibilidades para uma melhor visualização dos itens coletados e a interface web se restringe a visualizar, não é possível adicionar spiders e projetos. Além disso, ele deixa “público” o acesso aos jobs e itens - uma forma de burlar isso seria fazendo um proxy com o nginx ou apache e colocando uma autenticação como o <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">basic http authentication</a>.</p>
+
+<p>Esta série acaba por aqui mas em breve irei falar mais sobre esses dados coletados mas o foco não será mais o scrapy, será a análise desses dados.</p>
+
+</article>
+
+
+
+<section class="tags">
+	<strong>Tags:</strong> <a href="/tag/python">python</a>,&nbsp;<a href="/tag/dados">dados</a>
+</section>
+
+
+
+<section class="rss">
+	<p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+  	
+  		<a href="//twitter.com/share?text=Usando+o+Scrapy+e+o+Rethinkdb+para+capturar+e+armazenar+dados+imobili%C3%A1rios+-+Parte+III&url=http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii.html&via=GilenoFilho"
+  			onclick="window.open(this.href, 'twitter-share', 'width=550,height=255');return false;">
+  			<i class="fa fa-twitter-square fa-lg"></i>
+  		</a>
+  	
+  	
+  	
+  	
+  	
+  
+  	
+  	
+  	
+  	
+  	
+  
+  	
+  	
+  	
+  	
+  		<a href="//www.linkedin.com/shareArticle?mini=true&url=http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii.html"
+  			onclick="window.open(this.href, 'linkedin-share', 'width=550,height=255');return false;">
+  			<i class="fa fa-linkedin-square fa-lg"></i>
+  		</a>
+  	
+  	
+  
+  	
+  	
+  	
+  	
+  	
+  
+</section>
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'gilenofilho';
+	var disqus_identifier = 'gilenofilho.com.br' + window.location.pathname;
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Gileno Filho</h3>
+
+    <div class="site-navigation">
+
+    	<p><strong>Links</strong></p>
+      <ul class="pages">
+        
+        
+          <li class="nav-link"><a href="/artigos/">Artigos</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          <li class="nav-link"><a href="/sobre/">Sobre</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+            <li class="nav-link">
+                <a href="/feed.xml">RSS</a>
+            </li>
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+    	<p><strong>Contato</strong></p>
+      <ul class="social-media-list">
+      	<li>
+      		<a href="mailto:contato@gilenofilho.com.br">
+	      		<i class="fa fa-envelope-o"></i>
+	      		<span class="username">contato@gilenofilho.com.br</span>
+      		</a>
+      	</li>
+
+      	
+	      	
+	      	<li>
+	          <a href="https://twitter.com/gilenofilho" title="Follow me on Twitter">
+	            <i class="fa fa-twitter"></i>
+	            <span class="username">GilenoFilho</span>
+	          </a>
+	        </li>
+	      	
+      	
+	      	
+	      	<li>
+	          <a href="https://github.com/gileno" title="Fork me on GitHub">
+	            <i class="fa fa-github"></i>
+	            <span class="username">gileno</span>
+	          </a>
+	        </li>
+	      	
+      	
+	      	
+	      	<li>
+	          <a href="https://br.linkedin.com/in/gilenofilho" title="Connect with me on LinkedIn">
+	            <i class="fa fa-linkedin"></i>
+	            <span class="username">Gileno Filho</span>
+	          </a>
+	        </li>
+	      	
+      	
+	      	
+	      	<li>
+	          <a href="https://www.youtube.com/channel/UCThem2-TpI1kJoNqf_hFZOQ" title="Subscribe on YouTube">
+	            <i class="fa fa-youtube"></i>
+	            <span class="username">Gileno Filho</span>
+	          </a>
+	        </li>
+	      	
+      	
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+    	<p class="rss-subscribe text">
+            <strong>Inscreva-se</strong>
+            <form action="//gilenofilho.us11.list-manage.com/subscribe/post?u=42028a9587ab7791c65804500&amp;id=cf58dbb2d8" method="post">
+                <input type="text" name="EMAIL" value="" placeholder="Email" />
+            </form>
+        </p>
+      <p class="text">Cursos, tutoriais e palestras sobre o mundo de tecnlogia e ciência</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.5/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
+<script>
+
+$(document).ready(function() {
+
+	// Syntax highlighting
+	hljs.initHighlightingOnLoad();
+
+	// Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+
+});
+
+</script>
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-15015773-2', 'auto');
+  ga('send', 'pageview', {
+  	'page': '/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii',
+  	'title': 'Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte III'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gileno Filho</title>
+    <description>Website e blog de Gileno Filho
+</description>
+    <link>http://www.gilenofilho.com.br//</link>
+    <atom:link href="http://www.gilenofilho.com.br//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 07 Oct 2015 09:28:40 -0300</pubDate>
+    <lastBuildDate>Wed, 07 Oct 2015 09:28:40 -0300</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte III</title>
+        <description>&lt;h3 id=&quot;introduo&quot;&gt;Introdução&lt;/h3&gt;
+
+&lt;p&gt;Olá pessoal, esta é a parte III da série sobre o Scrapy, abaixo os links para todos os artigos da série:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i/&quot;&gt;Parte I - Configurando e rodando o Scrapy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii/&quot;&gt;Parte II - Instalando, configurando e armazenando os dados no Rethinkdb&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii/&quot;&gt;Parte III - Deploy do projeto Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nos artigos anteriores mostrei como capturar os dados imobiliários do site OLX usando o scrapy e depois como armazenar em um banco de dados, no caso em questão usamos o &lt;a href=&quot;http://www.rethinkdb.com/&quot;&gt;Rethinkdb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;vamos-l&quot;&gt;Vamos lá&lt;/h3&gt;
+
+&lt;p&gt;Agora iremos ver como colocar o nosso projeto Scrapy para rodar em um servidor na nuvem, pois quando você está fazendo um crawler um pouco maior que leva mais tempo para capturar as informações fica inviável deixar ele rodando na sua máquina já que você pode querer desligá-la, reiniciá-la ou pode simplesmente deixar em espera o que iria interromper o processamento.&lt;/p&gt;
+
+&lt;p&gt;Existem algumas formas de se colocar um projeto scrapy em um &lt;a href=&quot;https://pt.wikipedia.org/wiki/Servidor_virtual_privado&quot;&gt;VPS&lt;/a&gt;, vou listar algumas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Crontab&lt;/li&gt;
+  &lt;li&gt;Supervisor&lt;/li&gt;
+  &lt;li&gt;Scrapyd&lt;/li&gt;
+  &lt;li&gt;Scrapinghub&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Por hora eu irei fazer apenas uma pequena apresentação de todas essas opções expandindo apenas a Scrapyd, futuramente irei gravar um vídeo mostrando como utilizar as opções do crontab e supervisor.&lt;/p&gt;
+
+&lt;h4 id=&quot;crontab&quot;&gt;Crontab&lt;/h4&gt;
+
+&lt;p&gt;O &lt;a href=&quot;https://pt.wikipedia.org/wiki/Crontab&quot;&gt;crontab&lt;/a&gt; é um utilitário de sistemas Unix que gerencia comandos que precisam ser executados com alguma periodicidade, assim basta acessar um VPS via ssh, baixar o seu código, instalar as dependências - realizar os passos iniciais presentes nos artigos anteriores - e depois adicionar a tarefa de acordo com o padrão que o crontab aceita (veja o link do &lt;a href=&quot;https://pt.wikipedia.org/wiki/Crontab&quot;&gt;crontab&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h4 id=&quot;supervisor&quot;&gt;Supervisor&lt;/h4&gt;
+
+&lt;p&gt;O &lt;a href=&quot;http://supervisord.org/&quot;&gt;Supervisor&lt;/a&gt; é um sistema desenvolvido em Python que controla a execução de processos. Eu utilizo ele bastante em meus projetos, pois com ele eu tenho como organizar a execução de processos indicando o usuário que irá executar, o diretório de acesso, controle de log e via linha de comando posso iniciar ou terminar o processo de maneira bem simples.&lt;/p&gt;
+
+&lt;h4 id=&quot;scrapinghub&quot;&gt;Scrapinghub&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://scrapinghub.com/&quot;&gt;Scrapinghub&lt;/a&gt; é a empresa por trás do Scrapy, e essa plataforma dá a possibilidade de você fazer o deploy facilitado de seus crawlers que utilizam o Scrapy, além de visualizar as estatísticas e os dados gerados pelos crawlers.&lt;/p&gt;
+
+&lt;h4 id=&quot;scrapyd&quot;&gt;Scrapyd&lt;/h4&gt;
+
+&lt;p&gt;O &lt;a href=&quot;http://scrapyd.readthedocs.org/en/latest/index.html&quot;&gt;Scrapyd&lt;/a&gt; é uma aplicação que fornece uma API REST em que você pode fazer upload de seus projetos além de iniciar ou parar a execução de crawlers presentes no seu projeto.&lt;/p&gt;
+
+&lt;p&gt;Para utilizar o Scrapyd eu recomendo acessar a sua máquina VPS e em seguida baixar e instalar o Scrapyd.&lt;/p&gt;
+
+&lt;p&gt;Considerando que já está no terminal do seu VPS, faça:&lt;/p&gt;
+
+&lt;p&gt;Obs1: você pode criar um virtualenv ou se preferir instalar globalmente verifique se está acessando com o usuário &lt;strong&gt;root&lt;/strong&gt; ou no grupo &lt;strong&gt;sudo&lt;/strong&gt;.
+Obs2: linhas com o caractere “$” são comandos executados, linhas sem esse caractere é a saída esperada.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /caminho/no/vps/para/o/projeto
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip install scrapyd&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Após a instalação do scrapyd, um novo comando estará disponível:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;scrapyd
+2015-09-07 20:55:03-0400 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; Log opened.
+2015-09-07 20:55:03-0400 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; twistd 15.2.1 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;/usr/bin/python 2.7.6&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; starting up.
+2015-09-07 20:55:03-0400 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; reactor class: twisted.internet.epollreactor.EPollReactor.
+2015-09-07 20:55:03-0400 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; Site starting on 6800
+2015-09-07 20:55:03-0400 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;-&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; Starting factory &amp;lt;twisted.web.server.Site instance at 0x7f883b0adb48&amp;gt;
+2015-09-07 20:55:03-0400 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Launcher&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; Scrapyd 1.0.2 started: &lt;span class=&quot;nv&quot;&gt;max_proc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;4, &lt;span class=&quot;nv&quot;&gt;runner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;scrapyd.runner&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Ao rodar este comando você verá que ele irá ativar um servidor web na porta 6800, entretanto você não vai querer rodar o servidor dessa forma, você irá precisar colocar ele em modo daemon para que possa realizar outras atividades e deixá-lo rodando. Como estou acostumado com o supervisor, utilizei ele para monitorar e iniciar o processo do scrapyd - nesse caso ele não vai rodar o crawler em específico, vai rodar o scrapyd e este vai ser responsável pela execução dos crawlers.&lt;/p&gt;
+
+&lt;p&gt;Para esse experimento estou utilizando uma máquina com Ubuntu, assim posso instalar o Supervisor dessa forma:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get install supervisor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Caso utilize outra distribuição Linux procure os pacotes relacionados ao Supervisor ou instale via pip:&lt;/p&gt;
+
+&lt;p&gt;http://supervisord.org/installing.html#installing-via-pip&lt;/p&gt;
+
+&lt;p&gt;Quando instalado via gerenciador de pacotes da distribuição ele já é executado assim que iniciar a máquina, assim basta criar um arquivo de configuração para o processo relativo ao Scrapyd:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /etc/supervisor/conf.d/
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;vi scrapyd.conf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Em seguida coloque o seguinte conteúdo no arquivo &lt;strong&gt;scrapyd.conf&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;program:scrapyd&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;scrapyd
+&lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
+&lt;span class=&quot;nv&quot;&gt;autostart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Não é recomendado utilizar o usuário root mas para fins de teste irei indicar este usuário, mas lembre-se de criar um usuário para o scrapyd quando for colocar em produção.&lt;/p&gt;
+
+&lt;p&gt;A parte &lt;code&gt;[program:scrapyd]&lt;/code&gt; indica o nome do programa, vai ser útil na hora de iniciar ou para o processo, o &lt;code&gt;command=scrapyd&lt;/code&gt; é o comando que irá ser executado, caso esteja utilizando um virtualenv será preciso indicar o caminho do script &lt;strong&gt;scrapyd&lt;/strong&gt; relativo ao virtualenv. O &lt;code&gt;user=root&lt;/code&gt; indica que usuário irá rodar o comando e a opção &lt;code&gt;autorestart=true&lt;/code&gt; serve para reiniciar o processo sempre que ele “cair”, independente do que aconteceu, mais detalhes em:&lt;/p&gt;
+
+&lt;p&gt;http://supervisord.org/configuration.html&lt;/p&gt;
+
+&lt;p&gt;Agora para ativar o scrapyd iremos executar o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;supervisorctl reread
+scrapyd: available
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;supervisorctl reload
+Restarted supervisord
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;upervisorctl status
+scrapyd       RUNNING    pid 1382, uptime 0:00:15&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Agora já podemos acessar a interface web fornecida pelo scrapyd, basta ir no navegador e digitar:&lt;/p&gt;
+
+&lt;p&gt;http://&amp;#60;IP-DO-VPS&amp;#62;:6800/&lt;/p&gt;
+
+&lt;p&gt;Se tudo deu certo, você verá uma interface extremamente simples, agora saia do VPS e volte a trabalhar localmente.&lt;/p&gt;
+
+&lt;p&gt;Acessando a basta do projeto localmente - com o virtualenv ativado caso esteja utilizando, instale:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;pip install scrapyd-client&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Com esse pacote iremos ter um facilitador para o deploy do nosso projeto no servidor onde está o scrapyd, pois o scrapyd fornece uma API REST para fazer upload do nosso projeto no formato &lt;a href=&quot;https://wiki.python.org/moin/egg&quot;&gt;EGG&lt;/a&gt;. O scrapyd-client fornece um comando &lt;code&gt;scrapyd-deploy&lt;/code&gt; que facilita essa geração do egg e em seguida upload para o servidor, assim no arquivo &lt;strong&gt;scrapy.cfg&lt;/strong&gt; do seu projeto adicione no final (ou substitua caso já tenha algum valor para a configuração &lt;strong&gt;deploy&lt;/strong&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;deploy&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; http://&amp;lt;IP-DO-VPS&amp;gt;:6800/
+&lt;span class=&quot;nv&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; root
+&lt;span class=&quot;nv&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &amp;lt;senha&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Em seguida faça o deploy do seu projeto:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;scrapyd-deploy -p &amp;lt;nome-do-projeto&amp;gt;
+Packing version 1441674561
+Deploying to project &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;nome-do-projeto&amp;gt;&amp;quot;&lt;/span&gt; in http://&amp;lt;IP-DO-VPS&amp;gt;:6800/addversion.json
+Server response &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;200&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;status&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;ok&amp;quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&amp;quot;project&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;nome-do-projeto&amp;gt;&amp;quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;1441674561&amp;quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&amp;quot;spiders&amp;quot;&lt;/span&gt;: 2, &lt;span class=&quot;s2&quot;&gt;&amp;quot;node_name&amp;quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;lt;nome-do-servidor&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Obs: No exemplo da série o nome do projeto é &lt;strong&gt;scrapy_olx&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Agora você já pode colocar um crawler para rodar, para isso é preciso acessar a API REST do Scrapyd:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;curl http://&amp;lt;IP-DO-VPS&amp;gt;:6800/schedule.json -d &lt;span class=&quot;nv&quot;&gt;project&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;nome-do-projeto&amp;gt; -d &lt;span class=&quot;nv&quot;&gt;spider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;nome-do-spider&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Eu utilizei o &lt;a href=&quot;http://curl.haxx.se/&quot;&gt;curl&lt;/a&gt;, mas você poderia utilizar qualquer ferramenta que possa fazer um GET ou POST dependendo do que deseja fazer, todas as opções da API do Scrapyd, você pode ver em:&lt;/p&gt;
+
+&lt;p&gt;http://scrapyd.readthedocs.org/en/latest/api.html&lt;/p&gt;
+
+&lt;p&gt;Finalmente podemos ver se o nosso crawler está rodando corretamente acessando a interface web do scrapyd que visualiza os &lt;strong&gt;jobs&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;http://&amp;#60;IP-DO-VPS&amp;#62;:6800/jobs&lt;/p&gt;
+
+&lt;h3 id=&quot;consideraes-finais&quot;&gt;Considerações finais&lt;/h3&gt;
+
+&lt;p&gt;Eu gosto bastante da simplicidade do Scrapyd, entretanto ele não oferece muitas possibilidades para uma melhor visualização dos itens coletados e a interface web se restringe a visualizar, não é possível adicionar spiders e projetos. Além disso, ele deixa “público” o acesso aos jobs e itens - uma forma de burlar isso seria fazendo um proxy com o nginx ou apache e colocando uma autenticação como o &lt;a href=&quot;https://en.wikipedia.org/wiki/Basic_access_authentication&quot;&gt;basic http authentication&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esta série acaba por aqui mas em breve irei falar mais sobre esses dados coletados mas o foco não será mais o scrapy, será a análise desses dados.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Sep 2015 10:33:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii</guid>
+        
+        <category>python</category>
+        
+        <category>dados</category>
+        
+        
+        <category>tutoriais</category>
+        
+      </item>
+    
+      <item>
+        <title>Meus 10 centavos sobre Design / Usabilidade</title>
+        <description>&lt;p&gt;Esse texto é uma espécie de resposta/indicação do texto abaixo:&lt;/p&gt;
+
+&lt;p&gt;https://medium.com/hackerpreneur-magazine/4-invisible-user-experiences-you-d13cc9c3c7ab&lt;/p&gt;
+
+&lt;p&gt;Eu sempre fui (e sou) fã declarado de design minimalista, perdi a conta de quantas noites fiquei pesquisando sobre o tema, vendo projetos - principalmente web - e admirando os incríveis detalhes que passam de maneira quase invisível. Para mim um bom design é aquele que passa despercebido mas que torna a experiência, a qual foi desenhado, incrível - seja num website, notebook, smartphone, sofá…&lt;/p&gt;
+
+&lt;p&gt;~~Muitas~~ algumas pessoas associam um bom design a algo “bonito”, cores fortes, layout agressivo, mas para mim se o design não tiver um objetivo claro e for simples, eu preferia algo assim:&lt;/p&gt;
+
+&lt;p&gt;http://motherfuckingwebsite.com/&lt;/p&gt;
+
+&lt;p&gt;O exemplo acima é sobre web design, mas minha preferência e crítica não se resume apenas a este tipo de design, eu vejo esta associação desde simples cartões de visita à cadeiras ou sofás. Entretanto eu vejo uma tendência crescente a adoção deste estilo minimalista / objetivo tanto em objetos digitais quanto reais. As pessoas estão utilizando cada vez mais a máxima: &lt;strong&gt;mais é (provavelmente) menos&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Um bom design não é apenas objetivo e claro, ele é invisível. A pesquisa do Google é um excelente exemplo de design invisível, um simples formulário (preto no branco) - em alguns dispositivos é substituído pelo reconhecimento de voz tornando-o mais simples ainda. Mesmo com a possibilidade de ficar dentro de uma &lt;a href=&quot;https://en.wikipedia.org/wiki/Filter_bubble&quot;&gt;bolha&lt;/a&gt;, o Google entrega o que você quer de forma objetiva e rápida, corrigindo até o seu texto caso esteja errado. Dependendo da sua busca ele já faz um pequeno resumo ao lado dos resultados com opções bem relevantes para o tipo da pesquisa entre outras coisas que ficam imperceptível para a maioria das pessoas.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/content/images/2015/08/Screen-Shot-2015-08-14-at-18-23-27.png&quot; alt=&quot;Resultado da busca pelo termo &amp;quot;Google&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Este é o tipo de design que funciona, para mim é o estado da arte que deve ser cada vez mais copiado, no link que mencionei acima tem mais alguns bons exemplos. Todavia, existe uma área que eu gosto bastante entretanto conheço poucos bons exemplos de design, é a área de educação - principalmente o método de ensino a distância.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Se você chegou até aqui e conhece algum bom exemplo, por favor indique nos comentários :)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Recentemente eu comecei a ver alguns bons exemplos de ensino a distância e o mais incrível é que o grande diferencial não é a plataforma utilizada - cheia de recursos. O que faz a diferença é a didática, é fazer com que o ensino a distância não seja apenas uma extensão da sala de aula, transformando a experiência analógica em digital de verdade. Cursos que focam em vídeo-aulas, as quais são simples gravações de slides, normalmente têm uma baixa qualidade no design / usabilidade. Esses bons exemplos que eu mencionei - mas não indiquei - extrapolam essa virtualização da sala de aula, eles utilizam técnicas bem implementadas de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Ludifica%C3%A7%C3%A3o&quot;&gt;Ludificação&lt;/a&gt; (&lt;em&gt;Gamefication&lt;/em&gt;),  estimulam a formação de grupos de estudo direcionado, utilizam todos os canais de comunicação de maneira inteligente, conduzem o curso com base em pequenos projetos ou entregas fazendo com que o aluno pratique o conhecimento adquirido. Essa experiência diferenciada faz parte de um planejamento de design, que não necessariamente foi realizado por um designer, pois essa noção de design/usabilidade deve ser algo natural de todos.&lt;/p&gt;
+
+&lt;p&gt;Infelizmente hoje eu percebo que apliquei muito pouco do meu gosto e estudo nos projetos que trabalhei - às vezes porque me faltou atenção aos detalhes, outras foi pelo simples fato de não me preocupar em entregar algo que não seja realmente bom (na minha concepção) - e isso é algo que me arrependo.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 18 Aug 2015 12:58:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//meus-10-centavos-sobre-design-usabilidade</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//meus-10-centavos-sobre-design-usabilidade</guid>
+        
+        <category>design</category>
+        
+        
+        <category>utils</category>
+        
+      </item>
+    
+      <item>
+        <title>Minha palestra na Campus Party Recife 2015</title>
+        <description>&lt;p&gt;Olá pessoal, na sexta-feira passada - 24 de julho - participei da Campus Party Recife que aconteceu no Centro de Convenções de Pernambuco. No evento eu falei sobre Python e Educação, citando alguns exemplos do uso de Python nas universidades e escolas, e falei sobre o &lt;a href=&quot;http://pycursos.com/python-para-zumbis/&quot;&gt;Python para Zumbis&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Infelizmente tive alguns problemas com meu computador e não consegui fazer um demo online para mostrar a simplicidade de Python e seu uso em diversos ambientes, felizmente consegui fazer um workshop posteriormente e mostrei alguns usos de Python com redes sociais, no caso o Facebook.&lt;/p&gt;
+
+&lt;p&gt;A palestra foi gravada e está disponível no youtube - player abaixo:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/n7wnvtyyRuE&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Eu preciso melhorar essa palestra colocando alguns pontos que já observei que faltou, quem quiser me ajudar usa os comentários, pois irei fazer uma palestra parecida num evento da UFRPE.&lt;/p&gt;
+
+&lt;p&gt;Pontos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Falar do mercado atual de Python e suas oportunidades&lt;/li&gt;
+  &lt;li&gt;Falar sobre os cursos em inglês do coursera, udacity, edx…&lt;/li&gt;
+  &lt;li&gt;Mencionar o uso de Python na criação de games que estimulam o ensino&lt;/li&gt;
+  &lt;li&gt;Vender meu Mac e volta a usar Linux … (alguém ai afim de comprar?)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 27 Jul 2015 11:29:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//minha-palestra-na-campus-party-recife-2015</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//minha-palestra-na-campus-party-recife-2015</guid>
+        
+        <category>python</category>
+        
+        <category>comunidade</category>
+        
+        
+        <category>palestra</category>
+        
+      </item>
+    
+      <item>
+        <title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte II</title>
+        <description>&lt;h3 id=&quot;introduo&quot;&gt;Introdução&lt;/h3&gt;
+
+&lt;p&gt;Olá pessoal, esta é a parte II da série sobre o Scrapy, abaixo os links para todos os artigos da série:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i/&quot;&gt;Parte I - Configurando e rodando o Scrapy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii/&quot;&gt;Parte II - Instalando, configurando e armazenando os dados no Rethinkdb&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii/&quot;&gt;Parte III - Deploy do projeto Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Na parte I mostrei como instalar/configurar e rodar seu projeto scrapy no site do OLX. Nesse artigo vamos ver como salvar as informações resgatadas do crawler.&lt;/p&gt;
+
+&lt;p&gt;Antes de ir ao código é importante frisar que o Scrapy sempre que recebe um &lt;code&gt;scrapy.Request&lt;/code&gt; dentro de uma &lt;strong&gt;callback&lt;/strong&gt; irá realizar outra requisição, entretanto se ao invés disso, você retornar um dicionário ou um objeto que herde de &lt;code&gt;scrapy.Item&lt;/code&gt;, o Scrapy irá entender que aquele &lt;strong&gt;callback&lt;/strong&gt; acaba de resgatar uma informação que deve ser processada e vai enviar esse item ou dicionário para a fila de processamento - os &lt;strong&gt;pipelines&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;vamos-l&quot;&gt;Vamos lá&lt;/h3&gt;
+
+&lt;p&gt;Dentro do &lt;strong&gt;callback&lt;/strong&gt; que definimos no último &lt;a href=&quot;https://gist.github.com/gileno/39d3d663a314a56c8e2b#file-olx-py&quot;&gt;código da parte I&lt;/a&gt;, nós vimos como pegar uma informação da requisição via &lt;strong&gt;xpath&lt;/strong&gt; e exibir essa informação no nosso log, agora vamos fazer a lógica de informar ao Scrapy que dados estamos coletando e por fim vamos criar um &lt;strong&gt;pipeline&lt;/strong&gt; para processar esses dados.&lt;/p&gt;
+
+&lt;p&gt;O código ficará assim:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/gileno/6fbc0cbf1fed942b85de.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;A grande mudança é que agora nós estamos coletando bem mais informações sobre o imóvel, ainda da forma &lt;strong&gt;crua&lt;/strong&gt; mas limpeza desses dados ficaria para um possível tratamento estatístico… Estamos criando um dicionário chamado &lt;code&gt;item&lt;/code&gt; e no final usamos o &lt;code&gt;yield&lt;/code&gt; para retorná-lo. A primeira informação que está sendo guardada são as fotos, quer dizer, os links para as fotos, utilizando o &lt;code&gt;extract()&lt;/code&gt; ou invés do &lt;code&gt;extract_first()&lt;/code&gt; pois provavelmente irá retornar mais de um elemento no &lt;strong&gt;xpath&lt;/strong&gt; da fotos.&lt;/p&gt;
+
+&lt;p&gt;Todas as outras informações são simples de coletar, basta um pequeno &lt;strong&gt;xpath&lt;/strong&gt; utilizando a função &lt;strong&gt;normalize-space&lt;/strong&gt; para remover caracteres indesejados como &lt;strong&gt;\t&lt;/strong&gt;* a única informação que necessita de algo diferente é a data, ela não está num formato interessante mas conseguimos pegar ao menos o dia, mês e hora utilizando a expressão regular presente na linha &lt;a href=&quot;https://gist.github.com/gileno/6fbc0cbf1fed942b85de#file-olx-py-L55&quot;&gt;55&lt;/a&gt;. Como não tenho certeza se todos os imóveis irão cair nessa regex, faço uma pequena verificação se a regex obteve êxito.&lt;/p&gt;
+
+&lt;p&gt;Agora que estamos retornando nossas informações basta rodar novamente o crawler:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy crawl olx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Devemos ver algo assim:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;...
+2015-06-28 21:49:38 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;scrapy&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; DEBUG: Scraped from &amp;lt;&lt;span class=&quot;m&quot;&gt;200&lt;/span&gt; http://pe.olx.com.br/grande-recife/imoveis/apto-kitnet-c-2-qtos-j-piedade-p-casal-s-filhos-ou-solteiros-95174559&amp;gt;
+&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;date&amp;#39;&lt;/span&gt;: u&lt;span class=&quot;s1&quot;&gt;&amp;#39;28 Junho 19:10&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;: u&lt;span class=&quot;s1&quot;&gt;&amp;#39;Apto Kitnet c/2 qtos, J.Piedade p/casal s/filhos ou solteiros&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;url&amp;#39;&lt;/span&gt;: &lt;span class=&quot;s1&quot;&gt;&amp;#39;http://pe.olx.com.br/grande-recife/imoveis/apto-kitnet-c-2-qtos-j-piedade-p-casal-s-filhos-ou-solteiros-95174559&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;price&amp;#39;&lt;/span&gt;: u&lt;span class=&quot;s1&quot;&gt;&amp;#39;R$500&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;photos&amp;#39;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;u&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://img.olx.com.br/images/14/145528016191488.jpg&amp;#39;&lt;/span&gt;, u&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://img.olx.com.br/images/14/147528011762579.jpg&amp;#39;&lt;/span&gt;, u&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://img.olx.com.br/images/14/141528016763146.jpg&amp;#39;&lt;/span&gt;, u&lt;span class=&quot;s1&quot;&gt;&amp;#39;http://img.olx.com.br/images/14/149528019791781.jpg&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;details&amp;#39;&lt;/span&gt;: u&lt;span class=&quot;s1&quot;&gt;&amp;#39;Local adequado para quem gosta de tranquilidade e sil\xeancio, apto com 2 qtos, bem conservado, todo na cer\xe2mica, ideal para casal ou para solteiros SEM FILHOS E SEM ANIMAIS DE ESTIMA\xc7\xc3O. N\xc3O TEM GARAGEM PARA CARROS E NEM LUGAR PARA COLOCAR NA FRENTE, dispomos apenas de vagas para motos, contadores de luz individuais, banheiro com box, ambiente familiar, n\xe3o adequado para quem gosta de briga, som alto e bebedeira. Local tranquilo, rua sem asfalto, condom\xednio fechado e muito organizado perto de com\xe9rcio, transporte, etc. Fica em Jardim Piedade Pr\xf3ximo ao supermercado todo dia, na Rua do Sossego N\xba 100 CEP 54420680. Valor do aluguel R$ 500,00 com \xe1gua inclusa. N\xe3o exigimos fiador, contrato m\xednimo de 6 meses. Falar com \xc2ngela pelo n\xfamero 81-97961646 tim e 88226083 oi. Mais fotos do interior do apto via Whatzapp.&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;address&amp;#39;&lt;/span&gt;: u&lt;span class=&quot;s1&quot;&gt;&amp;#39;Localiza\xe7\xe3o Munic\xedpio: Jaboat\xe3o dos Guararapes Bairro: Piedade CEP do im\xf3vel: 54410-695&amp;#39;&lt;/span&gt;, &lt;span class=&quot;s1&quot;&gt;&amp;#39;source_id&amp;#39;&lt;/span&gt;: u&lt;span class=&quot;s1&quot;&gt;&amp;#39;95174559&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+2015-06-28 21:49:39 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;scrapy&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; DEBUG: Crawled &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;544&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &amp;lt;GET http://pe.olx.com.br/grande-recife/imoveis/apto-no-10-andar-em-quase-beira-mar-03qtos-95175476&amp;gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;referer: http://pe.olx.com.br/imoveis/aluguel&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Por padrão o Scrapy irá apenas logar a informação coletada, vamos agora implementar um pipeline para armazenar a informação no banco da dados &lt;a href=&quot;http://www.rethinkdb.com/&quot;&gt;rethinkdb&lt;/a&gt;. Eu resolvi utilizar o rethinkdb porque gosto de experimentar novos bancos de dados e ele tem diversos aspectos interessantes do NoSQL e algumas facilidades dos bancos relacionais clássicos, em outro artigo eu entro em mais detalhes sobre esse banco de dados - qualquer coisa basta citar essa escolha nos comentários - por hora basta saber que ele armazena documentos no formato JSON.&lt;/p&gt;
+
+&lt;p&gt;Primeiro precisamos baixar e instalar, algo que é bem simples, basta acessar o site oficial e escolher o pacote para o seu sistema operacional:&lt;/p&gt;
+
+&lt;p&gt;http://www.rethinkdb.com/docs/install/&lt;/p&gt;
+
+&lt;p&gt;Após a instalação é preciso colocar o rethinkdb para rodar, basta digitar o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;rethinkdb&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Com o banco de dados rodando você tem acesso a uma interface administrativa acessando:&lt;/p&gt;
+
+&lt;p&gt;http://localhost:8080/&lt;/p&gt;
+
+&lt;p&gt;Eu prefiro colocar o banco de dados parar rodar só quando vou utilizar, faço isso tanto com os relacionais quanto os não-relacionais mas se desejar pode iniciar o rethinkdb assim que iniciar o sistema:&lt;/p&gt;
+
+&lt;p&gt;http://rethinkdb.com/docs/start-on-startup/&lt;/p&gt;
+
+&lt;p&gt;Com o banco de dados rodando, devemos acessar a interface administrativa e criar um banco de dados chamado &lt;strong&gt;scrapy_olx&lt;/strong&gt;. Depois de criado o banco, vamos instalar o driver do rethinkdb:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;pip install rethinkdb&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Agora vamos adicionar às configurações do nosso projeto Scrapy, arquivo &lt;strong&gt;settings.py&lt;/strong&gt;, as informações de acesso ao rethinkdb e a configuração &lt;code&gt;ITEM_PIPELINES&lt;/code&gt; indicando o pipeline que iremos criar.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;RETHINKDB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;#39;table_name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;items&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;db&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;#39;scrapy_olx&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;ITEM_PIPELINES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;#39;scrapy_olx.pipelines.RethinkdbPipeline&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Com as configurações inseridas no &lt;strong&gt;settings.py&lt;/strong&gt; vamos alterar o arquivo pipelines.py para adicionar a classe &lt;code&gt;RethinkdbPipeline&lt;/code&gt;, que irá processar nossos dados e inserir no rethinkdb:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/gileno/3219ab7caf5be6da5478.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;A primeira coisa que fazemos é importar o módulo do rethinkdb, eles recomendam usar o namespace &lt;strong&gt;r&lt;/strong&gt; mas é opcional.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rethinkdb&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;r&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Cada classe que irá ser um &lt;a href=&quot;http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#item-pipeline&quot;&gt;pipeline&lt;/a&gt; pode implementar 4 métodos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#process_item&quot;&gt;process_item&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#open_spider&quot;&gt;open_spider&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#close_spider&quot;&gt;close_spider&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#from_crawler&quot;&gt;from_crawler&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;No método &lt;code&gt;from_crawler&lt;/code&gt; nós temos acesso a todos os principais componentes do Scrapy, incluindo as configurações e por isso implementamos este método para pegar as informações de acesso ao rethinkdb.&lt;/p&gt;
+
+&lt;p&gt;Nos método &lt;code&gt;open_spider&lt;/code&gt; e &lt;code&gt;close_spider&lt;/code&gt; fazemos a abertura e fechamento da conexão com o rethinkdb, para evitar erros há uma pequena verificação se a tabela já existe no banco de dados, caso não exista ela é criada.&lt;/p&gt;
+
+&lt;p&gt;Finalmente no método &lt;code&gt;process_item&lt;/code&gt; inserimos o item no banco de dados, o rethinkdb aceita dicionários que tem uma estrutura semelhante aos JSON’s que é a forma de armazenamento dele.&lt;/p&gt;
+
+&lt;p&gt;Agora vamos rodar novamente o crawler:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy crawl olx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;O crawler deve rodar durante algumas horas mas ao acessar a interface administrativa do rethinkdb irá perceber que o número de documentos indicados na tabela &lt;strong&gt;items&lt;/strong&gt; vai aumentando.&lt;/p&gt;
+
+&lt;h3 id=&quot;resumo&quot;&gt;Resumo&lt;/h3&gt;
+
+&lt;p&gt;Neste artigos vimos como retornar ao Scrapy as informações coletadas, depois tivemos uma visão geral do rethinkdb um banco conhecido como &lt;strong&gt;scalable JSON database&lt;/strong&gt;, ele é open-source e construído para aplicações web em tempo real.&lt;/p&gt;
+
+&lt;p&gt;Por fim fizemos um pipeline para ver como podemos processar um item coletado pelo crawler, utilizamos todos os 4 métodos que podem ser implementados pelo pipeline e são chamados pelo Scrapy.&lt;/p&gt;
+
+&lt;p&gt;No próximo artigo iremos ver como fazer deploy do projeto Scrapy, pois normalmente não é interessante deixar o crawler rodando na sua máquina, o mais comum é colocar em algum servidor na nuvem.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 Jun 2015 09:18:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii</guid>
+        
+        <category>python</category>
+        
+        <category>dados</category>
+        
+        
+        <category>tutoriais</category>
+        
+      </item>
+    
+      <item>
+        <title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte I</title>
+        <description>&lt;h3 id=&quot;introduo&quot;&gt;Introdução&lt;/h3&gt;
+
+&lt;p&gt;Olá pessoal, a algum tempo que estou organizando minha agenda para voltar a trabalhar em alguns &lt;a href=&quot;https://pt.wikipedia.org/wiki/Web_crawler&quot;&gt;Web Crawlers&lt;/a&gt; para capturar dados imobiliários que é um tipo de dado que gosto de trabalhar. Assim resolvi publicar esse artigo, que fará parte de uma série de 3, onde irei mostrar como fazer um crawler usando o &lt;a href=&quot;http://scrapy.org/&quot;&gt;Scrapy&lt;/a&gt; e como armazenar num banco de dados que muito me interessa, o &lt;a href=&quot;http://www.rethinkdb.com/&quot;&gt;rethinkdb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;agenda&quot;&gt;Agenda&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i/&quot;&gt;Parte I - Configurando e rodando o Scrapy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii/&quot;&gt;Parte II - Instalando, configurando e armazenando os dados no Rethinkdb&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii/&quot;&gt;Parte III - Deploy do projeto Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;vamos-l&quot;&gt;Vamos lá&lt;/h3&gt;
+
+&lt;p&gt;O Scrapy é um framework para facilitar o desenvolvimento de crawlers, pois mesmo sendo fácil fazer um crawler usando o built-in do Python como o &lt;a href=&quot;https://docs.python.org/2/library/urllib.html&quot;&gt;urllib&lt;/a&gt;, ou bibliotecas externas como &lt;a href=&quot;http://docs.python-requests.org/en/latest/&quot;&gt;requests&lt;/a&gt;, fica mais rápido e prático utilizar um conjunto de ferramentas desenhados para este fim, é o famoso “batteries included”.&lt;/p&gt;
+
+&lt;p&gt;Para instalar o Scrapy vamos utilizar o pip (supondo que já esteja num &lt;a href=&quot;https://virtualenv.pypa.io/en/latest/&quot;&gt;virtualenv&lt;/a&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;pip install scrapy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Após instalar o scrapy você terá disponível o comando “scrapy” mais detalhes sobre as opções dele aqui:&lt;/p&gt;
+
+&lt;p&gt;http://doc.scrapy.org/en/1.0/topics/commands.html&lt;/p&gt;
+
+&lt;p&gt;O scrapy é composto de “spiders” que é a parte do código que irá definir que páginas serão acessadas para capturar informações, “items” que são as informações que serão extraídas das páginas e os “pipelines” que irão definir como esses “items” serão processados.&lt;/p&gt;
+
+&lt;p&gt;Um exemplo simples de um crawler utilizando o Scrapy:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/gileno/8579ef62f5a700ca99d4.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Para rodar basta utilizar o comando scrapy:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy runspider gilenofilho.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Você verá algo assim:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;...
+2015-06-22 18:26:07 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;scrapy&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; DEBUG: Redirecting &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;301&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; to &amp;lt;GET http://gilenofilho.com.br/&amp;gt; from &amp;lt;GET http://www.gilenofilho.com.br/&amp;gt;
+2015-06-22 18:26:07 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;scrapy&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; DEBUG: Crawled &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;200&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &amp;lt;GET http://gilenofilho.com.br/&amp;gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;referer: None&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+2015-06-22 18:26:07 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;gilenofilho&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; DEBUG: Hello World: http://gilenofilho.com.br/
+2015-06-22 18:26:07 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;scrapy&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; INFO: Closing spider &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;finished&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+2015-06-22 18:26:07 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;scrapy&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; INFO: Dumping Scrapy stats:
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Uma Spider é basicamente uma classe que herda de &lt;code&gt;scrapy.Spider&lt;/code&gt; o atributo &lt;code&gt;start_urls&lt;/code&gt; está definindo as urls que devem ser acessadas inicialmente, você pode definir um método &lt;code&gt;starts_requests&lt;/code&gt; que deve retornar uma lista de &lt;code&gt;scrapy.Request&lt;/code&gt; através da keyword &lt;code&gt;yield&lt;/code&gt;, assim:&lt;/p&gt;
+
+&lt;p&gt;Obs: a implementação padrão do &lt;code&gt;starts_requests&lt;/code&gt; procura o atributo &lt;code&gt;start_urls&lt;/code&gt; e chama o método &lt;code&gt;parse&lt;/code&gt;.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/gileno/83720a8c73a52685e399.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Deve se utilizar &lt;code&gt;yield&lt;/code&gt; e passar um &lt;strong&gt;callback&lt;/strong&gt; para a &lt;code&gt;scrapy.Request&lt;/code&gt; pois o scrapy faz requisições assíncronas, isto é, não espera a requisição inicial acabar para fazer uma nova requisição, e desta forma utiliza o conceito de geradores em Python, você pode ver mais detalhes de como geradores funcionam acessando as palestras de Luciano Ramalho em: http://pt.slideshare.net/ramalho/.&lt;/p&gt;
+
+&lt;p&gt;O scrapy tem o conceito de projeto onde ficam organizados as “Spiders”, “items” e “pipelines”. Para criar um projeto scrapy basta utilizar o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy startproject nome_do_projeto&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Você verá que uma estrutura de diretórios e arquivos será criada para que facilite o crescimento do seu crawler. Eu criei um projeto chamado &lt;strong&gt;scrapy_olx&lt;/strong&gt; e meu sistema de diretórios ficou assim:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy_olx
+- scrapy_olx
+- - spiders
+- - - __init__.py
+- - __init__.py
+- - items.py
+- - pipelines.py
+- - settings.py
+- scrapy.cfg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Agora vamos criar nosso primeiro Spider, com o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy genspider olx pe.olx.com.br&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Estou criando um crawler para capturar os imóveis de Pernambuco (PE) e esta é a url inicial no OLX. Dentro do diretório &lt;strong&gt;spiders&lt;/strong&gt; foi criado um arquivo chamado olx.py contendo o esqueleto do nosso código, vou modificar o &lt;strong&gt;starts_urls&lt;/strong&gt; para começar com a url dos imóveis para alugar, o arquivo modificado vai ficar assim:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/gileno/e533443087a86b4a5fb5.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Para rodar este código basta utilizar o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy crawl olx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Se antes usamos a opção &lt;code&gt;runspider&lt;/code&gt; agora que estamos num projeto scrapy usamos a opção &lt;code&gt;crawl&lt;/code&gt; passando o nome da &lt;strong&gt;spider&lt;/strong&gt;, no caso &lt;strong&gt;olx&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Agora vamos modificar o método &lt;code&gt;parse&lt;/code&gt; para adicionar a lógica de verificar os links para os imóveis que a página contém, após isso iremos acessar a página do imóvel para só então capturar os dados do imóvel.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/gileno/b9013b0aa9b2d518fe6c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Agora no método parse usamos &lt;strong&gt;xpath&lt;/strong&gt; para percorrer a estrutura do html e encontrar todos os &lt;strong&gt;li&lt;/strong&gt; que contém a &lt;strong&gt;class&lt;/strong&gt; css &lt;strong&gt;item&lt;/strong&gt;, cada elemento deste tipo irá ter um imóvel e assim fazemos um for para buscar o &lt;strong&gt;href&lt;/strong&gt; do link único para o imóvel. Ao pegar o link de cada imóvel retornamos através do &lt;strong&gt;yield&lt;/strong&gt; uma nova requisição para o scrapy realizar e passamos desta vez outro callback, o &lt;code&gt;parse_detail&lt;/code&gt;. Nesse primeiro momento ele apenas vai fazer o log da url.&lt;/p&gt;
+
+&lt;p&gt;Rodando novamente o código será possível que o scrapy irá realizar 51 requisições, 1 para cada imóvel - 50 por página - e a primeira para acessar a página inicial.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy crawl olx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Após fazer a lógica de acessar cada imóvel vamos adicionar a parte de verificar se existe uma próxima página, visto que são exibidos 50 imóveis por página mas no final da página há uma paginação.&lt;/p&gt;
+
+&lt;p&gt;O código ficará assim:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/gileno/39d3d663a314a56c8e2b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Obs: Atualizei o código com a dica do &lt;a href=&quot;https://twitter.com/eliasdorneles&quot;&gt;Elias Dorneles&lt;/a&gt; sobre o &lt;strong&gt;normalize-path&lt;/strong&gt;, essa função do &lt;strong&gt;xpath&lt;/strong&gt; serve para remover o excesso de caracteres em branco e outros caracteres que a renderização do html ignora mas que está presente no código fonte.&lt;/p&gt;
+
+&lt;p&gt;Veja que após o &lt;code&gt;for&lt;/code&gt; usamos novamente o xpath para encontrar o link que contém o texto &lt;strong&gt;Próxima página&lt;/strong&gt; que está no final da página do OLX - basta examinar o html. Se houver o link mandamos outra requisição ao scrapy, só que desta vez o callback é o mesmo método que estamos, o &lt;code&gt;parse&lt;/code&gt;. Para acrescentar fazemos o log do título do imóvel, dando uma ideia de como podemos pegar outras informações sobre o imóvel, mais detalhes sobre isso no próximo artigo.&lt;/p&gt;
+
+&lt;p&gt;Para rodar, basta novamente enviar o comando:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;scrapy crawl olx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Para perceber que o scrapy é assíncrono nas suas requisições, basta ver que ele acessar a próxima página antes de acabar as requisições dos imóveis da primeira página.&lt;/p&gt;
+
+&lt;p&gt;Enfim, essa primeira parte fica por aqui, na próxima irei mostrar os conceitos de &lt;strong&gt;Item&lt;/strong&gt; e &lt;strong&gt;Pipeline&lt;/strong&gt; que o scrapy possui para capturar e processar os dados armazenados.&lt;/p&gt;
+
+&lt;h3 id=&quot;referncias&quot;&gt;Referências&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://speakerdeck.com/eliasdorneles/explorando-scrapy-alem-do-tutorial&quot;&gt;Explorando Scrapy além do tutorial&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://doc.scrapy.org/en/1.0/index.html&quot;&gt;Documentação Oficinal do Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 25 Jun 2015 11:23:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i</guid>
+        
+        <category>python</category>
+        
+        <category>dados</category>
+        
+        
+        <category>tutoriais</category>
+        
+      </item>
+    
+      <item>
+        <title>Saindo da minha zona de conforto: Desenvolvimento Web</title>
+        <description>&lt;p&gt;Olá pessoal, eu comecei a mexer com desenvolvimento web quando nem sabia o que era isso, na época da escola fiz algumas coisas com o instito &lt;a href=&quot;http://pt.wikipedia.org/wiki/Microsoft_FrontPage&quot;&gt;FrontPage&lt;/a&gt; no laboratório de informática para a intranet da escola.&lt;/p&gt;
+
+&lt;p&gt;Assim, desde que entrei na universidade o desenvolvimento web se tornou minha zona de conforto. Um dos poucos livros técnicos - associados a alguma disciplina da universidade - que li completamenete foi justamente o de &lt;a href=&quot;http://books.google.com.br/books/about/Redes_de_computadores_e_a_internet.html?id=raZtQwAACAAJ&amp;amp;redir_esc=y&quot;&gt;Redes de Computadores&lt;/a&gt; do Kurose.&lt;/p&gt;
+
+&lt;p&gt;Com o passar dos anos, passei por ASP, ASP.NET, PHP, Java Web (JSP / JSF)… até chegar em Python/Django em 2009. Como bom minimalista que sou, fiquei apaixonado pela praticidade e simplicidade da linguagem, e a rapidez do framework, chegando assim a minha atual zona de conforto: Desenvolvimento Web com Python/Django. Eu sei que existe um mundo de informações associadas a essa área e essas tecnologias, e ainda tenho muito a aprender mas depois de alguns anos desenvolvendo e &lt;a href=&quot;http://pycursos.com/django/&quot;&gt;ensinando&lt;/a&gt; me senti incomodado, e nos últimos meses tenho buscando novos desafios e oportunidades. Percebi então que já trabalho a algum tempo com estatística e análise de dados imobiliários na &lt;a href=&quot;http://www.dantasengenharia.com/produtos/categoria/softwares/&quot;&gt;Dantas Engenharia&lt;/a&gt; e que conheço as principais ferramentas científicas utilizadas, principalmente as que envolvem Python:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;http://www.numpy.org/&lt;/li&gt;
+  &lt;li&gt;http://www.scipy.org/&lt;/li&gt;
+  &lt;li&gt;http://scikit-learn.org/stable/&lt;/li&gt;
+  &lt;li&gt;http://pandas.pydata.org/&lt;/li&gt;
+  &lt;li&gt;http://matplotlib.org/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Com isso em mente, comecei a ler bastante conteúdo de &lt;a href=&quot;http://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_cient%C3%ADfica&quot;&gt;Computação Científica&lt;/a&gt; / &lt;a href=&quot;http://en.wikipedia.org/wiki/Data_science&quot;&gt;Data Science&lt;/a&gt;, e desde dezembro comecei a escrever / montar uma estrutura de projeto de ensino voltado para computação científica aplicada a problemas reais. Infelizmente por causa de outras responsabilidades e fadiga mental estava parado e sem desenvolver a ideia, até que vi este curso: https://wow.thinkful.com/courses/learn-data-science-online/. Me deu uma motivação maior e mais ideias, assim estou voltando meu foco em terminar a base da plataforma &lt;a href=&quot;https://github.com/gileno/sofia&quot;&gt;Sofia&lt;/a&gt;, para poder migrar o &lt;a href=&quot;http://pycursos.com/python-para-zumbis/&quot;&gt;Python para Zumbis&lt;/a&gt; para a nova plataforma, e trabalhar em cima do conteúdo desta nova iniciativa.&lt;/p&gt;
+
+&lt;p&gt;Se você está interessado em saber mais o que será discutido nesse projeto e quiser dar a sua opinião, responda o formulário abaixo:&lt;/p&gt;
+
+&lt;p&gt;https://docs.google.com/forms/d/1mypRK0lD4L4Dbkpaiw2brkDFx_5tcAqh7NQojfRk-FI/viewform&lt;/p&gt;
+
+&lt;p&gt;Possíveis assuntos:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Introdução a Ciência dos Dados
+    &lt;ul&gt;
+      &lt;li&gt;O que é?&lt;/li&gt;
+      &lt;li&gt;Porque é importante?&lt;/li&gt;
+      &lt;li&gt;O que iremos estudar:&lt;/li&gt;
+      &lt;li&gt;Mineração de Dados&lt;/li&gt;
+      &lt;li&gt;Regressão Linear&lt;/li&gt;
+      &lt;li&gt;Métodos de Aprendizagem de Máquina (Árvore de Decisão, KNN)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Introdução as Ferramentas: Numpy, Scipy, Matplotlib e Pandas
+    &lt;ul&gt;
+      &lt;li&gt;História delas&lt;/li&gt;
+      &lt;li&gt;Como instalar e configurar&lt;/li&gt;
+      &lt;li&gt;Para que servem, o que é possível fazer&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Mineração de dados de Redes Sociais
+    &lt;ul&gt;
+      &lt;li&gt;Como acessar os dados das redes sociais&lt;/li&gt;
+      &lt;li&gt;Como criar Bot’s para automatizar tarefas de mineração&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Introdução a Inteligência Artificial
+    &lt;ul&gt;
+      &lt;li&gt;O que é?&lt;/li&gt;
+      &lt;li&gt;Aplicações e Implicações&lt;/li&gt;
+      &lt;li&gt;Sistemas Especialistas e Aprendizagem de Máquina&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Classificação em Aprendizagem de Máquina
+    &lt;ul&gt;
+      &lt;li&gt;Árvore de Decisão&lt;/li&gt;
+      &lt;li&gt;KNN (Classificação)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Regressão:
+    &lt;ul&gt;
+      &lt;li&gt;Regressão Linear (Modelo Clássico)&lt;/li&gt;
+      &lt;li&gt;Técnicas em Inteligência Artificial para Regressão&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Análise de Redes Complexas
+    &lt;ul&gt;
+      &lt;li&gt;O que são redes?&lt;/li&gt;
+      &lt;li&gt;Tipos de redes&lt;/li&gt;
+      &lt;li&gt;Predição de Links&lt;/li&gt;
+      &lt;li&gt;Detecção de Comunidades&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 19 Jan 2015 15:54:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//saindo-da-minha-zona-de-conforto-desenvolvimento-web</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//saindo-da-minha-zona-de-conforto-desenvolvimento-web</guid>
+        
+        <category>python</category>
+        
+        <category>inteligência-artificial</category>
+        
+        <category>dados</category>
+        
+        
+        <category>cursos</category>
+        
+      </item>
+    
+      <item>
+        <title>Academia e Mercado, o melhor dos 2 mundos</title>
+        <description>&lt;p&gt;Ultimamente tenho gostado bastante de discutir esse tema: Mercado x Academia. E depois de ver os links abaixo, fiquei motivado a escrever:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://groups.google.com/forum/#!topic/python-brasil/373Fh7eVS0w&lt;/li&gt;
+  &lt;li&gt;http://blog.txus.io/2014/10/programming-and-computer-science-an-imminent-divorce/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Eu comecei a programar de verdade quando entrei na universidade (Ciência da Computação - &lt;a href=&quot;http://www.cin.ufpe.br&quot;&gt;CIn/UFPE&lt;/a&gt;), ela foi minha porta de entrada no mundo da computação - antes eu só fazia umas páginas estáticas no falecido &lt;a href=&quot;http://pt.wikipedia.org/wiki/Microsoft_FrontPage&quot;&gt;FrontPage&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Hoje em dia eu vejo muitos programadores começarem por cursos técnicos e/ou através da simples curiosidade executada em buscas no google. Isso é fantástico, pois programação não deveria ser apenas para universitários de cursos de ciência da computação e correlatos, acredito que programação deveria ser uma matéria básica como matemática, ou talvez um dos tópicos desta disciplina.&lt;/p&gt;
+
+&lt;p&gt;Entretanto eu tenho visto um problema nesse cenário: os programadores estão desvalorizando demais a universidade, estão cometendo o mesmo erro que alguns acadêmicos mais conservadores. Da mesma forma que eu sou contra fazer pesquisa, gerar conhecimento e não entregar algo a sociedade, seja em forma de produto ou  conclusões/previsões, também não concordo em partir para o mercado sem pesquisa, sem uma base de conhecimento necessária para gerar algo interessante, algo inovador.&lt;/p&gt;
+
+&lt;p&gt;Eu entrei na universidade em 2006.2 e até o 6º período/semestre, cursei normalmente a universidade, isso foi muito bom pois me deu uma base significativa, e eu devo muito a qualidade do meu curso. Após esse semestre eu fiquei mais longe distante do curso por motivos pessoais e porque comecei a trabalhar mais intensamente.&lt;/p&gt;
+
+&lt;p&gt;Um dos meus trabalhos foi na startup Atepassar, que hoje não está mais ativa. Lá comecei a ficar cada vez mais empolgado com ter meu próprio negócio, tocar algum projeto pessoal, e isso fez com que eu me afastasse da universidade e em alguns momentos tivesse até raiva, porque para mim a universidade deveria entender que eu tinha pouco tempo e os projetos e aulas deveriam ser mais amenas, doce ilusão.&lt;/p&gt;
+
+&lt;p&gt;Hoje eu tenho uma visão bem mais madura de alguns anos atrás, se antes eu achava que a universidade era burocrática, chata e uma geradora de artigos sem utilidade, agora eu penso que a universidade tem como principal função alimentar a ciência, a pesquisa científica como forma de gerar conhecimento, obviamente eu não estou falando de faculdades/universidades que são apenas “entregadoras de diploma”, estou falando de instituições sérias que se preocupam com o aluno e têm responsabilidade social.&lt;/p&gt;
+
+&lt;p&gt;Infelizmente, mesmo nessas instituições sérias, é comum encontrar pessoas que buscam apenas criação de artigos que não têm uma boa base de pesquisa, um estudo realmente interessante. Mesmo sabendo que no Brasil a moeda nas universidades são artigos científicos, é possível priorizar qualidade sobre quantidade e ainda sim ter uma boa carreira acadêmica, eu conheço vários bons exemplos no CIn/UFPE e na &lt;a href=&quot;http://poli.br/&quot;&gt;POLI&lt;/a&gt;. Pessoalmente, conheço alguns professores que levaram suas pesquisas ao mercado em forma de consultorias e empresas (mesmo que oficialmente eles não possam ter empresas), e conseguiram bastante sucesso, como sucesso é algo muito relativo, entenda como um negócio sustentável, lucrativo e de bom alcance.&lt;/p&gt;
+
+&lt;p&gt;Finalmente o que eu quero concluir é que é possível trabalhar bem os dois lados, aproveitando as oportunidades que o mundo acadêmico fornece e levá-las ao mercado para gerar inovação. Mas esse conhecimento acadêmico/científico não precisa se restringir a universidade, a formalidade de curso de graduação ou pós-graduação, você pode adotar a metodologia científica no seu dia a dia e juntamente com o &lt;em&gt;feeling&lt;/em&gt; de mercado criar excelentes produtos e serviços. Com a quantidade de cursos de excelente qualidade que plataformas como &lt;a href=&quot;https://www.coursera.org/&quot;&gt;Coursera&lt;/a&gt;, &lt;a href=&quot;https://www.udacity.com/&quot;&gt;Udacity&lt;/a&gt; e &lt;a href=&quot;https://www.edx.org/&quot;&gt;Edx&lt;/a&gt; oferece é até vergonhoso dizer que não consegue estudar porque não têm dinheiro ou não consegue passar em um vestibular.&lt;/p&gt;
+
+&lt;p&gt;Enfim, para mim o ideal é sempre tentar mesclar as duas visões para criar &lt;em&gt;coisas&lt;/em&gt; com excelência e eu tenho buscado isso cada vez mais nos meus projetos.&lt;/p&gt;
+
+&lt;p&gt;Como leitura complementar eu indico os textos de &lt;a href=&quot;https://twitter.com/srlm&quot;&gt;Silvio Meira&lt;/a&gt; que dispensa apresentações:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;http://boletim.de/&lt;/li&gt;
+  &lt;li&gt;http://www.ikewai.com/WordPress/2012/09/18/precisamos-inovar-mais-como/&lt;/li&gt;
+  &lt;li&gt;http://www.ikewai.com/WordPress/2012/05/30/graal-the-search-for-grand-algorithms-in-truly-global-software-markets/&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 05 Dec 2014 12:35:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//academia-e-mercado-o-melhor-dos-2-mundos</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//academia-e-mercado-o-melhor-dos-2-mundos</guid>
+        
+        <category>universidade</category>
+        
+        <category>startup</category>
+        
+        
+        <category>utils</category>
+        
+      </item>
+    
+      <item>
+        <title>Resumo 35º Encontro do PUG-PE</title>
+        <description>&lt;p&gt;Olá pessoal, no último dia 22 de novembro ocorreu o 35º encontro do PUG-PE. O evento ocorreu no auditório do DEINFO na UFRPE, onde já realizamos alguns eventos, houveram 4 palestras:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Python e Interfaces Gráficas (Daivid)&lt;/li&gt;
+  &lt;li&gt;Análise de Dados com Pandas (Gileno)&lt;/li&gt;
+  &lt;li&gt;Esteganografia (Lincoln)&lt;/li&gt;
+  &lt;li&gt;Bioinformática (Marcel)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Foi um evento pequeno - 15 pessoas - mas é incrível como mesmo em pequenos encontros é possível aprender tanto e sair renovado com ideias e motivações, e muito disso se deu pelo contato com o professor &lt;a href=&quot;https://twitter.com/joabr&quot;&gt;Jones Albuquerque&lt;/a&gt;. Numa conversa sobre Bioinformática - iniciada numa palestra de &lt;a href=&quot;http://www.aimotion.blogspot.com.br/&quot;&gt;Marcel&lt;/a&gt; sobre a &lt;a href=&quot;http://www.genomika.com.br/&quot;&gt;Genomika&lt;/a&gt; - ele (Jones) mostrou como é possível fazer inovação utilizando-se de uma base acadêmica/científica que agrega valor ao seu produto ou serviço de uma forma que dificilmente pode ser copiada, &lt;a href=&quot;https://twitter.com/srlm&quot;&gt;Silvio Meira&lt;/a&gt; fala bem sobre isso nesses links:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;http://www.ikewai.com/WordPress/2012/05/30/graal-the-search-for-grand-algorithms-in-truly-global-software-markets/&lt;/li&gt;
+  &lt;li&gt;http://www.ikewai.com/WordPress/2012/09/18/precisamos-inovar-mais-como/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;É com muita felicidade que eu estou vendo muitas pessoas ao meu redor que estão com ideias sobre empreendedorismo e inovação como as minhas. Ideias sobre a necessidade de um estudo, uma pesquisa científica aplicada a resolver problemas reais, diferentemente do que muitas startups estão fazendo por ai. Num próximo artigo eu irei comentar mais esse assunto que muito me interessa na atual fase que estou vivendo.&lt;/p&gt;
+
+&lt;p&gt;Os slides da Palestra de Marcel podem ser acessados em:&lt;/p&gt;
+
+&lt;p&gt;http://www.slideshare.net/marcelcaraciolo/como-python-ajudou-a-automatizar-o-nosso-laboratrio-v2&lt;/p&gt;
+
+&lt;p&gt;Além disso, aprendi sobre &lt;a href=&quot;https://pt.wikipedia.org/wiki/Esteganografia&quot;&gt;Esteganografia&lt;/a&gt; com &lt;a href=&quot;https://e17aeternus.wordpress.com/&quot;&gt;Lincoln&lt;/a&gt; e fiquei muito motivado a fazer alguns truques em imagens por ai :). Os slides dele podem ser acessados em:&lt;/p&gt;
+
+&lt;p&gt;https://speakerdeck.com/demacdolincoln/esteganografia-o-que-e-e-o-que-ja-vi-em-python-sobre-o-assunto&lt;/p&gt;
+
+&lt;p&gt;Também tivemos uma conversa com &lt;a href=&quot;https://facebook.com/DaividVasconcelos&quot;&gt;Daivid&lt;/a&gt; sobre Python e interfaces gráficas para iniciar as pessoas que não conheciam ou estavam engatinhando com Python, os slides dele estão em:&lt;/p&gt;
+
+&lt;p&gt;https://www.dropbox.com/s/iw0ipl7ob4d7kvb/Apresenta%C3%A7%C3%A3o%20-%20wxPython.pdf?dl=0&lt;/p&gt;
+
+&lt;p&gt;A minha palestra não teve slides, pois foi uma palestra prática, mas em breve irei criar um tutorial legal sobre &lt;a href=&quot;http://pandas.pydata.org/&quot;&gt;Pandas&lt;/a&gt; e publicar por aqui.&lt;/p&gt;
+
+&lt;p&gt;Enfim, esse evento foi marcante para eu começar a traçar meu plano de dominação mundial e espero que em breve comece a compartilhar com vocês.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 01 Dec 2014 05:47:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//resumo-35-encontro-do-pug-pe</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//resumo-35-encontro-do-pug-pe</guid>
+        
+        <category>python</category>
+        
+        <category>comunidade</category>
+        
+        
+        <category>palestras</category>
+        
+      </item>
+    
+      <item>
+        <title>Iniciando um projeto Django (Arquitetura, Organização e Dicas) - Parte II</title>
+        <description>&lt;p&gt;Parte I - http://gilenofilho.com.br/iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-i/&lt;/p&gt;
+
+&lt;p&gt;Olá pessoal, na primeira parte desta série eu mostrei a motivação desta série e como usar um template de projeto django para iniciar seu projeto com uma estrutura inicial melhor do que a básica fornecida pelo django.&lt;/p&gt;
+
+&lt;p&gt;Nesta segunda parte eu atualizei o repositório do projeto adicionando uma view básica na app &lt;strong&gt;core&lt;/strong&gt; e adicionei uma templatetag de paginação bem simples que eu uso em alguns projetos. Existem algumas apps para paginação mas por simplicidade eu utilizo essa templatetag.&lt;/p&gt;
+
+&lt;p&gt;Repositório: https://github.com/gileno/django-template-project&lt;/p&gt;
+
+&lt;p&gt;A templatetag de paginação é de fácil uso e funciona com a generic view: &lt;a href=&quot;https://docs.djangoproject.com/en/1.7/ref/class-based-views/generic-display/#listview&quot;&gt;ListView&lt;/a&gt;. Ela precisa que esteja no contexto do template as variáveis &lt;strong&gt;paginator&lt;/strong&gt; e &lt;strong&gt;page_obj&lt;/strong&gt; que é o padrão da &lt;a href=&quot;https://docs.djangoproject.com/en/1.7/ref/class-based-views/generic-display/#listview&quot;&gt;ListView&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Também adicionei a app &lt;a href=&quot;https://model-mommy.readthedocs.org/en/latest/&quot;&gt;Model Mommy&lt;/a&gt; que é simplesmente fantástica para teste, é aquela típica app que você se pergunta porque não criou antes.&lt;/p&gt;
+
+&lt;p&gt;No models.py da app &lt;strong&gt;core&lt;/strong&gt; adicionei um model base que tem dois campos, uma para armazenar a data de criação e outro para a data de modificação, normalmente todos os models herdam dele.&lt;/p&gt;
+
+&lt;p&gt;Na próxima parte eu irei adicionar uma app de usuários usando o sistema de compatibilidade de django. Eu não gosto de usar a padrão do django por causa da não obrigatoriedade do campo e-mail no User e pela necessidade de criar um outro model sempre que precisar armazenar mais informações do usuário, como foto, cpf …&lt;/p&gt;
+</description>
+        <pubDate>Wed, 12 Nov 2014 16:37:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-ii</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-ii</guid>
+        
+        <category>python</category>
+        
+        <category>django</category>
+        
+        
+        <category>tutoriais</category>
+        
+      </item>
+    
+      <item>
+        <title>Minha PythonBrasil[10]</title>
+        <description>&lt;p&gt;Neste último fim de semana, 4 a 9 de novembro, ocorreu a PythonBrasil[10] em Recife/Porto de Galinhas. O sucesso do evento se repetiu, mas dessa vez teve um prazer especial por ser no meu estado.&lt;/p&gt;
+
+&lt;p&gt;É sempre bom rever os amigos de outros estados, trocar ideias e aprender mais sobre python e seu ecossistema. Eu considero esse evento obrigatório para qualquer um que deseje entrar no mundo Python, porque o forte de Python é justamente a comunidade. Sempre que saio de eventos desse tipo, minhas energias se renovam e dá vontade de sair programando logo em seguida, testar as novidades aprendidas, aprimorar os negócios …&lt;/p&gt;
+
+&lt;p&gt;A melhor parte do evento é justamente os bastidores, as conversas nos bares, a troca de ideias após as palestras. É a oportunidade de fazer novos negócios, tirar dúvidas com pessoas que você só conhecia pelas listas de discussões e é como Silvio Meira diz, &lt;a href=&quot;http://boletim.de/silvio/inovao-criao-coletiva/&quot;&gt;a inovação é … criação coletiva&lt;/a&gt;. E a minha palestra foi de certa forma relacionado a esse ambiente de inovação, eu não tenho a mesma propriedade que &lt;a href=&quot;https://twitter.com/srlm&quot;&gt;Meira&lt;/a&gt; mas segue minha contribuição:&lt;/p&gt;
+
+&lt;script async=&quot;&quot; class=&quot;speakerdeck-embed&quot; data-id=&quot;c3bd03904973013242bd4e743bb86014&quot; data-ratio=&quot;1.77777777777778&quot; src=&quot;//speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Obs: As referências é a parte mais importante da palestra e eu estou repetindo elas abaixo (estão nos slides):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;http://www.paulgraham.com/ds.html&lt;/li&gt;
+  &lt;li&gt;http://boletim.de/silvio/inovao-criao-coletiva/&lt;/li&gt;
+  &lt;li&gt;http://casjam.com/stop-starting-start-growing/&lt;/li&gt;
+  &lt;li&gt;https://medium.com/brasil/o-que-nao-me-falaram-sobre-empreendedorismo-cc5b7ddbdf5e&lt;/li&gt;
+  &lt;li&gt;https://medium.com/@murilogun/criatividade-nao-e-dom-889ed38e30ba&lt;/li&gt;
+  &lt;li&gt;https://medium.com/brasil/como-ter-largado-meu-emprego-para-abrir-minha-tao-sonhada-startup-ferrou-com-a-minha-vida-4394130cfa49&lt;/li&gt;
+  &lt;li&gt;http://unicornfree.com/2014/done-should-be-spelled-f-a-i-l&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 09 Nov 2014 20:39:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//minha-pythonbrasil10</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//minha-pythonbrasil10</guid>
+        
+        <category>python</category>
+        
+        <category>pythonbrasil</category>
+        
+        <category>startup</category>
+        
+        
+        <category>palestras</category>
+        
+      </item>
+    
+  </channel>
+</rss>
