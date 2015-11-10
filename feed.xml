@@ -6,9 +6,80 @@
 </description>
     <link>http://www.gilenofilho.com.br//</link>
     <atom:link href="http://www.gilenofilho.com.br//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 07 Oct 2015 10:01:25 -0300</pubDate>
-    <lastBuildDate>Wed, 07 Oct 2015 10:01:25 -0300</lastBuildDate>
+    <pubDate>Tue, 10 Nov 2015 17:07:06 -0300</pubDate>
+    <lastBuildDate>Tue, 10 Nov 2015 17:07:06 -0300</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Programação, felicidade, mercado e outras coisas...</title>
+        <description>&lt;p&gt;Obs: No final do texto tem alguns links e palestras interessantes mas vou contextualizar minha história antes.&lt;/p&gt;
+
+&lt;p&gt;Nos últimos 2 anos eu tenho estudado bastante coisas relacionadas a Lifestyle Business, e isso começou quando eu percebi que o buraco negro corporativo e nem o conto de fadas das startups eram o que eu queria.&lt;/p&gt;
+
+&lt;p&gt;Fiquei em conflito por um bom tempo até que lancei a ideia de uma palestra chamada “Morte as Startups, vamos inovar de verdade” na PythonBrasil 10 (no final têm os slides).&lt;/p&gt;
+
+&lt;p&gt;A partir dai comecei a procurar um termo que demonstrasse o que eu já estava começando a viver e que me ajudasse a encontrar pessoas que compartilhavam minhas ideias, assim poderia seguir esse novo caminho com mais segurança e motivação. Dai surgiu o Lifestyle Business citado pelo Henrique Bastos que eu já tinha visto na palestra da primeira Python Nordeste realizada em Fortaleza/CE, fiz a associação e vi que era isso que eu buscava.&lt;/p&gt;
+
+&lt;p&gt;Eu gostava/gosto de programar, curtia/curto pegar projetos interessantes, se tiver algo ligado a análise de dados e inteligência artificial melhor ainda, mas eu não queria ser aquele cara que o Vida de Programador fica zuando (só zuando?)[2]. Não concordava com uma vida em que eu tenha que vender minhas horas, afinal tempo é a única coisa que não se compra (exceto quando houver uma máquina do tempo), o Larusso fez uma boa provocação[3]. Eu posso querer trabalhar para alguma empresa mas não será pelo simples fato de receber um valor baseado nas horas de trabalho, tem que ter algo a mais ai. E foi assim que comecei a mudar minha vida, e a primeira coisa que eu fiz foi dizer NÃO:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Não a diversos projetos que não eram interessantes (só $ não conta);&lt;/li&gt;
+  &lt;li&gt;Não a “nova maior startup promissora do momento”;&lt;/li&gt;
+  &lt;li&gt;Não a propostas de emprego em que eu seria escravo das 9 às 18 e quando eu tivesse meus 50+ anos iria curtir algo;&lt;/li&gt;
+  &lt;li&gt;Não a ficar programando de madrugada em coisas sem sentido: ninguém é produtivo tantas horas seguidas, se você acha que é, reflita o que essas horas mudou de fato o que você é hoje e me fale pelos comentários.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ainda estou engatinhando mas a mudança é incrível, hoje eu posso aproveitar um final de semana completo se desejar, passar um dia todo apenas estudando/lendo, e o mais incrível é que minha renda aumentou - só me falta organização financeira :).&lt;/p&gt;
+
+&lt;p&gt;O simples fato de decidir o que realmente quero e fazer algumas decisões dificeis, fez com que eu tivesse mais tempo para projetos pessoais, universidade e, principalmente, família.&lt;/p&gt;
+
+&lt;p&gt;Tem algumas pessoas que falam melhor sobre isso do que eu, assim vou colocar alguns links interessantes e o primeiro é do Henrique Bastos que está com uma séria de vídeos maneiros sobre programação e felicidade e tem tudo haver com o que falei acima.&lt;/p&gt;
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+&lt;a href=&quot;https://goo.gl/flVpc3&quot;&gt;
+&lt;img src=&quot;http://welcometothedjango.com.br/wp-content/uploads/2015/11/wttd-banner-728x90-v1.png&quot; border=&quot;0&quot; width=&quot;728&quot; height=&quot;90&quot; /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Abaixo segue uma playlist com vídeos do Henrique sobre o assunto:&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/pMvgum4o3NE?list=PLeKXYyZCJHxeg0zNY9JgpmSypIh3_h0hj&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Agora segue os slides da minha palestra na PythonBrasil 10 e depois os slides reformulados e melhorados para a Semana da Computação da UFRPE:&lt;/p&gt;
+
+&lt;script async=&quot;&quot; class=&quot;speakerdeck-embed&quot; data-id=&quot;c3bd03904973013242bd4e743bb86014&quot; data-ratio=&quot;1.77777777777778&quot; src=&quot;//speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
+
+&lt;script async=&quot;&quot; class=&quot;speakerdeck-embed&quot; data-id=&quot;fd85ca8df3e2436eaa0b9ff68de6e74e&quot; data-ratio=&quot;1.33333333333333&quot; src=&quot;//speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;links&quot;&gt;Links&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Lifestyle_business&quot;&gt;https://en.wikipedia.org/wiki/Lifestyle_business&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://vidadeprogramador.com.br/2015/10/12/que-droga-hoje-e-feriado/&quot;&gt;http://vidadeprogramador.com.br/2015/10/12/que-droga-hoje-e-feriado/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.larusso.com.br/blog/2015/1/26/uma-oferta-que-voc-no-pode-recusar&quot;&gt;http://www.larusso.com.br/blog/2015/1/26/uma-oferta-que-voc-no-pode-recusar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/viniciusteles/fuja-da-escravido-antes-que-ela-te-alcance-4261724&quot;&gt;http://www.slideshare.net/viniciusteles/fuja-da-escravido-antes-que-ela-te-alcance-4261724&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.brasilpost.com.br/2015/08/31/horario-de-trabalho-nao-faz-sentido_n_8066090.html&quot;&gt;http://www.brasilpost.com.br/2015/08/31/horario-de-trabalho-nao-faz-sentido_n_8066090.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://kk.org/cooltools/incredible-secret-money-machine/&quot;&gt;http://kk.org/cooltools/incredible-secret-money-machine/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 10 Nov 2015 14:00:00 -0300</pubDate>
+        <link>http://www.gilenofilho.com.br//programacao-felicidade-mercado-e-outras-coisas</link>
+        <guid isPermaLink="true">http://www.gilenofilho.com.br//programacao-felicidade-mercado-e-outras-coisas</guid>
+        
+        <category>lifestyle</category>
+        
+        <category>comunidade</category>
+        
+        <category>startup</category>
+        
+        
+        <category>utils</category>
+        
+      </item>
     
       <item>
         <title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte III</title>
@@ -711,43 +782,6 @@ Server response &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;200&lt;span class=
         
         
         <category>tutoriais</category>
-        
-      </item>
-    
-      <item>
-        <title>Minha PythonBrasil[10]</title>
-        <description>&lt;p&gt;Neste último fim de semana, 4 a 9 de novembro, ocorreu a PythonBrasil[10] em Recife/Porto de Galinhas. O sucesso do evento se repetiu, mas dessa vez teve um prazer especial por ser no meu estado.&lt;/p&gt;
-
-&lt;p&gt;É sempre bom rever os amigos de outros estados, trocar ideias e aprender mais sobre python e seu ecossistema. Eu considero esse evento obrigatório para qualquer um que deseje entrar no mundo Python, porque o forte de Python é justamente a comunidade. Sempre que saio de eventos desse tipo, minhas energias se renovam e dá vontade de sair programando logo em seguida, testar as novidades aprendidas, aprimorar os negócios …&lt;/p&gt;
-
-&lt;p&gt;A melhor parte do evento é justamente os bastidores, as conversas nos bares, a troca de ideias após as palestras. É a oportunidade de fazer novos negócios, tirar dúvidas com pessoas que você só conhecia pelas listas de discussões e é como Silvio Meira diz, &lt;a href=&quot;http://boletim.de/silvio/inovao-criao-coletiva/&quot;&gt;a inovação é … criação coletiva&lt;/a&gt;. E a minha palestra foi de certa forma relacionado a esse ambiente de inovação, eu não tenho a mesma propriedade que &lt;a href=&quot;https://twitter.com/srlm&quot;&gt;Meira&lt;/a&gt; mas segue minha contribuição:&lt;/p&gt;
-
-&lt;script async=&quot;&quot; class=&quot;speakerdeck-embed&quot; data-id=&quot;c3bd03904973013242bd4e743bb86014&quot; data-ratio=&quot;1.77777777777778&quot; src=&quot;//speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Obs: As referências é a parte mais importante da palestra e eu estou repetindo elas abaixo (estão nos slides):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;http://www.paulgraham.com/ds.html&lt;/li&gt;
-  &lt;li&gt;http://boletim.de/silvio/inovao-criao-coletiva/&lt;/li&gt;
-  &lt;li&gt;http://casjam.com/stop-starting-start-growing/&lt;/li&gt;
-  &lt;li&gt;https://medium.com/brasil/o-que-nao-me-falaram-sobre-empreendedorismo-cc5b7ddbdf5e&lt;/li&gt;
-  &lt;li&gt;https://medium.com/@murilogun/criatividade-nao-e-dom-889ed38e30ba&lt;/li&gt;
-  &lt;li&gt;https://medium.com/brasil/como-ter-largado-meu-emprego-para-abrir-minha-tao-sonhada-startup-ferrou-com-a-minha-vida-4394130cfa49&lt;/li&gt;
-  &lt;li&gt;http://unicornfree.com/2014/done-should-be-spelled-f-a-i-l&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sun, 09 Nov 2014 20:39:00 -0300</pubDate>
-        <link>http://www.gilenofilho.com.br//minha-pythonbrasil10</link>
-        <guid isPermaLink="true">http://www.gilenofilho.com.br//minha-pythonbrasil10</guid>
-        
-        <category>python</category>
-        
-        <category>pythonbrasil</category>
-        
-        <category>startup</category>
-        
-        
-        <category>palestras</category>
         
       </item>
     

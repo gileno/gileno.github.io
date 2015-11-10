@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.gilenofilho.com.br//programacao-felicidade-mercado-e-outras-coisas</loc>
+    <lastmod>2015-11-10T14:00:00-03:00</lastmod>
+  </url>
+  <url>
     <loc>http://www.gilenofilho.com.br//usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii</loc>
     <lastmod>2015-09-08T10:33:00-03:00</lastmod>
   </url>
@@ -103,18 +107,12 @@
     <loc>http://www.gilenofilho.com.br//</loc>
   </url>
   <url>
+    <loc>http://www.gilenofilho.com.br//inscricao-cancelada/</loc>
+  </url>
+  <url>
+    <loc>http://www.gilenofilho.com.br//inscricao-sucesso/</loc>
+  </url>
+  <url>
     <loc>http://www.gilenofilho.com.br//sobre/</loc>
-  </url>
-  <url>
-    <loc>http://www.gilenofilho.com.br//page/2/</loc>
-  </url>
-  <url>
-    <loc>http://www.gilenofilho.com.br//page/3/</loc>
-  </url>
-  <url>
-    <loc>http://www.gilenofilho.com.br//page/4/</loc>
-  </url>
-  <url>
-    <loc>http://www.gilenofilho.com.br//page/5/</loc>
   </url>
 </urlset>
