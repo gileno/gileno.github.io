@@ -17,6 +17,7 @@ baseurl: "/" # the subpath of your site, e.g. /blog/
 url: "http://www.gilenofilho.com.br"
 cover: "assets/foto-bairrorecife.jpg"
 logo:
+timezone: America/Recife
 
 # Build settings
 markdown: kramdown
@@ -30,7 +31,7 @@ jekyll-archives:
     - tags
   layout: 'archive'
   permalinks:
-    category: '/category/:name/'
+    category: '/categoria/:name/'
     tag: '/tag/:name/'
 
 # Disqus comments
@@ -53,21 +54,6 @@ descriptions:
   - cat: utils
     desc: "Pacote utils do blog."
 
-# Social icons and sharing options
-#
-# Social settings are used in two places:
-# * In the footer, as links to your personal profiles
-# * After each blog post for sharing widgets
-#
-# Example:
-#
-# social:
-#   - name: Twitter                         # Name of the service
-#     icon: twitter                         # Font Awesome icon to use (minus fa- prefix)
-#     username: "@TheBenCentra"             # (User) Name to display in the footer link
-#     url: https://twitter.com/TheBenCentra # URL of your profile (leave blank to not display in footer)
-#     desc: Follow me on Twitter            # Description to display as link title, etc
-#     share: true                           # Include in the "Share" section of posts
 social:
   - name: Twitter
     icon: twitter

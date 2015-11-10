@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    {% if site.name %}
+    <meta name="author" content="{{ site.name }}">
+    <meta name="copyright" content="&copy; {{ site.name }} {{ site.time | date: '%Y' }}">
+    {% endif %}
+    <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+    <link rel="shortcut icon" href="{{ "assets/icons/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
+  	<link rel="icon" href="{{ "assets/icons/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ "assets/icons/apple-icon-57x57.png" | prepend: site.baseurl }}">
+  	<link rel="apple-touch-icon" sizes="60x60" href="{{ "assets/icons/apple-icon-60x60.png" | prepend: site.baseurl }}">
+  	<link rel="apple-touch-icon" sizes="72x72" href="{{ "assets/icons/apple-icon-72x72.png" | prepend: site.baseurl }}">
+  	<link rel="apple-touch-icon" sizes="76x76" href="{{ "assets/icons/apple-icon-76x76.png" | prepend: site.baseurl }}">
+  	<link rel="apple-touch-icon" sizes="114x114" href="{{ "assets/icons/apple-icon-114x114.png" | prepend: site.baseurl }}">
+  	<link rel="apple-touch-icon" sizes="120x120" href="{{ "assets/icons/apple-icon-120x120.png" | prepend: site.baseurl }}">
+  	<link rel="apple-touch-icon" sizes="144x144" href="{{ "assets/icons/apple-icon-144x144.png" | prepend: site.baseurl }}">
+  	<link rel="apple-touch-icon" sizes="152x152" href="{{ "assets/icons/apple-icon-152x152.png" | prepend: site.baseurl }}">
+  	<link rel="apple-touch-icon" sizes="180x180" href="{{ "assets/icons/apple-icon-180x180.png" | prepend: site.baseurl }}">
+  	<link rel="icon" type="image/png" sizes="192x192"  href="{{ "assets/icons/android-icon-192x192.png" | prepend: site.baseurl }}">
+  	<link rel="icon" type="image/png" sizes="32x32" href="{{ "assets/icons/favicon-32x32.png" | prepend: site.baseurl }}">
+  	<link rel="icon" type="image/png" sizes="96x96" href="{{ "assets/icons/favicon-96x96.png" | prepend: site.baseurl }}">
+  	<link rel="icon" type="image/png" sizes="16x16" href="{{ "assets/icons/favicon-16x16.png" | prepend: site.baseurl }}">
+  	<link rel="manifest" href="{{ "assets/icons/manifest.json" | prepend: site.baseurl }}">
+  	<meta name="msapplication-TileColor" content="#ffffff">
+  	<meta name="msapplication-TileImage" content="{{ "assets/icons/ms-icon-144x144.png" | prepend: site.baseurl }}">
+  	<meta name="theme-color" content="#ffffff">
+
+    <!-- Facebook OGP cards -->
+  <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
+  <meta property="og:url" content="{{ site.url }}" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="{{ site.protocols.fb_image | prepend: site.baseurl | prepend: site.url }}" />
+  <meta property="og:image:type" content="{{ site.protocols.fb_image_type }}" />
+  <meta property="og:image:width" content="{{ site.protocols.fb_image_width }}" />
+  <meta property="og:image:height" content="{{ site.protocols.fb_image_height }}" />
+
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:image" content="{{ site.protocols.twitter_image | prepend: site.baseurl | prepend: site.url }}">
+  <meta name="twitter:url" content="{{ site.url }}">
+
+  {% if protocols.os_repo and protocols.os_rcs_type and protocols.os_src %}
+  <!-- Open Source Protocol -->
+  <link rel="profile" href="http://osprotocol.com" />
+  <meta property="os:repo" content="{{ protocols.os_repo }}" />
+  <meta property="os:rcs_type" content="{{ protocols.os_rcs_type }}" />
+  <meta property="os:src" content="{{ protocols.os_src }}" />
+  {% endif %}
+
+    <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ "css/landpage.css" | prepend: site.baseurl }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:100,400,200italic,200,300,300italic,400italic,600,600italic,700,700italic,900,900italic|Courgette' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <script src="{{ "assets/js/html5shiv.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+    <script src="{{ "assets/js/modernizer.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for LeadPage's and Bootstrap's JavaScript plugins) -->
+    <script src="{{ "assets/js/jquery-1.9.1.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+    <script src="{{ "assets/js/bootstrap.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>{{ page.title }}</h1>
+            {% if page.headline %}
+            <h2>{{ page.headline }}</h2>
+            {% endif %}
+        </div>
+    </header>
+    <div class="container mid-section">
+        {{ content }}
+    </div>
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="col-md-12">
+                {{ page.title }} - {{ page.author }}
+            </div>
+        </div>
+    </footer>
+
+  </body>
+</html>
