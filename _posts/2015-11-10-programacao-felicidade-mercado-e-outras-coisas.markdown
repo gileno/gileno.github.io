@@ -30,7 +30,7 @@ O simples fato de decidir o que realmente quero e fazer algumas decisões difice
 Tem algumas pessoas que falam melhor sobre isso do que eu, assim vou colocar alguns links interessantes e o primeiro é do Henrique Bastos que está com uma séria de vídeos maneiros sobre programação e felicidade e tem tudo haver com o que falei acima.
 
 <div style="text-align: center;">
-<a href="https://goo.gl/flVpc3">
+<a href="https://bit.ly/1IbtPBA">
 <img src="http://welcometothedjango.com.br/wp-content/uploads/2015/11/wttd-banner-728x90-v1.png" border="0" width="728" height="90">
 </a>
 </div>

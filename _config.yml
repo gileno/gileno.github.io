@@ -11,8 +11,7 @@ title: "Gileno Filho"
 subtitle: "Programação, Python, Django, Web, Inteligência Artificial, Engenharia de Avaliações, Ensino e Minimalismo. Recife, Brasil"
 email: contato@gilenofilho.com.br
 name: Gileno Filho
-description: >
-  Website e blog de Gileno Filho
+description: Website e blog de Gileno Filho
 baseurl: "/" # the subpath of your site, e.g. /blog/
 url: "http://www.gilenofilho.com.br"
 cover: "assets/foto-bairrorecife.jpg"
