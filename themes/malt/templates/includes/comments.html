@@ -14,16 +14,7 @@
                 {% if DISQUS_SITENAME %}
                     var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
                 {% endif %}
-
-                {% if not DISQUS_NO_ID %}
-                    var disqus_identifier = '{{ content.date|strftime('%Y-%m-') ~ content.slug if DISQUS_ID_PREFIX_SLUG else content.slug }}';
-                {% endif %}
-
-                var disqus_url = '{{ SITEURL }}/{{ content.url }}';
-                var disqus_config = function () {
-                    this.language = "{{ DEFAULT_LANG }}";
-                };
-
+                var disqus_identifier = 'gilenofilho.com.br' + window.location.pathname;
                 /* * * DON'T EDIT BELOW THIS LINE * * */
                 (function () {
                     var dsq = document.createElement('script');

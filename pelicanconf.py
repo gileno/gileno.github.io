@@ -21,7 +21,7 @@ META_KEYWORDS = [
 
 TIMEZONE = 'America/Recife'
 THEME = 'themes/malt'
-MALT_BASE_COLOR = 'green'
+MALT_BASE_COLOR = 'blue-grey'
 
 SITE_LOGO = ''
 SITE_LOGO_MOBILE = ''
@@ -108,6 +108,10 @@ OPEN_GRAPH_IMAGE = "images/eu.jpg"
 
 # Navbar Links
 NAVBAR_HOME_LINKS = [
+    {
+        "title": u"Sobre",
+        "href": "sobre",
+    },
     {
         "title": u"Cursos",
         "href": "categorias/cursos/",
