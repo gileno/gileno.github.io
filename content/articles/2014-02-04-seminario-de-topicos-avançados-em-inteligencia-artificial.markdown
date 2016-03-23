@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Seminário de Tópicos Avançados em Inteligência Artificial"
+title: Seminário de Tópicos Avançados em Inteligência Artificial
 slug: seminario-de-topicos-avancados-em-inteligencia-artificial
 author: Gileno Filho
 date: 2014-02-04 14:58:00
 category: palestras
-tags: universidade inteligência-artificial redes-complexas
+tags: universidade,inteligência-artificial,redes-complexas
 ---
 
 Olá pessoal, segue abaixo a apresentação que eu fiz sobre um artigo da área de detecção de comunidades em redes.

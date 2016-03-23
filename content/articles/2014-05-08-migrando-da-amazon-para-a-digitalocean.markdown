@@ -1,11 +1,11 @@
 ---
-title: "Migrando da Amazon para a DigitalOcean"
+title: Migrando da Amazon para a DigitalOcean
 layout: post
 slug: migrando-da-amazon-para-a-digitalocean
 author: Gileno Filho
 date: 2014-05-08 15:46:00
 category: utils
-tags: deploy django
+tags: deploy,django
 ---
 
 Olá pessoal, recentemente migrei alguns sistemas (PyCursos e Pingmind) da [AWS](https://aws.amazon.com/) (Amazon Web Services) para a [DigitalOcean](https://www.digitalocean.com/?refcode=7e3d1a0c801e) e vou falar um pouco sobre essa experiência.

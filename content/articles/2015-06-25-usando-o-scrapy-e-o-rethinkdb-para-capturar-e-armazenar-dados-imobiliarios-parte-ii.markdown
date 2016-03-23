@@ -1,11 +1,11 @@
 ---
-title: "Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte II"
+title: Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte II
 layout: post
 slug: usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii
 date: 2015-06-29 12:18:00
 author: Gileno Filho
 category: tutoriais
-tags: python dados
+tags: python,dados
 ---
 
 ### Introdução

@@ -5,7 +5,7 @@ slug: programacao-felicidade-mercado-e-outras-coisas
 author: Gileno Filho
 layout: post
 category: utils
-tags: lifestyle comunidade startup
+tags: lifestyle,comunidade,startup
 ---
 
 Obs: No final do texto tem alguns links e palestras interessantes mas vou contextualizar minha história antes.
@@ -22,8 +22,6 @@ Eu gostava/gosto de programar, curtia/curto pegar projetos interessantes, se tiv
 - Não a "nova maior startup promissora do momento";
 - Não a propostas de emprego em que eu seria escravo das 9 às 18 e quando eu tivesse meus 50+ anos iria curtir algo;
 - Não a ficar programando de madrugada em coisas sem sentido: ninguém é produtivo tantas horas seguidas, se você acha que é, reflita o que essas horas mudou de fato o que você é hoje e me fale pelos comentários.
-
-Ainda estou engatinhando mas a mudança é incrível, hoje eu posso aproveitar um final de semana completo se desejar, passar um dia todo apenas estudando/lendo, e o mais incrível é que minha renda aumentou - só me falta organização financeira :).
 
 O simples fato de decidir o que realmente quero e fazer algumas decisões dificeis, fez com que eu tivesse mais tempo para projetos pessoais, universidade e, principalmente, família.
 

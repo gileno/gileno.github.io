@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "10 Dicas sobre Empreendedorismo e Negócios"
+title: 10 Dicas sobre Empreendedorismo e Negócios
 slug: 10-dicas-sobre-empreendedorismo-e-negocios
 author: Gileno Filho
 date: 2013-09-29 19:16:00
 category: palestras
-tags: startup evento
+tags: startup,evento
 ---
 
 Olá pessoal, na quinta-feira 26/09/2013 ocorreu o IV Workshop da empresa júnior de engenharia de produção da UFRN, com o tema: "Transforme sua insatisfação em próposito"

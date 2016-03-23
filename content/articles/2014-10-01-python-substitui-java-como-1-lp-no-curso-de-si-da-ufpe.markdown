@@ -1,11 +1,11 @@
 ---
-title: "Python substitui Java como 1° LP no curso de SI da UFPE"
+title: Python substitui Java como 1° LP no curso de SI da UFPE
 layout: post
 slug: python-substitui-java-como-1-lp-no-curso-de-si-da-ufpe
 author: Gileno Filho
 date: 2014-10-01 14:25:00
 category: cursos
-tags: python universidade
+tags: python,universidade
 ---
 
 Os últimos dois semestres da Universidade Federal de Pernambuco (UFPE), 2013.2 e 2014.1, os alunos do curso de Sistemas de Informação (SI) do CIn/UFPE (Centro de Informática da UFPE) que reprovavam a disciplina de Introdução a Programação com Java (IP), cursavam no semestre posterior uma disciplina extra de IP que usava Python ao invés de Java como linguagem. Eu participei dessas turmas extras como monitor do professor [Airton](www.cin.ufpe.br/~faps/), e me senti muito feliz em saber que no semestre de 2014.2 os resultados foram satisfatórios e agora a disciplina de IP não será mais com Java e sim com Python.

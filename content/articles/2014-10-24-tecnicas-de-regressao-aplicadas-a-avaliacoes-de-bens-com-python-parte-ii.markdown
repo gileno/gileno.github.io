@@ -1,11 +1,11 @@
 ---
-title: "Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II"
+title: Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II
 layout: post
 slug: tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-ii
 date: 2014-10-24 17:49:00
 author: Gileno Filho
 category: tutoriais
-tags: python engenharia-de-avaliações
+tags: python,engenharia-de-avaliações
 ---
 
 Parte I - http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/

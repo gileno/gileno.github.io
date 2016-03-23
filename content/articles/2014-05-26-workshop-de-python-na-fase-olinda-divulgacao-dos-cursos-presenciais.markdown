@@ -1,11 +1,11 @@
 ---
-title: "Workshop de Python na FASE (Olinda) - Divulgação dos Cursos Presenciais"
+title: Workshop de Python na FASE (Olinda) - Divulgação dos Cursos Presenciais
 layout: post
 author: Gileno Filho
 slug: workshop-de-python-na-fase-olinda-divulgacao-dos-cursos-presenciais
 date: 2014-05-26 08:29
 category: cursos
-tags: python comunidade
+tags: python,comunidade
 ---
 
 Olá pessoal, no sábado passado (24/05/2014), eu e [Péricles Miranda](https://twitter.com/pbcmiranda) demos um workshop de Python na Faculdade Santa Emília - FASE. Mostramos uma visão geral sobre Python e o seu ecossistema, após a apresentação começamos a mostrar exemplos de código em Python e demonstrando o seu poder em diversos ambientes: Desktop, Web, Computação Científica ...

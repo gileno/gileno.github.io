@@ -1,11 +1,11 @@
 ---
-title: "Iniciando um projeto Django (Arquitetura, Organização e Dicas) - Parte I"
+title: Iniciando um projeto Django (Arquitetura, Organização e Dicas) - Parte I
 layout: post
 slug: iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-i
 date: 2014-10-17 11:29
 author: Gileno Filho
 category: tutoriais
-tags: python django
+tags: python,django
 ---
 
 Olá pessoal, quando eu comecei a trabalhar com Django uma das minha maiores dúvidas era em relação a arquitetura de um projeto, organização dos arquivos, diretórios e coisas do tipo. O comando **django-admin.py startproject** só criava 4 arquivos e eu ficava com dúvida em como seria a arquitetura de um grande projeto. Eu estava acostumado com a burocracia de Java e C#, eram muitas classes abstratas e interfaces, acredito que hoje isso tenha melhorado mas na minha época era muita complexidade, tanto que eu usava template de projeto que não conseguia entender boa parte do código e isso era algo que me fazia infeliz nessas linguagens, mas isso fica para outro artigo.

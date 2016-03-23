@@ -1,11 +1,11 @@
 ---
-title: "Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte I"
+title: Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte I
 layout: post
 slug: tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i
 date: 2014-10-07 11:24:00
 author: Gileno Filho
 category: tutoriais
-tags: python engenharia-de-avaliações
+tags: python,engenharia-de-avaliações
 ---
 
 ***O que são modelos de regressão e como usá-los na avaliação de bens em geral usando Python.***

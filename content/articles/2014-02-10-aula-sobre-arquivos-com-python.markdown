@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Aula sobre Arquivos com Python"
+title: Aula sobre Arquivos com Python
 slug: aula-sobre-arquivos-com-python
 author: Gileno Filho
 date: 2014-02-10 21:37:00
 category: cursos
-tags: python universidade
+tags: python,universidade
 ---
 
 Olá pessoal, hoje eu dei aula de monitoria para a primeira turma de IP (Introdução a Programação) do CIn (Centro de Informática) - UFPE que está adotando Python como primeira LP (linguagem de programação).

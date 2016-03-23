@@ -1,11 +1,11 @@
 ---
-title: "Resumo 35º Encontro do PUG-PE"
+title: Resumo 35º Encontro do PUG-PE
 layout: post
 slug: resumo-35-encontro-do-pug-pe
 date: 2014-12-01 08:47:00
 author: Gileno Filho
 category: palestras
-tags: python comunidade
+tags: python,comunidade
 ---
 
 Olá pessoal, no último dia 22 de novembro ocorreu o 35º encontro do PUG-PE. O evento ocorreu no auditório do DEINFO na UFRPE, onde já realizamos alguns eventos, houveram 4 palestras:

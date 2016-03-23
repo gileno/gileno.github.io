@@ -1,11 +1,11 @@
 ---
-title: "Minha palestra na Campus Party Recife 2015"
+title: Minha palestra na Campus Party Recife 2015
 layout: post
 slug: minha-palestra-na-campus-party-recife-2015
 author: Gileno Filho
 date: 2015-07-27 14:29:00
 category: palestra
-tags: python comunidade
+tags: python,comunidade
 ---
 
 Olá pessoal, na sexta-feira passada - 24 de julho - participei da Campus Party Recife que aconteceu no Centro de Convenções de Pernambuco. No evento eu falei sobre Python e Educação, citando alguns exemplos do uso de Python nas universidades e escolas, e falei sobre o [Python para Zumbis](http://pycursos.com/python-para-zumbis/).

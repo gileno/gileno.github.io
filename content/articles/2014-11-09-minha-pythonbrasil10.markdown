@@ -1,11 +1,11 @@
 ---
-title: "Minha PythonBrasil[10]"
+title: Minha PythonBrasil[10]
 layout: post
 slug: minha-pythonbrasil10
 author: Gileno Filho
 date: 2014-11-09 23:39:00
 category: palestras
-tags: python pythonbrasil startup
+tags: python,pythonbrasil,startup
 ---
 
 Neste último fim de semana, 4 a 9 de novembro, ocorreu a PythonBrasil[10] em Recife/Porto de Galinhas. O sucesso do evento se repetiu, mas dessa vez teve um prazer especial por ser no meu estado.

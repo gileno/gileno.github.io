@@ -1,11 +1,11 @@
 ---
-title: "Saindo da minha zona de conforto: Desenvolvimento Web"
+title: Saindo da minha zona de conforto: Desenvolvimento Web
 layout: post
 slug: saindo-da-minha-zona-de-conforto-desenvolvimento-web
 date: 2015-01-19 18:54:00
 author: Gileno Filho
 category: cursos
-tags: python inteligência-artificial dados
+tags: python,inteligência-artificial,dados
 ---
 
 Olá pessoal, eu comecei a mexer com desenvolvimento web quando nem sabia o que era isso, na época da escola fiz algumas coisas com o instito [FrontPage](http://pt.wikipedia.org/wiki/Microsoft_FrontPage) no laboratório de informática para a intranet da escola.

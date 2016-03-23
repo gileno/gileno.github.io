@@ -1,11 +1,11 @@
 ---
-title: "Iniciando um projeto Django (Arquitetura, Organização e Dicas) - Parte II"
+title: Iniciando um projeto Django (Arquitetura, Organização e Dicas) - Parte II
 layout: post
 slug: iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-ii
 date: 2014-11-12 19:37:00
 author: Gileno Filho
 category: tutoriais
-tags: python django
+tags: python,django
 ---
 
 Parte I - http://gilenofilho.com.br/iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-i/

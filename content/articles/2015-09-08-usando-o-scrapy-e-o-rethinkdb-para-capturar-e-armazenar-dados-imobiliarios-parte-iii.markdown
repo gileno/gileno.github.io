@@ -5,7 +5,7 @@ slug: usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios
 author: Gileno Filho
 layout: post
 category: tutoriais
-tags: python dados
+tags: python,dados
 ---
 
 ### Introdução

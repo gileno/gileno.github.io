@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ambiente Virtual em Python com pip"
+title: Ambiente Virtual em Python com pip
 slug: ambiente-virtual-em-python-com-pip
 author: Gileno Filho
 date: 2013-09-29 23:58:00

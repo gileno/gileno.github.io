@@ -1,11 +1,11 @@
 ---
-title: "Academia e Mercado, o melhor dos 2 mundos"
+title: Academia e Mercado, o melhor dos 2 mundos
 layout: post
 slug: academia-e-mercado-o-melhor-dos-2-mundos
 date: 2014-12-05 15:35:00
 author: Gileno Filho
 category: utils
-tags: universidade startup
+tags: universidade,startup
 ---
 
 Ultimamente tenho gostado bastante de discutir esse tema: Mercado x Academia. E depois de ver os links abaixo, fiquei motivado a escrever:

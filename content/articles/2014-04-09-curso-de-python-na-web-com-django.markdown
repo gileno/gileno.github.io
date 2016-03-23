@@ -1,11 +1,11 @@
 ---
-title: "Curso de Python na Web com Django"
+title: Curso de Python na Web com Django
 layout: post
 slug: curso-de-python-na-web-com-django
 author: Gileno Filho
 date: 2014-04-09 08:44
 category: cursos
-tags: python django video-aula
+tags: python,django,video-aula
 ---
 
 Olá pessoal, eu resolvi deixar público uma aula do meu curso de [Django](http://pycursos.com/django/) no [PyCursos](http://pycursos.com/) para o pessoal ver a minha didática e ter uma ideia de como as aulas são gravadas. Essa aula faz parte do desenvolvimento de uma aplicação chamada Simple MOOC, que é uma plataforma de ensino a distância. A ideia dessa plataforma é ser o mais simples e objetiva possível mantendo funcionalidades básicas para o ensino a distância, no curso cada aula eu divido em 4 ou 5 vídeo aulas de curta duração para deixar o curso mais dinâmico e o usuário poder acessar a qualquer momento, sem aquela necessidade de ter muito tempo livre para poder estudar.

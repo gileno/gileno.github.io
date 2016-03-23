@@ -8,11 +8,11 @@ sys.path.append(os.curdir)
 
 from collections import OrderedDict
 
-AUTHOR = u'Grupy-DF'
-SITENAME = u'Grupy-DF'
-SITEURL = ''
+AUTHOR = u'Gileno Filho'
+SITENAME = u'Gileno Filho'
+SITEURL = 'http://localhost:8000'
 
-META_DESCRIPTION = '''Website e Blog Gileno Filho'''
+META_DESCRIPTION = '''Website Gileno Filho'''
 
 META_KEYWORDS = [
     'programação', 'python', 'recife', 'desenvolvimento',
@@ -21,16 +21,21 @@ META_KEYWORDS = [
 
 TIMEZONE = 'America/Recife'
 THEME = 'themes/malt'
-MALT_BASE_COLOR = 'teal'
+MALT_BASE_COLOR = 'green'
 
 SITE_LOGO = ''
 SITE_LOGO_MOBILE = ''
 
-STATIC_PATHS = ['images', 'extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
+STATIC_PATHS = ['images', 'extra/CNAME', 'extra/favicon.ico']
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+}
 
 WELCOME_TITLE = 'Seja bem vindo ao {}!'.format(SITENAME)
-WELCOME_TEXT = META_DESCRIPTION
+WELCOME_TEXT = '''
+    Programação, Python, Django, Web, Inteligência Artificial, Engenharia de Avaliações, Ensino e Minimalismo. Recife, Brasil
+'''
 SITE_BACKGROUND_IMAGE = 'images/foto-bairrorecife.jpg'
 FOOTER_ABOUT = '''
     Website e Blog de Gileno Filho, escrevo sobre: Desenvolvimento,
@@ -75,13 +80,10 @@ AUTHOR_FEED_RSS = None
 CATEGORY_FEED_ATOM = None
 CATEGORY_FEED_RSS = None
 
-DEFAULT_PAGINATION = False
+DEFAULT_PAGINATION = 5
 
-PLUGIN_PATHS = ['./.plugins']
-PLUGINS = [
-    'better_figures_and_images',
-    'sitemap',
-]
+PLUGIN_PATHS = []
+PLUGINS = []
 
 RESPONSIVE_IMAGES = True
 PYGMENTS_STYLE = "perldoc"
@@ -102,180 +104,63 @@ SITEMAP = {
 GITHUB_REPO = "http://github.com/gileno/gileno.github.io"
 GITHUB_BRANCH = "pelican"
 TWITTER = "@gilenofilho"
-OPEN_GRAPH_IMAGE = "/images/eu.png"
+OPEN_GRAPH_IMAGE = "images/eu.jpg"
 
 # Navbar Links
 NAVBAR_HOME_LINKS = [
     {
-        "title": "Comunidade",
-        "href": "comunidade",
+        "title": "Cursos",
+        "href": "categorias/cursos/",
     },
     {
-        "title": "Membros",
-        "href": "membros",
+        "title": "Palestas",
+        "href": "categorias/palestras/",
     },
     {
-        "title": "Blog",
-        "href": "blog",
+        "title": "Tutoriais",
+        "href": "categorias/tutoriais/",
+    },
+    {
+        "title": "Utils",
+        "href": "categorias/utils/",
     },
 ]
 
 NAVBAR_BLOG_LINKS = NAVBAR_HOME_LINKS + [
-    {
-        "title": "Categorias",
-        "href": "blog/categorias",
-    },
-    {
-        "title": "Autores",
-        "href": "blog/autores",
-    },
-    {
-        "title": "Tags",
-        "href": "blog/tags",
-    },
+
 ]
 
 SOCIAL_LINKS = (
     {
-        "href": "https://telegram.me/joinchat/AG9QCABLx9wgYM1bcoGxgQ",
-        "icon": "fa-paper-plane",
-        "text": "Telegram",
-    },
-    {
-        "href": "https://github.com/grupydf",
+        "href": "https://github.com/gileno",
         "icon": "fa-github",
         "text": "GitHub",
     },
     {
-        "href": "https://twitter.com/grupydf",
+        "href": "https://twitter.com/gilenofilho",
         "icon": "fa-twitter",
         "text": "Twitter",
     },
     {
-        "href": "https://www.facebook.com/groups/grupydf",
+        "href": "https://www.facebook.com/gilenofilho",
         "icon": "fa-facebook",
         "text": "Facebook",
     },
     {
-        "href": "https://groups.google.com/forum/#!forum/grupy-df",
+        "href": "mailto:contato@gilenofilho.com.br",
         "icon": "fa-envelope",
-        "text": "Mailing List",
+        "text": "E-mail",
     },
 )
 
 MEMBROS = OrderedDict((
-    ("Biguá", {
-        "email": "bigua.kun@gmail.com",
-        "twitter": "@pixeledbird",
-        "github": "bigua"
-        }),
-    ("Eduardo Henrique", {
-        "email": "eduardohitek@gmail.com",
-        "twitter": "@eduardohitek",
-        "github": "eduardohitek"
-        }),
-    ("Gabriel Miranda", {
-        "email": "gabrielm.car@gmail.com",
-        "twitter": "@gblmiranda",
-        "github": "gblmiranda"
-        }),
-    ("Humberto Rocha", {
-        "email": "humrochagf@gmail.com",
-        "twitter": "@humrochagf",
-        "github": "humrochagf"
-        }),
-    ("Marco Rougeth", {
-        "email": "marco@rougeth.com",
-        "twitter": "@marcorougeth",
-        "github": "rougeth"
-        }),
-    ("Mário Sérgio", {
-        "email": "sergio.mario_q@hotmail.com",
-        "twitter": "@queirozMario21",
-        "github": "sergiomario"
-        }),
-    ("Pedro Henrique", {
-        "email": "pedrohenriqueacruz@gmail.com",
-        "twitter": "@phinfonet",
-        "github": "phinfonet"
-        }),
-    ("Gilson Filho", {
-        "email": "me@gilsondev.in",
-        "twitter": "@gilsonfilho",
-        "github": "gilsondev"
-        }),
-    ("Dirley Rodrigues", {
-        "twitter": "@dirleyrls",
-        "github": "ravishi"
-        }),
-    ("Wagner Santos", {
-        "email": "wagnerjs.unb@gmail.com",
-        "twitter": "@wagnerjsantos",
-        "github": "wagnerjs"
-        }),
-    ("Israel P. Siqueira", {
-        "email": "israelps@gmail.com",
-        "twitter": "@israelps",
-        "github": "israelps"
-        }),
-    ("Magnun Leno", {
-        "email": "magnun.leno@gmail.com",
-        "twitter": "@mind_bend",
-        "github": "magnunleno",
-        "site": {
-            "nome": "Mind Bending",
-            "href": "http://mindbending.org",
-            }
-        })
+    ("Gileno Filho", {
+        "email": "contato@gilenofilho.com.br",
+        "twitter": "@gilenofilho",
+        "github": "gileno"
+    }),
 ))
 
-MALT_HOME = [
-    {
-        "color": "blue-grey lighten-5",
-        "title": "O que Fazemos?",
-        "items": [
-            {
-                "title": "Comunidade",
-                "icon": "fa-comments",
-                "text": "A comunidade do GrupyDF se comunica através de mailing " +\
-                    "lists e do grupo no telegram mas frequentemente são " +\
-                    "promovidos encontros diversos, como almoços, " +\
-                    "<em>coding dojos</em> e palestras. ",
-                "buttons": [
-                    {
-                        "text": "Saiba Mais",
-                        "href": "comunidade",
-                    },
-                ],
-            },
-            {
-                "title": "Membros",
-                "icon": "fa-users",
-                "text": "A comunidade do GrupyDF, apesar de extensa possui alguns " +\
-                        "colaboradores principais, responsáveis por organizar " +\
-                        "eventos, manter a comunicação ativa, divulgar eventos, " +\
-                        "redes sociais e etc. ",
-                "buttons": [
-                    {
-                        "text": "Conheça",
-                        "href": "membros",
-                    },
-                ],
-            },
-            {
-                "title": "Projetos",
-                "icon": "fa-briefcase",
-                "text": " Atualmente o GrupyDF possui poucos projetos em andamento:" +\
-                        "Traduções do Django-docs e Python on Campus.",
-                "buttons": [
-                    {
-                        "text": "Mais detalhes",
-                        "href": "projetos",
-                    },
-                ],
-            },
-        ]
-    },
-]
+MALT_HOME = []
 
 from themes.malt.functions import *

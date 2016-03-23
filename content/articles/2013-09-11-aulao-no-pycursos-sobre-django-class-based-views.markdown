@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Aulão no PyCursos sobre Django Class-based Views"
+title: Aulão no PyCursos sobre Django Class-based Views
 slug: aulao-no-pycursos-sobre-django-class-based-views
 date: 2013-09-11 17:11:00
 author: Gileno Filho
 category: tutoriais
-tags: python video-aula django
+tags: python,video-aula,django
 ---
 
 Olá pessoal, recentemente eu fiz um outro aulão sobre Django Class-based Views no [PyCursos](http://pycursos.com) e como não tinha publicado anteriormente no blog estou colocando agora para ficar registrado.

@@ -12,10 +12,12 @@
 <h1>Categorias</h1>
 {% endblock %}
 
+{% block banner %}{% endblock %}
+
 {% block content %}
 <div class="container content-container">
     <div class="row">
-        {% set BREADCRUMB_ELEMENTS = [("{} Blog".format(SITENAME), "blog"), ("Categorias", None)] %}
+        {% set BREADCRUMB_ELEMENTS = [("{}".format(SITENAME), "blog"), ("Categorias", None)] %}
         {% include "includes/breadcrumbs.html" %}
         <div class="categories">
             <ul data-collapsible="accordion" class="collapsible popout collapsible-accordion">
@@ -38,4 +40,3 @@
     </div>
 </div>
 {% endblock %}
-
