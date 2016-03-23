@@ -23,4 +23,4 @@ DISQUS_NO_ID = True
 
 # Following items are often useful when publishing
 
-#GOOGLE_ANALYTICS = ""
+GOOGLE_ANALYTICS = "UA-15015773-2"
