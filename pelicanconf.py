@@ -32,12 +32,12 @@ EXTRA_PATH_METADATA = {
     'extra/favicon.ico': {'path': 'favicon.ico'},
 }
 
-WELCOME_TITLE = 'Seja bem vindo ao {}!'.format(SITENAME)
-WELCOME_TEXT = '''
+WELCOME_TITLE = u'Seja bem vindo ao {}!'.format(SITENAME)
+WELCOME_TEXT = u'''
     Programação, Python, Django, Web, Inteligência Artificial, Engenharia de Avaliações, Ensino e Minimalismo. Recife, Brasil
 '''
 SITE_BACKGROUND_IMAGE = 'images/foto-bairrorecife.jpg'
-FOOTER_ABOUT = '''
+FOOTER_ABOUT = u'''
     Website e Blog de Gileno Filho, escrevo sobre: Desenvolvimento,
     Python, Django, Ciência de Dados, Engenharia de Avaliações,
     Inteligência Artificial e Design Minimalista.
@@ -109,19 +109,19 @@ OPEN_GRAPH_IMAGE = "images/eu.jpg"
 # Navbar Links
 NAVBAR_HOME_LINKS = [
     {
-        "title": "Cursos",
+        "title": u"Cursos",
         "href": "categorias/cursos/",
     },
     {
-        "title": "Palestas",
+        "title": u"Palestas",
         "href": "categorias/palestras/",
     },
     {
-        "title": "Tutoriais",
+        "title": u"Tutoriais",
         "href": "categorias/tutoriais/",
     },
     {
-        "title": "Utils",
+        "title": u"Utils",
         "href": "categorias/utils/",
     },
 ]
@@ -154,7 +154,7 @@ SOCIAL_LINKS = (
 )
 
 MEMBROS = OrderedDict((
-    ("Gileno Filho", {
+    (u"Gileno Filho", {
         "email": "contato@gilenofilho.com.br",
         "twitter": "@gilenofilho",
         "github": "gileno"
