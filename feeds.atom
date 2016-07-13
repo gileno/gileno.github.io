@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Gileno Filho</title><link href="http://www.gilenofilho.com.br/" rel="alternate"></link><link href="http://www.gilenofilho.com.br/feeds.atom" rel="self"></link><id>http://www.gilenofilho.com.br/</id><updated>2016-03-23T13:40:00-03:00</updated><entry><title>Curso Gratuito de Django com Python 3</title><link href="http://www.gilenofilho.com.br/curso-gratuito-de-django-com-python-3" rel="alternate"></link><updated>2016-03-23T13:40:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2016-03-23:curso-gratuito-de-django-com-python-3</id><summary type="html">&lt;p&gt;Olá pessoal, a algum tempo eu fechei as inscrições do meu curso de Django com Python 3 que comecei em 2014. Neste curso foi desenvolvido um projeto chamado SimpleMOOC, uma simples plataforma para ensino a distância que tinha fins didáticos.&lt;/p&gt;
+&lt;p&gt;Recentemente eu resolvi disponibilizar as vídeo-aulas desse curso pois irei construir um novo curso com algumas sugestões de alunos e de amigos, assim publiquei o curso na plataforma do Udemy, que é um lugar que pretendo colocar novos conteúdos, gratuitos e pagos.&lt;/p&gt;
+&lt;p&gt;O curso foi gravado em 2014/2015 mas o conteúdo é bastante relevante e é uma ótima opção para quem está iniciando no mundo web com Python.&lt;/p&gt;
+&lt;p&gt;Link do curso: &lt;a href="https://www.udemy.com/python-3-na-web-com-django-basico-intermediario/"&gt;https://www.udemy.com/python-3-na-web-com-django-basico-intermediario/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Para saber mais novidades sobre meus cursos, inscreva-se abaixo:&lt;/p&gt;
+&lt;form action="//gilenofilho.us11.list-manage.com/subscribe/post?u=42028a9587ab7791c65804500&amp;amp;id=cf58dbb2d8" method="post"&gt;
+    &lt;input type="text" name="EMAIL" value="" placeholder="Email" /&gt;
+&lt;/form&gt;</summary><category term="python"></category><category term="django"></category><category term="video-aula"></category></entry><entry><title>Programação, felicidade, mercado e outras coisas...</title><link href="http://www.gilenofilho.com.br/programacao-felicidade-mercado-e-outras-coisas" rel="alternate"></link><updated>2015-11-10T17:00:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2015-11-10:programacao-felicidade-mercado-e-outras-coisas</id><summary type="html">&lt;p&gt;Obs: No final do texto tem alguns links e palestras interessantes mas vou contextualizar minha história antes.&lt;/p&gt;
+&lt;p&gt;Nos últimos 2 anos eu tenho estudado bastante coisas relacionadas a Lifestyle Business, e isso começou quando eu percebi que o buraco negro corporativo e nem o conto de fadas das startups eram o que eu queria.&lt;/p&gt;
+&lt;p&gt;Fiquei em conflito por um bom tempo até que lancei a ideia de uma palestra chamada "Morte as Startups, vamos inovar de verdade" na PythonBrasil 10 (no final têm os slides).&lt;/p&gt;
+&lt;p&gt;A partir dai comecei a procurar um termo que demonstrasse o que eu já estava começando a viver e que me ajudasse a encontrar pessoas que compartilhavam minhas ideias, assim poderia seguir esse novo caminho com mais segurança e motivação. Dai surgiu o Lifestyle Business citado pelo Henrique Bastos que eu já tinha visto na palestra da primeira Python Nordeste realizada em Fortaleza/CE, fiz a associação e vi que era isso que eu buscava.&lt;/p&gt;
+&lt;p&gt;Eu gostava/gosto de programar, curtia/curto pegar projetos interessantes, se tiver algo ligado a análise de dados e inteligência artificial melhor ainda, mas eu não queria ser aquele cara que o Vida de Programador fica zuando (só zuando?)[2]. Não concordava com uma vida em que eu tenha que vender minhas horas, afinal tempo é a única coisa que não se compra (exceto quando houver uma máquina do tempo), o Larusso fez uma boa provocação[3]. Eu posso querer trabalhar para alguma empresa mas não será pelo simples fato de receber um valor baseado nas horas de trabalho, tem que ter algo a mais ai. E foi assim que comecei a mudar minha vida, e a primeira coisa que eu fiz foi dizer NÃO:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Não a diversos projetos que não eram interessantes (só $ não conta);&lt;/li&gt;
+&lt;li&gt;Não a "nova maior startup promissora do momento";&lt;/li&gt;
+&lt;li&gt;Não a propostas de emprego em que eu seria escravo das 9 às 18 e quando eu tivesse meus 50+ anos iria curtir algo;&lt;/li&gt;
+&lt;li&gt;Não a ficar programando de madrugada em coisas sem sentido: ninguém é produtivo tantas horas seguidas, se você acha que é, reflita o que essas horas mudou de fato o que você é hoje e me fale pelos comentários.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O simples fato de decidir o que realmente quero e fazer algumas decisões dificeis, fez com que eu tivesse mais tempo para projetos pessoais, universidade e, principalmente, família.&lt;/p&gt;
+&lt;p&gt;Tem algumas pessoas que falam melhor sobre isso do que eu, assim vou colocar alguns links interessantes e o primeiro é do Henrique Bastos que está com uma séria de vídeos maneiros sobre programação e felicidade e tem tudo haver com o que falei acima.&lt;/p&gt;
+&lt;div style="text-align: center;"&gt;
+&lt;a href="https://bit.ly/1IbtPBA"&gt;
+&lt;img src="http://welcometothedjango.com.br/wp-content/uploads/2015/11/wttd-banner-728x90-v1.png" border="0" width="728" height="90"&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Abaixo segue uma playlist com vídeos do Henrique sobre o assunto:&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/pMvgum4o3NE?list=PLeKXYyZCJHxeg0zNY9JgpmSypIh3_h0hj" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Agora segue os slides da minha palestra na PythonBrasil 10 e depois os slides reformulados e melhorados para a Semana da Computação da UFRPE:&lt;/p&gt;
+&lt;script async class="speakerdeck-embed" data-id="c3bd03904973013242bd4e743bb86014" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
+
+&lt;script async class="speakerdeck-embed" data-id="fd85ca8df3e2436eaa0b9ff68de6e74e" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
+
+&lt;h3&gt;Links&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://en.wikipedia.org/wiki/Lifestyle_business"&gt;https://en.wikipedia.org/wiki/Lifestyle_business&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://vidadeprogramador.com.br/2015/10/12/que-droga-hoje-e-feriado/"&gt;http://vidadeprogramador.com.br/2015/10/12/que-droga-hoje-e-feriado/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.larusso.com.br/blog/2015/1/26/uma-oferta-que-voc-no-pode-recusar"&gt;http://www.larusso.com.br/blog/2015/1/26/uma-oferta-que-voc-no-pode-recusar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.slideshare.net/viniciusteles/fuja-da-escravido-antes-que-ela-te-alcance-4261724"&gt;http://www.slideshare.net/viniciusteles/fuja-da-escravido-antes-que-ela-te-alcance-4261724&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.brasilpost.com.br/2015/08/31/horario-de-trabalho-nao-faz-sentido_n_8066090.html"&gt;http://www.brasilpost.com.br/2015/08/31/horario-de-trabalho-nao-faz-sentido_n_8066090.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://kk.org/cooltools/incredible-secret-money-machine/"&gt;http://kk.org/cooltools/incredible-secret-money-machine/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="lifestyle"></category><category term="comunidade"></category><category term="startup"></category></entry><entry><title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte III</title><link href="http://www.gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii" rel="alternate"></link><updated>2015-09-08T13:33:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2015-09-08:usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii</id><summary type="html">&lt;h3&gt;Introdução&lt;/h3&gt;
+&lt;p&gt;Olá pessoal, esta é a parte III da série sobre o Scrapy, abaixo os links para todos os artigos da série:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i/"&gt;Parte I - Configurando e rodando o Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii/"&gt;Parte II - Instalando, configurando e armazenando os dados no Rethinkdb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii/"&gt;Parte III - Deploy do projeto Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nos artigos anteriores mostrei como capturar os dados imobiliários do site OLX usando o scrapy e depois como armazenar em um banco de dados, no caso em questão usamos o &lt;a href="http://www.rethinkdb.com/"&gt;Rethinkdb&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Vamos lá&lt;/h3&gt;
+&lt;p&gt;Agora iremos ver como colocar o nosso projeto Scrapy para rodar em um servidor na nuvem, pois quando você está fazendo um crawler um pouco maior que leva mais tempo para capturar as informações fica inviável deixar ele rodando na sua máquina já que você pode querer desligá-la, reiniciá-la ou pode simplesmente deixar em espera o que iria interromper o processamento.&lt;/p&gt;
+&lt;p&gt;Existem algumas formas de se colocar um projeto scrapy em um &lt;a href="https://pt.wikipedia.org/wiki/Servidor_virtual_privado"&gt;VPS&lt;/a&gt;, vou listar algumas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Crontab&lt;/li&gt;
+&lt;li&gt;Supervisor&lt;/li&gt;
+&lt;li&gt;Scrapyd&lt;/li&gt;
+&lt;li&gt;Scrapinghub&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Por hora eu irei fazer apenas uma pequena apresentação de todas essas opções expandindo apenas a Scrapyd, futuramente irei gravar um vídeo mostrando como utilizar as opções do crontab e supervisor.&lt;/p&gt;
+&lt;h4&gt;Crontab&lt;/h4&gt;
+&lt;p&gt;O &lt;a href="https://pt.wikipedia.org/wiki/Crontab"&gt;crontab&lt;/a&gt; é um utilitário de sistemas Unix que gerencia comandos que precisam ser executados com alguma periodicidade, assim basta acessar um VPS via ssh, baixar o seu código, instalar as dependências - realizar os passos iniciais presentes nos artigos anteriores - e depois adicionar a tarefa de acordo com o padrão que o crontab aceita (veja o link do &lt;a href="https://pt.wikipedia.org/wiki/Crontab"&gt;crontab&lt;/a&gt;).&lt;/p&gt;
+&lt;h4&gt;Supervisor&lt;/h4&gt;
+&lt;p&gt;O &lt;a href="http://supervisord.org/"&gt;Supervisor&lt;/a&gt; é um sistema desenvolvido em Python que controla a execução de processos. Eu utilizo ele bastante em meus projetos, pois com ele eu tenho como organizar a execução de processos indicando o usuário que irá executar, o diretório de acesso, controle de log e via linha de comando posso iniciar ou terminar o processo de maneira bem simples.&lt;/p&gt;
+&lt;h4&gt;Scrapinghub&lt;/h4&gt;
+&lt;p&gt;&lt;a href="http://scrapinghub.com/"&gt;Scrapinghub&lt;/a&gt; é a empresa por trás do Scrapy, e essa plataforma dá a possibilidade de você fazer o deploy facilitado de seus crawlers que utilizam o Scrapy, além de visualizar as estatísticas e os dados gerados pelos crawlers.&lt;/p&gt;
+&lt;h4&gt;Scrapyd&lt;/h4&gt;
+&lt;p&gt;O &lt;a href="http://scrapyd.readthedocs.org/en/latest/index.html"&gt;Scrapyd&lt;/a&gt; é uma aplicação que fornece uma API REST em que você pode fazer upload de seus projetos além de iniciar ou parar a execução de crawlers presentes no seu projeto.&lt;/p&gt;
+&lt;p&gt;Para utilizar o Scrapyd eu recomendo acessar a sua máquina VPS e em seguida baixar e instalar o Scrapyd.&lt;/p&gt;
+&lt;p&gt;Considerando que já está no terminal do seu VPS, faça:&lt;/p&gt;
+&lt;p&gt;Obs1: você pode criar um virtualenv ou se preferir instalar globalmente verifique se está acessando com o usuário &lt;strong&gt;root&lt;/strong&gt; ou no grupo &lt;strong&gt;sudo&lt;/strong&gt;.
+Obs2: linhas com o caractere "$" são comandos executados, linhas sem esse caractere é a saída esperada.&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+$ cd /caminho/no/vps/para/o/projeto
+$ pip install scrapyd&lt;/p&gt;
+&lt;p&gt;Após a instalação do scrapyd, um novo comando estará disponível:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+$ scrapyd
+2015-09-07 20:55:03-0400 [-] Log opened.
+2015-09-07 20:55:03-0400 [-] twistd 15.2.1 (/usr/bin/python 2.7.6) starting up.
+2015-09-07 20:55:03-0400 [-] reactor class: twisted.internet.epollreactor.EPollReactor.
+2015-09-07 20:55:03-0400 [-] Site starting on 6800
+2015-09-07 20:55:03-0400 [-] Starting factory &lt;twisted.web.server.Site instance at 0x7f883b0adb48&gt;
+2015-09-07 20:55:03-0400 [Launcher] Scrapyd 1.0.2 started: max_proc=4, runner='scrapyd.runner'&lt;/p&gt;
+&lt;p&gt;Ao rodar este comando você verá que ele irá ativar um servidor web na porta 6800, entretanto você não vai querer rodar o servidor dessa forma, você irá precisar colocar ele em modo daemon para que possa realizar outras atividades e deixá-lo rodando. Como estou acostumado com o supervisor, utilizei ele para monitorar e iniciar o processo do scrapyd - nesse caso ele não vai rodar o crawler em específico, vai rodar o scrapyd e este vai ser responsável pela execução dos crawlers.&lt;/p&gt;
+&lt;p&gt;Para esse experimento estou utilizando uma máquina com Ubuntu, assim posso instalar o Supervisor dessa forma:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+$ apt-get install supervisor&lt;/p&gt;
+&lt;p&gt;Caso utilize outra distribuição Linux procure os pacotes relacionados ao Supervisor ou instale via pip:&lt;/p&gt;
+&lt;p&gt;http://supervisord.org/installing.html#installing-via-pip&lt;/p&gt;
+&lt;p&gt;Quando instalado via gerenciador de pacotes da distribuição ele já é executado assim que iniciar a máquina, assim basta criar um arquivo de configuração para o processo relativo ao Scrapyd:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+$ cd /etc/supervisor/conf.d/
+$ vi scrapyd.conf&lt;/p&gt;
+&lt;p&gt;Em seguida coloque o seguinte conteúdo no arquivo &lt;strong&gt;scrapyd.conf&lt;/strong&gt;:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+[program:scrapyd]
+command=scrapyd
+user=root
+autostart=true&lt;/p&gt;
+&lt;p&gt;Não é recomendado utilizar o usuário root mas para fins de teste irei indicar este usuário, mas lembre-se de criar um usuário para o scrapyd quando for colocar em produção.&lt;/p&gt;
+&lt;p&gt;A parte &lt;code&gt;[program:scrapyd]&lt;/code&gt; indica o nome do programa, vai ser útil na hora de iniciar ou para o processo, o &lt;code&gt;command=scrapyd&lt;/code&gt; é o comando que irá ser executado, caso esteja utilizando um virtualenv será preciso indicar o caminho do script &lt;strong&gt;scrapyd&lt;/strong&gt; relativo ao virtualenv. O &lt;code&gt;user=root&lt;/code&gt; indica que usuário irá rodar o comando e a opção &lt;code&gt;autorestart=true&lt;/code&gt; serve para reiniciar o processo sempre que ele "cair", independente do que aconteceu, mais detalhes em:&lt;/p&gt;
+&lt;p&gt;http://supervisord.org/configuration.html&lt;/p&gt;
+&lt;p&gt;Agora para ativar o scrapyd iremos executar o comando:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+$ supervisorctl reread
+scrapyd: available
+$ supervisorctl reload
+Restarted supervisord
+$ upervisorctl status
+scrapyd       RUNNING    pid 1382, uptime 0:00:15&lt;/p&gt;
+&lt;p&gt;Agora já podemos acessar a interface web fornecida pelo scrapyd, basta ir no navegador e digitar:&lt;/p&gt;
+&lt;p&gt;http://&amp;#60;IP-DO-VPS&amp;#62;:6800/&lt;/p&gt;
+&lt;p&gt;Se tudo deu certo, você verá uma interface extremamente simples, agora saia do VPS e volte a trabalhar localmente.&lt;/p&gt;
+&lt;p&gt;Acessando a basta do projeto localmente - com o virtualenv ativado caso esteja utilizando, instale:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+$ pip install scrapyd-client&lt;/p&gt;
+&lt;p&gt;Com esse pacote iremos ter um facilitador para o deploy do nosso projeto no servidor onde está o scrapyd, pois o scrapyd fornece uma API REST para fazer upload do nosso projeto no formato &lt;a href="https://wiki.python.org/moin/egg"&gt;EGG&lt;/a&gt;. O scrapyd-client fornece um comando &lt;code&gt;scrapyd-deploy&lt;/code&gt; que facilita essa geração do egg e em seguida upload para o servidor, assim no arquivo &lt;strong&gt;scrapy.cfg&lt;/strong&gt; do seu projeto adicione no final (ou substitua caso já tenha algum valor para a configuração &lt;strong&gt;deploy&lt;/strong&gt;):&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+[deploy]
+url = http://&lt;IP-DO-VPS&gt;:6800/
+username = root
+password = &lt;senha&gt;&lt;/p&gt;
+&lt;p&gt;Em seguida faça o deploy do seu projeto:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+$ scrapyd-deploy -p &lt;nome-do-projeto&gt;
+Packing version 1441674561
+Deploying to project "&lt;nome-do-projeto&gt;" in http://&lt;IP-DO-VPS&gt;:6800/addversion.json
+Server response (200):
+{"status": "ok", "project": "&lt;nome-do-projeto&gt;", "version": "1441674561", "spiders": 2, "node_name": "&lt;nome-do-servidor&gt;"}&lt;/p&gt;
+&lt;p&gt;Obs: No exemplo da série o nome do projeto é &lt;strong&gt;scrapy_olx&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Agora você já pode colocar um crawler para rodar, para isso é preciso acessar a API REST do Scrapyd:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+curl http://&lt;IP-DO-VPS&gt;:6800/schedule.json -d project=&lt;nome-do-projeto&gt; -d spider=&lt;nome-do-spider&gt;&lt;/p&gt;
+&lt;p&gt;Eu utilizei o &lt;a href="http://curl.haxx.se/"&gt;curl&lt;/a&gt;, mas você poderia utilizar qualquer ferramenta que possa fazer um GET ou POST dependendo do que deseja fazer, todas as opções da API do Scrapyd, você pode ver em:&lt;/p&gt;
+&lt;p&gt;http://scrapyd.readthedocs.org/en/latest/api.html&lt;/p&gt;
+&lt;p&gt;Finalmente podemos ver se o nosso crawler está rodando corretamente acessando a interface web do scrapyd que visualiza os &lt;strong&gt;jobs&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;http://&amp;#60;IP-DO-VPS&amp;#62;:6800/jobs&lt;/p&gt;
+&lt;h3&gt;Considerações finais&lt;/h3&gt;
+&lt;p&gt;Eu gosto bastante da simplicidade do Scrapyd, entretanto ele não oferece muitas possibilidades para uma melhor visualização dos itens coletados e a interface web se restringe a visualizar, não é possível adicionar spiders e projetos. Além disso, ele deixa "público" o acesso aos jobs e itens - uma forma de burlar isso seria fazendo um proxy com o nginx ou apache e colocando uma autenticação como o &lt;a href="https://en.wikipedia.org/wiki/Basic_access_authentication"&gt;basic http authentication&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Esta série acaba por aqui mas em breve irei falar mais sobre esses dados coletados mas o foco não será mais o scrapy, será a análise desses dados.&lt;/p&gt;</summary><category term="python"></category><category term="dados"></category></entry><entry><title>Meus 10 centavos sobre Design / Usabilidade</title><link href="http://www.gilenofilho.com.br/meus-10-centavos-sobre-design-usabilidade" rel="alternate"></link><updated>2015-08-18T15:58:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2015-08-18:meus-10-centavos-sobre-design-usabilidade</id><summary type="html">&lt;p&gt;Esse texto é uma espécie de resposta/indicação do texto abaixo:&lt;/p&gt;
+&lt;p&gt;https://medium.com/hackerpreneur-magazine/4-invisible-user-experiences-you-d13cc9c3c7ab&lt;/p&gt;
+&lt;p&gt;Eu sempre fui (e sou) fã declarado de design minimalista, perdi a conta de quantas noites fiquei pesquisando sobre o tema, vendo projetos - principalmente web - e admirando os incríveis detalhes que passam de maneira quase invisível. Para mim um bom design é aquele que passa despercebido mas que torna a experiência, a qual foi desenhado, incrível - seja num website, notebook, smartphone, sofá...&lt;/p&gt;
+&lt;p&gt;~~Muitas~~ algumas pessoas associam um bom design a algo "bonito", cores fortes, layout agressivo, mas para mim se o design não tiver um objetivo claro e for simples, eu preferia algo assim:&lt;/p&gt;
+&lt;p&gt;http://motherfuckingwebsite.com/&lt;/p&gt;
+&lt;p&gt;O exemplo acima é sobre web design, mas minha preferência e crítica não se resume apenas a este tipo de design, eu vejo esta associação desde simples cartões de visita à cadeiras ou sofás. Entretanto eu vejo uma tendência crescente a adoção deste estilo minimalista / objetivo tanto em objetos digitais quanto reais. As pessoas estão utilizando cada vez mais a máxima: &lt;strong&gt;mais é (provavelmente) menos&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Um bom design não é apenas objetivo e claro, ele é invisível. A pesquisa do Google é um excelente exemplo de design invisível, um simples formulário (preto no branco) - em alguns dispositivos é substituído pelo reconhecimento de voz tornando-o mais simples ainda. Mesmo com a possibilidade de ficar dentro de uma &lt;a href="https://en.wikipedia.org/wiki/Filter_bubble"&gt;bolha&lt;/a&gt;, o Google entrega o que você quer de forma objetiva e rápida, corrigindo até o seu texto caso esteja errado. Dependendo da sua busca ele já faz um pequeno resumo ao lado dos resultados com opções bem relevantes para o tipo da pesquisa entre outras coisas que ficam imperceptível para a maioria das pessoas.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Resultado da busca pelo termo &amp;quot;Google&amp;quot;" src="/content/images/2015/08/Screen-Shot-2015-08-14-at-18-23-27.png" /&gt;&lt;/p&gt;
+&lt;p&gt;Este é o tipo de design que funciona, para mim é o estado da arte que deve ser cada vez mais copiado, no link que mencionei acima tem mais alguns bons exemplos. Todavia, existe uma área que eu gosto bastante entretanto conheço poucos bons exemplos de design, é a área de educação - principalmente o método de ensino a distância.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Se você chegou até aqui e conhece algum bom exemplo, por favor indique nos comentários :)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Recentemente eu comecei a ver alguns bons exemplos de ensino a distância e o mais incrível é que o grande diferencial não é a plataforma utilizada - cheia de recursos. O que faz a diferença é a didática, é fazer com que o ensino a distância não seja apenas uma extensão da sala de aula, transformando a experiência analógica em digital de verdade. Cursos que focam em vídeo-aulas, as quais são simples gravações de slides, normalmente têm uma baixa qualidade no design / usabilidade. Esses bons exemplos que eu mencionei - mas não indiquei - extrapolam essa virtualização da sala de aula, eles utilizam técnicas bem implementadas de &lt;a href="https://pt.wikipedia.org/wiki/Ludifica%C3%A7%C3%A3o"&gt;Ludificação&lt;/a&gt; (&lt;em&gt;Gamefication&lt;/em&gt;),  estimulam a formação de grupos de estudo direcionado, utilizam todos os canais de comunicação de maneira inteligente, conduzem o curso com base em pequenos projetos ou entregas fazendo com que o aluno pratique o conhecimento adquirido. Essa experiência diferenciada faz parte de um planejamento de design, que não necessariamente foi realizado por um designer, pois essa noção de design/usabilidade deve ser algo natural de todos.&lt;/p&gt;
+&lt;p&gt;Infelizmente hoje eu percebo que apliquei muito pouco do meu gosto e estudo nos projetos que trabalhei - às vezes porque me faltou atenção aos detalhes, outras foi pelo simples fato de não me preocupar em entregar algo que não seja realmente bom (na minha concepção) - e isso é algo que me arrependo.&lt;/p&gt;</summary><category term="design"></category></entry><entry><title>Minha palestra na Campus Party Recife 2015</title><link href="http://www.gilenofilho.com.br/minha-palestra-na-campus-party-recife-2015" rel="alternate"></link><updated>2015-07-27T14:29:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2015-07-27:minha-palestra-na-campus-party-recife-2015</id><summary type="html">&lt;p&gt;Olá pessoal, na sexta-feira passada - 24 de julho - participei da Campus Party Recife que aconteceu no Centro de Convenções de Pernambuco. No evento eu falei sobre Python e Educação, citando alguns exemplos do uso de Python nas universidades e escolas, e falei sobre o &lt;a href="http://pycursos.com/python-para-zumbis/"&gt;Python para Zumbis&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Infelizmente tive alguns problemas com meu computador e não consegui fazer um demo online para mostrar a simplicidade de Python e seu uso em diversos ambientes, felizmente consegui fazer um workshop posteriormente e mostrei alguns usos de Python com redes sociais, no caso o Facebook.&lt;/p&gt;
+&lt;p&gt;A palestra foi gravada e está disponível no youtube - player abaixo:&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/n7wnvtyyRuE" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Eu preciso melhorar essa palestra colocando alguns pontos que já observei que faltou, quem quiser me ajudar usa os comentários, pois irei fazer uma palestra parecida num evento da UFRPE.&lt;/p&gt;
+&lt;p&gt;Pontos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Falar do mercado atual de Python e suas oportunidades&lt;/li&gt;
+&lt;li&gt;Falar sobre os cursos em inglês do coursera, udacity, edx...&lt;/li&gt;
+&lt;li&gt;Mencionar o uso de Python na criação de games que estimulam o ensino&lt;/li&gt;
+&lt;li&gt;Vender meu Mac e volta a usar Linux ... (alguém ai afim de comprar?)&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="comunidade"></category></entry><entry><title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte II</title><link href="http://www.gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii" rel="alternate"></link><updated>2015-06-29T12:18:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2015-06-29:usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii</id><summary type="html">&lt;h3&gt;Introdução&lt;/h3&gt;
+&lt;p&gt;Olá pessoal, esta é a parte II da série sobre o Scrapy, abaixo os links para todos os artigos da série:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i/"&gt;Parte I - Configurando e rodando o Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii/"&gt;Parte II - Instalando, configurando e armazenando os dados no Rethinkdb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii/"&gt;Parte III - Deploy do projeto Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Na parte I mostrei como instalar/configurar e rodar seu projeto scrapy no site do OLX. Nesse artigo vamos ver como salvar as informações resgatadas do crawler.&lt;/p&gt;
+&lt;p&gt;Antes de ir ao código é importante frisar que o Scrapy sempre que recebe um &lt;code&gt;scrapy.Request&lt;/code&gt; dentro de uma &lt;strong&gt;callback&lt;/strong&gt; irá realizar outra requisição, entretanto se ao invés disso, você retornar um dicionário ou um objeto que herde de &lt;code&gt;scrapy.Item&lt;/code&gt;, o Scrapy irá entender que aquele &lt;strong&gt;callback&lt;/strong&gt; acaba de resgatar uma informação que deve ser processada e vai enviar esse item ou dicionário para a fila de processamento - os &lt;strong&gt;pipelines&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Vamos lá&lt;/h3&gt;
+&lt;p&gt;Dentro do &lt;strong&gt;callback&lt;/strong&gt; que definimos no último &lt;a href="https://gist.github.com/gileno/39d3d663a314a56c8e2b#file-olx-py"&gt;código da parte I&lt;/a&gt;, nós vimos como pegar uma informação da requisição via &lt;strong&gt;xpath&lt;/strong&gt; e exibir essa informação no nosso log, agora vamos fazer a lógica de informar ao Scrapy que dados estamos coletando e por fim vamos criar um &lt;strong&gt;pipeline&lt;/strong&gt; para processar esses dados.&lt;/p&gt;
+&lt;p&gt;O código ficará assim:&lt;/p&gt;
+&lt;script src="https://gist.github.com/gileno/6fbc0cbf1fed942b85de.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;A grande mudança é que agora nós estamos coletando bem mais informações sobre o imóvel, ainda da forma &lt;strong&gt;crua&lt;/strong&gt; mas limpeza desses dados ficaria para um possível tratamento estatístico... Estamos criando um dicionário chamado &lt;code&gt;item&lt;/code&gt; e no final usamos o &lt;code&gt;yield&lt;/code&gt; para retorná-lo. A primeira informação que está sendo guardada são as fotos, quer dizer, os links para as fotos, utilizando o &lt;code&gt;extract()&lt;/code&gt; ou invés do &lt;code&gt;extract_first()&lt;/code&gt; pois provavelmente irá retornar mais de um elemento no &lt;strong&gt;xpath&lt;/strong&gt; da fotos.&lt;/p&gt;
+&lt;p&gt;Todas as outras informações são simples de coletar, basta um pequeno &lt;strong&gt;xpath&lt;/strong&gt; utilizando a função &lt;strong&gt;normalize-space&lt;/strong&gt; para remover caracteres indesejados como &lt;strong&gt;\t&lt;/strong&gt;* a única informação que necessita de algo diferente é a data, ela não está num formato interessante mas conseguimos pegar ao menos o dia, mês e hora utilizando a expressão regular presente na linha &lt;a href="https://gist.github.com/gileno/6fbc0cbf1fed942b85de#file-olx-py-L55"&gt;55&lt;/a&gt;. Como não tenho certeza se todos os imóveis irão cair nessa regex, faço uma pequena verificação se a regex obteve êxito.&lt;/p&gt;
+&lt;p&gt;Agora que estamos retornando nossas informações basta rodar novamente o crawler:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy crawl olx&lt;/p&gt;
+&lt;p&gt;Devemos ver algo assim:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+...
+2015-06-28 21:49:38 [scrapy] DEBUG: Scraped from &amp;lt;200 http://pe.olx.com.br/grande-recife/imoveis/apto-kitnet-c-2-qtos-j-piedade-p-casal-s-filhos-ou-solteiros-95174559&amp;gt;
+{'date': u'28 Junho 19:10', 'title': u'Apto Kitnet c/2 qtos, J.Piedade p/casal s/filhos ou solteiros', 'url': 'http://pe.olx.com.br/grande-recife/imoveis/apto-kitnet-c-2-qtos-j-piedade-p-casal-s-filhos-ou-solteiros-95174559', 'price': u'R$500', 'photos': [u'http://img.olx.com.br/images/14/145528016191488.jpg', u'http://img.olx.com.br/images/14/147528011762579.jpg', u'http://img.olx.com.br/images/14/141528016763146.jpg', u'http://img.olx.com.br/images/14/149528019791781.jpg'], 'details': u'Local adequado para quem gosta de tranquilidade e sil\xeancio, apto com 2 qtos, bem conservado, todo na cer\xe2mica, ideal para casal ou para solteiros SEM FILHOS E SEM ANIMAIS DE ESTIMA\xc7\xc3O. N\xc3O TEM GARAGEM PARA CARROS E NEM LUGAR PARA COLOCAR NA FRENTE, dispomos apenas de vagas para motos, contadores de luz individuais, banheiro com box, ambiente familiar, n\xe3o adequado para quem gosta de briga, som alto e bebedeira. Local tranquilo, rua sem asfalto, condom\xednio fechado e muito organizado perto de com\xe9rcio, transporte, etc. Fica em Jardim Piedade Pr\xf3ximo ao supermercado todo dia, na Rua do Sossego N\xba 100 CEP 54420680. Valor do aluguel R$ 500,00 com \xe1gua inclusa. N\xe3o exigimos fiador, contrato m\xednimo de 6 meses. Falar com \xc2ngela pelo n\xfamero 81-97961646 tim e 88226083 oi. Mais fotos do interior do apto via Whatzapp.', 'address': u'Localiza\xe7\xe3o Munic\xedpio: Jaboat\xe3o dos Guararapes Bairro: Piedade CEP do im\xf3vel: 54410-695', 'source_id': u'95174559'}
+2015-06-28 21:49:39 [scrapy] DEBUG: Crawled (544) &lt;GET http://pe.olx.com.br/grande-recife/imoveis/apto-no-10-andar-em-quase-beira-mar-03qtos-95175476&gt; (referer: http://pe.olx.com.br/imoveis/aluguel)
+...&lt;/p&gt;
+&lt;p&gt;Por padrão o Scrapy irá apenas logar a informação coletada, vamos agora implementar um pipeline para armazenar a informação no banco da dados &lt;a href="http://www.rethinkdb.com/"&gt;rethinkdb&lt;/a&gt;. Eu resolvi utilizar o rethinkdb porque gosto de experimentar novos bancos de dados e ele tem diversos aspectos interessantes do NoSQL e algumas facilidades dos bancos relacionais clássicos, em outro artigo eu entro em mais detalhes sobre esse banco de dados - qualquer coisa basta citar essa escolha nos comentários - por hora basta saber que ele armazena documentos no formato JSON.&lt;/p&gt;
+&lt;p&gt;Primeiro precisamos baixar e instalar, algo que é bem simples, basta acessar o site oficial e escolher o pacote para o seu sistema operacional:&lt;/p&gt;
+&lt;p&gt;http://www.rethinkdb.com/docs/install/&lt;/p&gt;
+&lt;p&gt;Após a instalação é preciso colocar o rethinkdb para rodar, basta digitar o comando:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+rethinkdb&lt;/p&gt;
+&lt;p&gt;Com o banco de dados rodando você tem acesso a uma interface administrativa acessando:&lt;/p&gt;
+&lt;p&gt;http://localhost:8080/&lt;/p&gt;
+&lt;p&gt;Eu prefiro colocar o banco de dados parar rodar só quando vou utilizar, faço isso tanto com os relacionais quanto os não-relacionais mas se desejar pode iniciar o rethinkdb assim que iniciar o sistema:&lt;/p&gt;
+&lt;p&gt;http://rethinkdb.com/docs/start-on-startup/&lt;/p&gt;
+&lt;p&gt;Com o banco de dados rodando, devemos acessar a interface administrativa e criar um banco de dados chamado &lt;strong&gt;scrapy_olx&lt;/strong&gt;. Depois de criado o banco, vamos instalar o driver do rethinkdb:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+pip install rethinkdb&lt;/p&gt;
+&lt;p&gt;Agora vamos adicionar às configurações do nosso projeto Scrapy, arquivo &lt;strong&gt;settings.py&lt;/strong&gt;, as informações de acesso ao rethinkdb e a configuração &lt;code&gt;ITEM_PIPELINES&lt;/code&gt; indicando o pipeline que iremos criar.&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight python %}
+RETHINKDB = {
+    'table_name': 'items', 'db': 'scrapy_olx'
+}
+ITEM_PIPELINES = {
+    'scrapy_olx.pipelines.RethinkdbPipeline': 1
+}&lt;/p&gt;
+&lt;p&gt;Com as configurações inseridas no &lt;strong&gt;settings.py&lt;/strong&gt; vamos alterar o arquivo pipelines.py para adicionar a classe &lt;code&gt;RethinkdbPipeline&lt;/code&gt;, que irá processar nossos dados e inserir no rethinkdb:&lt;/p&gt;
+&lt;script src="https://gist.github.com/gileno/3219ab7caf5be6da5478.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;A primeira coisa que fazemos é importar o módulo do rethinkdb, eles recomendam usar o namespace &lt;strong&gt;r&lt;/strong&gt; mas é opcional.&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight python %}
+import rethinkdb as r&lt;/p&gt;
+&lt;p&gt;Cada classe que irá ser um &lt;a href="http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#item-pipeline"&gt;pipeline&lt;/a&gt; pode implementar 4 métodos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#process_item"&gt;process_item&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#open_spider"&gt;open_spider&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#close_spider"&gt;close_spider&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://doc.scrapy.org/en/1.0/topics/item-pipeline.html#from_crawler"&gt;from_crawler&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No método &lt;code&gt;from_crawler&lt;/code&gt; nós temos acesso a todos os principais componentes do Scrapy, incluindo as configurações e por isso implementamos este método para pegar as informações de acesso ao rethinkdb.&lt;/p&gt;
+&lt;p&gt;Nos método &lt;code&gt;open_spider&lt;/code&gt; e &lt;code&gt;close_spider&lt;/code&gt; fazemos a abertura e fechamento da conexão com o rethinkdb, para evitar erros há uma pequena verificação se a tabela já existe no banco de dados, caso não exista ela é criada.&lt;/p&gt;
+&lt;p&gt;Finalmente no método &lt;code&gt;process_item&lt;/code&gt; inserimos o item no banco de dados, o rethinkdb aceita dicionários que tem uma estrutura semelhante aos JSON's que é a forma de armazenamento dele.&lt;/p&gt;
+&lt;p&gt;Agora vamos rodar novamente o crawler:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy crawl olx&lt;/p&gt;
+&lt;p&gt;O crawler deve rodar durante algumas horas mas ao acessar a interface administrativa do rethinkdb irá perceber que o número de documentos indicados na tabela &lt;strong&gt;items&lt;/strong&gt; vai aumentando.&lt;/p&gt;
+&lt;h3&gt;Resumo&lt;/h3&gt;
+&lt;p&gt;Neste artigos vimos como retornar ao Scrapy as informações coletadas, depois tivemos uma visão geral do rethinkdb um banco conhecido como &lt;strong&gt;scalable JSON database&lt;/strong&gt;, ele é open-source e construído para aplicações web em tempo real.&lt;/p&gt;
+&lt;p&gt;Por fim fizemos um pipeline para ver como podemos processar um item coletado pelo crawler, utilizamos todos os 4 métodos que podem ser implementados pelo pipeline e são chamados pelo Scrapy.&lt;/p&gt;
+&lt;p&gt;No próximo artigo iremos ver como fazer deploy do projeto Scrapy, pois normalmente não é interessante deixar o crawler rodando na sua máquina, o mais comum é colocar em algum servidor na nuvem.&lt;/p&gt;</summary><category term="python"></category><category term="dados"></category></entry><entry><title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte I</title><link href="http://www.gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i" rel="alternate"></link><updated>2015-06-25T14:23:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2015-06-25:usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i</id><summary type="html">&lt;h3&gt;Introdução&lt;/h3&gt;
+&lt;p&gt;Olá pessoal, a algum tempo que estou organizando minha agenda para voltar a trabalhar em alguns &lt;a href="https://pt.wikipedia.org/wiki/Web_crawler"&gt;Web Crawlers&lt;/a&gt; para capturar dados imobiliários que é um tipo de dado que gosto de trabalhar. Assim resolvi publicar esse artigo, que fará parte de uma série de 3, onde irei mostrar como fazer um crawler usando o &lt;a href="http://scrapy.org/"&gt;Scrapy&lt;/a&gt; e como armazenar num banco de dados que muito me interessa, o &lt;a href="http://www.rethinkdb.com/"&gt;rethinkdb&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Agenda&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i/"&gt;Parte I - Configurando e rodando o Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii/"&gt;Parte II - Instalando, configurando e armazenando os dados no Rethinkdb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii/"&gt;Parte III - Deploy do projeto Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Vamos lá&lt;/h3&gt;
+&lt;p&gt;O Scrapy é um framework para facilitar o desenvolvimento de crawlers, pois mesmo sendo fácil fazer um crawler usando o built-in do Python como o &lt;a href="https://docs.python.org/2/library/urllib.html"&gt;urllib&lt;/a&gt;, ou bibliotecas externas como &lt;a href="http://docs.python-requests.org/en/latest/"&gt;requests&lt;/a&gt;, fica mais rápido e prático utilizar um conjunto de ferramentas desenhados para este fim, é o famoso "batteries included".&lt;/p&gt;
+&lt;p&gt;Para instalar o Scrapy vamos utilizar o pip (supondo que já esteja num &lt;a href="https://virtualenv.pypa.io/en/latest/"&gt;virtualenv&lt;/a&gt;):&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+pip install scrapy&lt;/p&gt;
+&lt;p&gt;Após instalar o scrapy você terá disponível o comando "scrapy" mais detalhes sobre as opções dele aqui:&lt;/p&gt;
+&lt;p&gt;http://doc.scrapy.org/en/1.0/topics/commands.html&lt;/p&gt;
+&lt;p&gt;O scrapy é composto de "spiders" que é a parte do código que irá definir que páginas serão acessadas para capturar informações, "items" que são as informações que serão extraídas das páginas e os "pipelines" que irão definir como esses "items" serão processados.&lt;/p&gt;
+&lt;p&gt;Um exemplo simples de um crawler utilizando o Scrapy:&lt;/p&gt;
+&lt;script src="https://gist.github.com/gileno/8579ef62f5a700ca99d4.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Para rodar basta utilizar o comando scrapy:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy runspider gilenofilho.py&lt;/p&gt;
+&lt;p&gt;Você verá algo assim:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+...
+2015-06-22 18:26:07 [scrapy] DEBUG: Redirecting (301) to &lt;GET http://gilenofilho.com.br/&gt; from &lt;GET http://www.gilenofilho.com.br/&gt;
+2015-06-22 18:26:07 [scrapy] DEBUG: Crawled (200) &lt;GET http://gilenofilho.com.br/&gt; (referer: None)
+2015-06-22 18:26:07 [gilenofilho] DEBUG: Hello World: http://gilenofilho.com.br/
+2015-06-22 18:26:07 [scrapy] INFO: Closing spider (finished)
+2015-06-22 18:26:07 [scrapy] INFO: Dumping Scrapy stats:
+...&lt;/p&gt;
+&lt;p&gt;Uma Spider é basicamente uma classe que herda de &lt;code&gt;scrapy.Spider&lt;/code&gt; o atributo &lt;code&gt;start_urls&lt;/code&gt; está definindo as urls que devem ser acessadas inicialmente, você pode definir um método &lt;code&gt;starts_requests&lt;/code&gt; que deve retornar uma lista de &lt;code&gt;scrapy.Request&lt;/code&gt; através da keyword &lt;code&gt;yield&lt;/code&gt;, assim:&lt;/p&gt;
+&lt;p&gt;Obs: a implementação padrão do &lt;code&gt;starts_requests&lt;/code&gt; procura o atributo &lt;code&gt;start_urls&lt;/code&gt; e chama o método &lt;code&gt;parse&lt;/code&gt;.&lt;/p&gt;
+&lt;script src="https://gist.github.com/gileno/83720a8c73a52685e399.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Deve se utilizar &lt;code&gt;yield&lt;/code&gt; e passar um &lt;strong&gt;callback&lt;/strong&gt; para a &lt;code&gt;scrapy.Request&lt;/code&gt; pois o scrapy faz requisições assíncronas, isto é, não espera a requisição inicial acabar para fazer uma nova requisição, e desta forma utiliza o conceito de geradores em Python, você pode ver mais detalhes de como geradores funcionam acessando as palestras de Luciano Ramalho em: http://pt.slideshare.net/ramalho/.&lt;/p&gt;
+&lt;p&gt;O scrapy tem o conceito de projeto onde ficam organizados as "Spiders", "items" e "pipelines". Para criar um projeto scrapy basta utilizar o comando:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy startproject nome_do_projeto&lt;/p&gt;
+&lt;p&gt;Você verá que uma estrutura de diretórios e arquivos será criada para que facilite o crescimento do seu crawler. Eu criei um projeto chamado &lt;strong&gt;scrapy_olx&lt;/strong&gt; e meu sistema de diretórios ficou assim:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy_olx
+- scrapy_olx
+- - spiders
+- - - &lt;strong&gt;init&lt;/strong&gt;.py
+- - &lt;strong&gt;init&lt;/strong&gt;.py
+- - items.py
+- - pipelines.py
+- - settings.py
+- scrapy.cfg&lt;/p&gt;
+&lt;p&gt;Agora vamos criar nosso primeiro Spider, com o comando:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy genspider olx pe.olx.com.br&lt;/p&gt;
+&lt;p&gt;Estou criando um crawler para capturar os imóveis de Pernambuco (PE) e esta é a url inicial no OLX. Dentro do diretório &lt;strong&gt;spiders&lt;/strong&gt; foi criado um arquivo chamado olx.py contendo o esqueleto do nosso código, vou modificar o &lt;strong&gt;starts_urls&lt;/strong&gt; para começar com a url dos imóveis para alugar, o arquivo modificado vai ficar assim:&lt;/p&gt;
+&lt;script src="https://gist.github.com/gileno/e533443087a86b4a5fb5.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Para rodar este código basta utilizar o comando:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy crawl olx&lt;/p&gt;
+&lt;p&gt;Se antes usamos a opção &lt;code&gt;runspider&lt;/code&gt; agora que estamos num projeto scrapy usamos a opção &lt;code&gt;crawl&lt;/code&gt; passando o nome da &lt;strong&gt;spider&lt;/strong&gt;, no caso &lt;strong&gt;olx&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Agora vamos modificar o método &lt;code&gt;parse&lt;/code&gt; para adicionar a lógica de verificar os links para os imóveis que a página contém, após isso iremos acessar a página do imóvel para só então capturar os dados do imóvel.&lt;/p&gt;
+&lt;script src="https://gist.github.com/gileno/b9013b0aa9b2d518fe6c.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Agora no método parse usamos &lt;strong&gt;xpath&lt;/strong&gt; para percorrer a estrutura do html e encontrar todos os &lt;strong&gt;li&lt;/strong&gt; que contém a &lt;strong&gt;class&lt;/strong&gt; css &lt;strong&gt;item&lt;/strong&gt;, cada elemento deste tipo irá ter um imóvel e assim fazemos um for para buscar o &lt;strong&gt;href&lt;/strong&gt; do link único para o imóvel. Ao pegar o link de cada imóvel retornamos através do &lt;strong&gt;yield&lt;/strong&gt; uma nova requisição para o scrapy realizar e passamos desta vez outro callback, o &lt;code&gt;parse_detail&lt;/code&gt;. Nesse primeiro momento ele apenas vai fazer o log da url.&lt;/p&gt;
+&lt;p&gt;Rodando novamente o código será possível que o scrapy irá realizar 51 requisições, 1 para cada imóvel - 50 por página - e a primeira para acessar a página inicial.&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy crawl olx&lt;/p&gt;
+&lt;p&gt;Após fazer a lógica de acessar cada imóvel vamos adicionar a parte de verificar se existe uma próxima página, visto que são exibidos 50 imóveis por página mas no final da página há uma paginação.&lt;/p&gt;
+&lt;p&gt;O código ficará assim:&lt;/p&gt;
+&lt;script src="https://gist.github.com/gileno/39d3d663a314a56c8e2b.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Obs: Atualizei o código com a dica do &lt;a href="https://twitter.com/eliasdorneles"&gt;Elias Dorneles&lt;/a&gt; sobre o &lt;strong&gt;normalize-path&lt;/strong&gt;, essa função do &lt;strong&gt;xpath&lt;/strong&gt; serve para remover o excesso de caracteres em branco e outros caracteres que a renderização do html ignora mas que está presente no código fonte.&lt;/p&gt;
+&lt;p&gt;Veja que após o &lt;code&gt;for&lt;/code&gt; usamos novamente o xpath para encontrar o link que contém o texto &lt;strong&gt;Próxima página&lt;/strong&gt; que está no final da página do OLX - basta examinar o html. Se houver o link mandamos outra requisição ao scrapy, só que desta vez o callback é o mesmo método que estamos, o &lt;code&gt;parse&lt;/code&gt;. Para acrescentar fazemos o log do título do imóvel, dando uma ideia de como podemos pegar outras informações sobre o imóvel, mais detalhes sobre isso no próximo artigo.&lt;/p&gt;
+&lt;p&gt;Para rodar, basta novamente enviar o comando:&lt;/p&gt;
+&lt;p _="%" endhighlight="endhighlight"&gt;{% highlight sh %}
+scrapy crawl olx&lt;/p&gt;
+&lt;p&gt;Para perceber que o scrapy é assíncrono nas suas requisições, basta ver que ele acessar a próxima página antes de acabar as requisições dos imóveis da primeira página.&lt;/p&gt;
+&lt;p&gt;Enfim, essa primeira parte fica por aqui, na próxima irei mostrar os conceitos de &lt;strong&gt;Item&lt;/strong&gt; e &lt;strong&gt;Pipeline&lt;/strong&gt; que o scrapy possui para capturar e processar os dados armazenados.&lt;/p&gt;
+&lt;h3&gt;Referências&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://speakerdeck.com/eliasdorneles/explorando-scrapy-alem-do-tutorial"&gt;Explorando Scrapy além do tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://doc.scrapy.org/en/1.0/index.html"&gt;Documentação Oficinal do Scrapy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="dados"></category></entry><entry><title>Saindo da minha zona de conforto: Desenvolvimento Web</title><link href="http://www.gilenofilho.com.br/saindo-da-minha-zona-de-conforto-desenvolvimento-web" rel="alternate"></link><updated>2015-01-19T18:54:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2015-01-19:saindo-da-minha-zona-de-conforto-desenvolvimento-web</id><summary type="html">&lt;p&gt;Olá pessoal, eu comecei a mexer com desenvolvimento web quando nem sabia o que era isso, na época da escola fiz algumas coisas com o instito &lt;a href="http://pt.wikipedia.org/wiki/Microsoft_FrontPage"&gt;FrontPage&lt;/a&gt; no laboratório de informática para a intranet da escola.&lt;/p&gt;
+&lt;p&gt;Assim, desde que entrei na universidade o desenvolvimento web se tornou minha zona de conforto. Um dos poucos livros técnicos - associados a alguma disciplina da universidade - que li completamenete foi justamente o de &lt;a href="http://books.google.com.br/books/about/Redes_de_computadores_e_a_internet.html?id=raZtQwAACAAJ&amp;amp;redir_esc=y"&gt;Redes de Computadores&lt;/a&gt; do Kurose.&lt;/p&gt;
+&lt;p&gt;Com o passar dos anos, passei por ASP, ASP.NET, PHP, Java Web (JSP / JSF)... até chegar em Python/Django em 2009. Como bom minimalista que sou, fiquei apaixonado pela praticidade e simplicidade da linguagem, e a rapidez do framework, chegando assim a minha atual zona de conforto: Desenvolvimento Web com Python/Django. Eu sei que existe um mundo de informações associadas a essa área e essas tecnologias, e ainda tenho muito a aprender mas depois de alguns anos desenvolvendo e &lt;a href="http://pycursos.com/django/"&gt;ensinando&lt;/a&gt; me senti incomodado, e nos últimos meses tenho buscando novos desafios e oportunidades. Percebi então que já trabalho a algum tempo com estatística e análise de dados imobiliários na &lt;a href="http://www.dantasengenharia.com/produtos/categoria/softwares/"&gt;Dantas Engenharia&lt;/a&gt; e que conheço as principais ferramentas científicas utilizadas, principalmente as que envolvem Python:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;http://www.numpy.org/&lt;/li&gt;
+&lt;li&gt;http://www.scipy.org/&lt;/li&gt;
+&lt;li&gt;http://scikit-learn.org/stable/&lt;/li&gt;
+&lt;li&gt;http://pandas.pydata.org/&lt;/li&gt;
+&lt;li&gt;http://matplotlib.org/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Com isso em mente, comecei a ler bastante conteúdo de &lt;a href="http://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_cient%C3%ADfica"&gt;Computação Científica&lt;/a&gt; / &lt;a href="http://en.wikipedia.org/wiki/Data_science"&gt;Data Science&lt;/a&gt;, e desde dezembro comecei a escrever / montar uma estrutura de projeto de ensino voltado para computação científica aplicada a problemas reais. Infelizmente por causa de outras responsabilidades e fadiga mental estava parado e sem desenvolver a ideia, até que vi este curso: https://wow.thinkful.com/courses/learn-data-science-online/. Me deu uma motivação maior e mais ideias, assim estou voltando meu foco em terminar a base da plataforma &lt;a href="https://github.com/gileno/sofia"&gt;Sofia&lt;/a&gt;, para poder migrar o &lt;a href="http://pycursos.com/python-para-zumbis/"&gt;Python para Zumbis&lt;/a&gt; para a nova plataforma, e trabalhar em cima do conteúdo desta nova iniciativa.&lt;/p&gt;
+&lt;p&gt;Se você está interessado em saber mais o que será discutido nesse projeto e quiser dar a sua opinião, responda o formulário abaixo:&lt;/p&gt;
+&lt;p&gt;https://docs.google.com/forms/d/1mypRK0lD4L4Dbkpaiw2brkDFx_5tcAqh7NQojfRk-FI/viewform&lt;/p&gt;
+&lt;p&gt;Possíveis assuntos:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Introdução a Ciência dos Dados&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O que é?&lt;/li&gt;
+&lt;li&gt;Porque é importante?&lt;/li&gt;
+&lt;li&gt;O que iremos estudar:&lt;/li&gt;
+&lt;li&gt;Mineração de Dados&lt;/li&gt;
+&lt;li&gt;Regressão Linear&lt;/li&gt;
+&lt;li&gt;Métodos de Aprendizagem de Máquina (Árvore de Decisão, KNN)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introdução as Ferramentas: Numpy, Scipy, Matplotlib e Pandas&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;História delas&lt;/li&gt;
+&lt;li&gt;Como instalar e configurar&lt;/li&gt;
+&lt;li&gt;Para que servem, o que é possível fazer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mineração de dados de Redes Sociais&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Como acessar os dados das redes sociais&lt;/li&gt;
+&lt;li&gt;Como criar Bot's para automatizar tarefas de mineração&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Introdução a Inteligência Artificial&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O que é?&lt;/li&gt;
+&lt;li&gt;Aplicações e Implicações&lt;/li&gt;
+&lt;li&gt;Sistemas Especialistas e Aprendizagem de Máquina&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Classificação em Aprendizagem de Máquina&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Árvore de Decisão&lt;/li&gt;
+&lt;li&gt;KNN (Classificação)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Regressão:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Regressão Linear (Modelo Clássico)&lt;/li&gt;
+&lt;li&gt;Técnicas em Inteligência Artificial para Regressão&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Análise de Redes Complexas&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O que são redes?&lt;/li&gt;
+&lt;li&gt;Tipos de redes&lt;/li&gt;
+&lt;li&gt;Predição de Links&lt;/li&gt;
+&lt;li&gt;Detecção de Comunidades&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="python"></category><category term="inteligência-artificial"></category><category term="dados"></category></entry><entry><title>Academia e Mercado, o melhor dos 2 mundos</title><link href="http://www.gilenofilho.com.br/academia-e-mercado-o-melhor-dos-2-mundos" rel="alternate"></link><updated>2014-12-05T15:35:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-12-05:academia-e-mercado-o-melhor-dos-2-mundos</id><summary type="html">&lt;p&gt;Ultimamente tenho gostado bastante de discutir esse tema: Mercado x Academia. E depois de ver os links abaixo, fiquei motivado a escrever:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;https://groups.google.com/forum/#!topic/python-brasil/373Fh7eVS0w&lt;/li&gt;
+&lt;li&gt;http://blog.txus.io/2014/10/programming-and-computer-science-an-imminent-divorce/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Eu comecei a programar de verdade quando entrei na universidade (Ciência da Computação - &lt;a href="http://www.cin.ufpe.br"&gt;CIn/UFPE&lt;/a&gt;), ela foi minha porta de entrada no mundo da computação - antes eu só fazia umas páginas estáticas no falecido &lt;a href="http://pt.wikipedia.org/wiki/Microsoft_FrontPage"&gt;FrontPage&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Hoje em dia eu vejo muitos programadores começarem por cursos técnicos e/ou através da simples curiosidade executada em buscas no google. Isso é fantástico, pois programação não deveria ser apenas para universitários de cursos de ciência da computação e correlatos, acredito que programação deveria ser uma matéria básica como matemática, ou talvez um dos tópicos desta disciplina.&lt;/p&gt;
+&lt;p&gt;Entretanto eu tenho visto um problema nesse cenário: os programadores estão desvalorizando demais a universidade, estão cometendo o mesmo erro que alguns acadêmicos mais conservadores. Da mesma forma que eu sou contra fazer pesquisa, gerar conhecimento e não entregar algo a sociedade, seja em forma de produto ou  conclusões/previsões, também não concordo em partir para o mercado sem pesquisa, sem uma base de conhecimento necessária para gerar algo interessante, algo inovador.&lt;/p&gt;
+&lt;p&gt;Eu entrei na universidade em 2006.2 e até o 6º período/semestre, cursei normalmente a universidade, isso foi muito bom pois me deu uma base significativa, e eu devo muito a qualidade do meu curso. Após esse semestre eu fiquei mais longe distante do curso por motivos pessoais e porque comecei a trabalhar mais intensamente.&lt;/p&gt;
+&lt;p&gt;Um dos meus trabalhos foi na startup Atepassar, que hoje não está mais ativa. Lá comecei a ficar cada vez mais empolgado com ter meu próprio negócio, tocar algum projeto pessoal, e isso fez com que eu me afastasse da universidade e em alguns momentos tivesse até raiva, porque para mim a universidade deveria entender que eu tinha pouco tempo e os projetos e aulas deveriam ser mais amenas, doce ilusão.&lt;/p&gt;
+&lt;p&gt;Hoje eu tenho uma visão bem mais madura de alguns anos atrás, se antes eu achava que a universidade era burocrática, chata e uma geradora de artigos sem utilidade, agora eu penso que a universidade tem como principal função alimentar a ciência, a pesquisa científica como forma de gerar conhecimento, obviamente eu não estou falando de faculdades/universidades que são apenas "entregadoras de diploma", estou falando de instituições sérias que se preocupam com o aluno e têm responsabilidade social.&lt;/p&gt;
+&lt;p&gt;Infelizmente, mesmo nessas instituições sérias, é comum encontrar pessoas que buscam apenas criação de artigos que não têm uma boa base de pesquisa, um estudo realmente interessante. Mesmo sabendo que no Brasil a moeda nas universidades são artigos científicos, é possível priorizar qualidade sobre quantidade e ainda sim ter uma boa carreira acadêmica, eu conheço vários bons exemplos no CIn/UFPE e na &lt;a href="http://poli.br/"&gt;POLI&lt;/a&gt;. Pessoalmente, conheço alguns professores que levaram suas pesquisas ao mercado em forma de consultorias e empresas (mesmo que oficialmente eles não possam ter empresas), e conseguiram bastante sucesso, como sucesso é algo muito relativo, entenda como um negócio sustentável, lucrativo e de bom alcance.&lt;/p&gt;
+&lt;p&gt;Finalmente o que eu quero concluir é que é possível trabalhar bem os dois lados, aproveitando as oportunidades que o mundo acadêmico fornece e levá-las ao mercado para gerar inovação. Mas esse conhecimento acadêmico/científico não precisa se restringir a universidade, a formalidade de curso de graduação ou pós-graduação, você pode adotar a metodologia científica no seu dia a dia e juntamente com o &lt;em&gt;feeling&lt;/em&gt; de mercado criar excelentes produtos e serviços. Com a quantidade de cursos de excelente qualidade que plataformas como &lt;a href="https://www.coursera.org/"&gt;Coursera&lt;/a&gt;, &lt;a href="https://www.udacity.com/"&gt;Udacity&lt;/a&gt; e &lt;a href="https://www.edx.org/"&gt;Edx&lt;/a&gt; oferece é até vergonhoso dizer que não consegue estudar porque não têm dinheiro ou não consegue passar em um vestibular.&lt;/p&gt;
+&lt;p&gt;Enfim, para mim o ideal é sempre tentar mesclar as duas visões para criar &lt;em&gt;coisas&lt;/em&gt; com excelência e eu tenho buscado isso cada vez mais nos meus projetos.&lt;/p&gt;
+&lt;p&gt;Como leitura complementar eu indico os textos de &lt;a href="https://twitter.com/srlm"&gt;Silvio Meira&lt;/a&gt; que dispensa apresentações:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;http://boletim.de/&lt;/li&gt;
+&lt;li&gt;http://www.ikewai.com/WordPress/2012/09/18/precisamos-inovar-mais-como/&lt;/li&gt;
+&lt;li&gt;http://www.ikewai.com/WordPress/2012/05/30/graal-the-search-for-grand-algorithms-in-truly-global-software-markets/&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="universidade"></category><category term="startup"></category></entry><entry><title>Resumo 35º Encontro do PUG-PE</title><link href="http://www.gilenofilho.com.br/resumo-35-encontro-do-pug-pe" rel="alternate"></link><updated>2014-12-01T08:47:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-12-01:resumo-35-encontro-do-pug-pe</id><summary type="html">&lt;p&gt;Olá pessoal, no último dia 22 de novembro ocorreu o 35º encontro do PUG-PE. O evento ocorreu no auditório do DEINFO na UFRPE, onde já realizamos alguns eventos, houveram 4 palestras:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Python e Interfaces Gráficas (Daivid)&lt;/li&gt;
+&lt;li&gt;Análise de Dados com Pandas (Gileno)&lt;/li&gt;
+&lt;li&gt;Esteganografia (Lincoln)&lt;/li&gt;
+&lt;li&gt;Bioinformática (Marcel)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Foi um evento pequeno - 15 pessoas - mas é incrível como mesmo em pequenos encontros é possível aprender tanto e sair renovado com ideias e motivações, e muito disso se deu pelo contato com o professor &lt;a href="https://twitter.com/joabr"&gt;Jones Albuquerque&lt;/a&gt;. Numa conversa sobre Bioinformática - iniciada numa palestra de &lt;a href="http://www.aimotion.blogspot.com.br/"&gt;Marcel&lt;/a&gt; sobre a &lt;a href="http://www.genomika.com.br/"&gt;Genomika&lt;/a&gt; - ele (Jones) mostrou como é possível fazer inovação utilizando-se de uma base acadêmica/científica que agrega valor ao seu produto ou serviço de uma forma que dificilmente pode ser copiada, &lt;a href="https://twitter.com/srlm"&gt;Silvio Meira&lt;/a&gt; fala bem sobre isso nesses links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;http://www.ikewai.com/WordPress/2012/05/30/graal-the-search-for-grand-algorithms-in-truly-global-software-markets/&lt;/li&gt;
+&lt;li&gt;http://www.ikewai.com/WordPress/2012/09/18/precisamos-inovar-mais-como/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;É com muita felicidade que eu estou vendo muitas pessoas ao meu redor que estão com ideias sobre empreendedorismo e inovação como as minhas. Ideias sobre a necessidade de um estudo, uma pesquisa científica aplicada a resolver problemas reais, diferentemente do que muitas startups estão fazendo por ai. Num próximo artigo eu irei comentar mais esse assunto que muito me interessa na atual fase que estou vivendo.&lt;/p&gt;
+&lt;p&gt;Os slides da Palestra de Marcel podem ser acessados em:&lt;/p&gt;
+&lt;p&gt;http://www.slideshare.net/marcelcaraciolo/como-python-ajudou-a-automatizar-o-nosso-laboratrio-v2&lt;/p&gt;
+&lt;p&gt;Além disso, aprendi sobre &lt;a href="https://pt.wikipedia.org/wiki/Esteganografia"&gt;Esteganografia&lt;/a&gt; com &lt;a href="https://e17aeternus.wordpress.com/"&gt;Lincoln&lt;/a&gt; e fiquei muito motivado a fazer alguns truques em imagens por ai :). Os slides dele podem ser acessados em:&lt;/p&gt;
+&lt;p&gt;https://speakerdeck.com/demacdolincoln/esteganografia-o-que-e-e-o-que-ja-vi-em-python-sobre-o-assunto&lt;/p&gt;
+&lt;p&gt;Também tivemos uma conversa com &lt;a href="https://facebook.com/DaividVasconcelos"&gt;Daivid&lt;/a&gt; sobre Python e interfaces gráficas para iniciar as pessoas que não conheciam ou estavam engatinhando com Python, os slides dele estão em:&lt;/p&gt;
+&lt;p&gt;https://www.dropbox.com/s/iw0ipl7ob4d7kvb/Apresenta%C3%A7%C3%A3o%20-%20wxPython.pdf?dl=0&lt;/p&gt;
+&lt;p&gt;A minha palestra não teve slides, pois foi uma palestra prática, mas em breve irei criar um tutorial legal sobre &lt;a href="http://pandas.pydata.org/"&gt;Pandas&lt;/a&gt; e publicar por aqui.&lt;/p&gt;
+&lt;p&gt;Enfim, esse evento foi marcante para eu começar a traçar meu plano de dominação mundial e espero que em breve comece a compartilhar com vocês.&lt;/p&gt;</summary><category term="python"></category><category term="comunidade"></category></entry><entry><title>Iniciando um projeto Django (Arquitetura, Organização e Dicas) - Parte II</title><link href="http://www.gilenofilho.com.br/iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-ii" rel="alternate"></link><updated>2014-11-12T19:37:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-11-12:iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-ii</id><summary type="html">&lt;p&gt;Parte I - http://gilenofilho.com.br/iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-i/&lt;/p&gt;
+&lt;p&gt;Olá pessoal, na primeira parte desta série eu mostrei a motivação desta série e como usar um template de projeto django para iniciar seu projeto com uma estrutura inicial melhor do que a básica fornecida pelo django.&lt;/p&gt;
+&lt;p&gt;Nesta segunda parte eu atualizei o repositório do projeto adicionando uma view básica na app &lt;strong&gt;core&lt;/strong&gt; e adicionei uma templatetag de paginação bem simples que eu uso em alguns projetos. Existem algumas apps para paginação mas por simplicidade eu utilizo essa templatetag.&lt;/p&gt;
+&lt;p&gt;Repositório: https://github.com/gileno/django-template-project&lt;/p&gt;
+&lt;p&gt;A templatetag de paginação é de fácil uso e funciona com a generic view: &lt;a href="https://docs.djangoproject.com/en/1.7/ref/class-based-views/generic-display/#listview"&gt;ListView&lt;/a&gt;. Ela precisa que esteja no contexto do template as variáveis &lt;strong&gt;paginator&lt;/strong&gt; e &lt;strong&gt;page_obj&lt;/strong&gt; que é o padrão da &lt;a href="https://docs.djangoproject.com/en/1.7/ref/class-based-views/generic-display/#listview"&gt;ListView&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Também adicionei a app &lt;a href="https://model-mommy.readthedocs.org/en/latest/"&gt;Model Mommy&lt;/a&gt; que é simplesmente fantástica para teste, é aquela típica app que você se pergunta porque não criou antes.&lt;/p&gt;
+&lt;p&gt;No models.py da app &lt;strong&gt;core&lt;/strong&gt; adicionei um model base que tem dois campos, uma para armazenar a data de criação e outro para a data de modificação, normalmente todos os models herdam dele.&lt;/p&gt;
+&lt;p&gt;Na próxima parte eu irei adicionar uma app de usuários usando o sistema de compatibilidade de django. Eu não gosto de usar a padrão do django por causa da não obrigatoriedade do campo e-mail no User e pela necessidade de criar um outro model sempre que precisar armazenar mais informações do usuário, como foto, cpf ...&lt;/p&gt;</summary><category term="python"></category><category term="django"></category></entry><entry><title>Minha PythonBrasil[10]</title><link href="http://www.gilenofilho.com.br/minha-pythonbrasil10" rel="alternate"></link><updated>2014-11-09T23:39:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-11-09:minha-pythonbrasil10</id><summary type="html">&lt;p&gt;Neste último fim de semana, 4 a 9 de novembro, ocorreu a PythonBrasil[10] em Recife/Porto de Galinhas. O sucesso do evento se repetiu, mas dessa vez teve um prazer especial por ser no meu estado.&lt;/p&gt;
+&lt;p&gt;É sempre bom rever os amigos de outros estados, trocar ideias e aprender mais sobre python e seu ecossistema. Eu considero esse evento obrigatório para qualquer um que deseje entrar no mundo Python, porque o forte de Python é justamente a comunidade. Sempre que saio de eventos desse tipo, minhas energias se renovam e dá vontade de sair programando logo em seguida, testar as novidades aprendidas, aprimorar os negócios ...&lt;/p&gt;
+&lt;p&gt;A melhor parte do evento é justamente os bastidores, as conversas nos bares, a troca de ideias após as palestras. É a oportunidade de fazer novos negócios, tirar dúvidas com pessoas que você só conhecia pelas listas de discussões e é como Silvio Meira diz, &lt;a href="http://boletim.de/silvio/inovao-criao-coletiva/"&gt;a inovação é ... criação coletiva&lt;/a&gt;. E a minha palestra foi de certa forma relacionado a esse ambiente de inovação, eu não tenho a mesma propriedade que &lt;a href="https://twitter.com/srlm"&gt;Meira&lt;/a&gt; mas segue minha contribuição:&lt;/p&gt;
+&lt;script async class="speakerdeck-embed" data-id="c3bd03904973013242bd4e743bb86014" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;Obs: As referências é a parte mais importante da palestra e eu estou repetindo elas abaixo (estão nos slides):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;http://www.paulgraham.com/ds.html&lt;/li&gt;
+&lt;li&gt;http://boletim.de/silvio/inovao-criao-coletiva/&lt;/li&gt;
+&lt;li&gt;http://casjam.com/stop-starting-start-growing/&lt;/li&gt;
+&lt;li&gt;https://medium.com/brasil/o-que-nao-me-falaram-sobre-empreendedorismo-cc5b7ddbdf5e&lt;/li&gt;
+&lt;li&gt;https://medium.com/@murilogun/criatividade-nao-e-dom-889ed38e30ba&lt;/li&gt;
+&lt;li&gt;https://medium.com/brasil/como-ter-largado-meu-emprego-para-abrir-minha-tao-sonhada-startup-ferrou-com-a-minha-vida-4394130cfa49&lt;/li&gt;
+&lt;li&gt;http://unicornfree.com/2014/done-should-be-spelled-f-a-i-l&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="python"></category><category term="pythonbrasil"></category><category term="startup"></category></entry><entry><title>Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II</title><link href="http://www.gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-ii" rel="alternate"></link><updated>2014-10-24T17:49:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-10-24:tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-ii</id><summary type="html">&lt;p&gt;Parte I - http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/&lt;/p&gt;
+&lt;h2&gt;Introdução&lt;/h2&gt;
+&lt;p&gt;Na primeira parte desta série eu escrevi de forma bem simples sobre o que seria a regressão linear mútipla e a Engenharia de Avaliações. Fui bem objetivo pois este assunto é bastante longo e eu achei melhor deixar algumas referências caso tenham interesse em se aprofundar.&lt;/p&gt;
+&lt;p&gt;Nesta segunda parte irei mostrar como funciona a avaliação de bens no Brasil. Ela é regida por normas técnicas da ABNT (Associação Brasileira de Normas Técnicas), essas normas são criadas por comissões de estudo formadas por produtores, consumidores e neutros (laboratórios, universidades e outros). No caso das normas para avaliação de imóveis que é a área que tenho mais interesse, elas foram construídas por uma comissão de estudo da construção civil, abaixo seguem as normas da área:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://dl.dropboxusercontent.com/u/9069443/NBR_14653-1_Norma_de_Avaliacoes_de_Bens_-_Procedimentos_Gerais.pdf"&gt;NBR 14653-1: Avaliação de Bens - Procedimentos Gerais 2010&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dl.dropboxusercontent.com/u/9069443/NBR_14.653-2_Imoveis_Urbanos_Revisada_2010.pdf"&gt;NBR 14.653-2: Avaliação de Imóveis Urbanos 2010&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dl.dropboxusercontent.com/u/9069443/NBR_14653-3_Avaliacao_de_Imoveis_Rurais_1.pdf"&gt;NBR 14653-3: Avaliação de Imóveis Rurais 2010&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Os principais métodos aprovados pela normal são os seguintes:&lt;/p&gt;
+&lt;h3&gt;Método comparativo direto de dados de mercado&lt;/h3&gt;
+&lt;p&gt;É o método que identifica o valor de um bem através do tratamento técnico dos atributos que o constitui comparando-os com uma determinada amostra, isto é, o bem é avaliado com base na comparação direta de seus atributos com os atributos de uma amostra a qual têm já definido os seus valores. Na &lt;a href="http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/"&gt;parte I&lt;/a&gt; quando eu mostrei a regressão linear, eu estava demonstrando o uso do método comparativo.&lt;/p&gt;
+&lt;p&gt;A norma permite outras formas de avaliação utilizando-se de dados do mercado, por exemplo, é possível utilizar uma rede neural. Além de disso a norma também explica detalhes técnico-científicos para que uma avaliação seja qualificada, isto é, existe uma formalidade metodológica para a avaliação.&lt;/p&gt;
+&lt;h3&gt;Método Involutivo&lt;/h3&gt;
+&lt;p&gt;Este método identifica o valor do bem com base num estudo de viabilidade técnico-econômico considerando o seu aproveitamento eficiente. Um exemplo seria uma avaliação de uma &lt;a href="http://legislacao.planalto.gov.br/legisla/legislacao.nsf/8b6939f8b38f377a03256ca200686171/a05d1c9a21be8cc603256a1f0044905a?OpenDocument"&gt;Gleba&lt;/a&gt;, onde o método considera os custos de urbanização, impostos, lucro entre outros fatores para a criação de um empreendimento, no caso a venda de lotes. No fim, é possível chegar ao valor da Gleba e assim a avaliação.&lt;/p&gt;
+&lt;h3&gt;Método Evolutivo&lt;/h3&gt;
+&lt;p&gt;O método evolutivo trabalha em cima do somatório dos componentes do bem a ser avaliado, para o caso de obter o valor de mercado se faz necessário adicionar um fator de comercialização que irá multiplicar o somatório. O somatório seria o valor de reedição ou custo de reprodução do bem nos dias atuais, isto é, considerando fatores de depreciação por exemplo.&lt;/p&gt;
+&lt;h2&gt;Onde entra Python?&lt;/h2&gt;
+&lt;p&gt;Esta parte II ficou apenas na teoria, foi uma breve (&lt;strong&gt;muito breve&lt;/strong&gt;) conversa sobre Engenharia de Avaliações. Na verdade eu deveria ter começado com essa parte teórica mas como meus pensamentos são turvos comecei do meio e voltei ao início. Nas próximas partes irei detalhar cada método e implementá-lo em Python, mas o foco será o método comparativo de mercado, pois como o título do artigo diz, a ideia é ver técnicas de regressão.&lt;/p&gt;</summary><category term="python"></category><category term="engenharia-de-avaliações"></category></entry><entry><title>Iniciando um projeto Django (Arquitetura, Organização e Dicas) - Parte I</title><link href="http://www.gilenofilho.com.br/iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-i" rel="alternate"></link><updated>2014-10-17T11:29:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-10-17:iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-i</id><summary type="html">&lt;p&gt;Olá pessoal, quando eu comecei a trabalhar com Django uma das minha maiores dúvidas era em relação a arquitetura de um projeto, organização dos arquivos, diretórios e coisas do tipo. O comando &lt;strong&gt;django-admin.py startproject&lt;/strong&gt; só criava 4 arquivos e eu ficava com dúvida em como seria a arquitetura de um grande projeto. Eu estava acostumado com a burocracia de Java e C#, eram muitas classes abstratas e interfaces, acredito que hoje isso tenha melhorado mas na minha época era muita complexidade, tanto que eu usava template de projeto que não conseguia entender boa parte do código e isso era algo que me fazia infeliz nessas linguagens, mas isso fica para outro artigo.&lt;/p&gt;
+&lt;p&gt;Felizmente eu comecei a trabalhar no &lt;a href="https://pt-br.facebook.com/AtePassar"&gt;Atepassar&lt;/a&gt;, esse projeto foi fechado por problemas internos mas isso é outra história. Lá eu vi que a simplicidade com que eu usava Django não era porque eu estava começando, para meu espanto Django era simples mesmo, assim como Python. Entretanto tinham alguns detalhes na organização do projeto que na época não eram muito claros para mim. Havia liberdade mas como eu era iniciante eu queria alguma indicação de como organizar meu projeto.&lt;/p&gt;
+&lt;p&gt;Hoje se você procurar por "&lt;a href="http://lmgtfy.com/?q=django+template+project"&gt;django template project&lt;/a&gt;" no google, vai ver diversos exemplos de projetos e a partir da versão 1.4 foi disponibilizada uma forma de no &lt;a href="https://docs.djangoproject.com/en/dev/ref/django-admin/#django-admin-startproject"&gt;startproject&lt;/a&gt; indicar a estrutura inicial do projeto, que já foi um grande avanço na organização do projeto.&lt;/p&gt;
+&lt;p&gt;Primeiramente eu irei mostrar o template de projeto que eu utilizo: https://github.com/gileno/django-template-project. A versão desse post vai até o commit: https://github.com/gileno/django-template-project/tree/ad4c0978a09cd8aa510e1555f06baf53a5ee9faa, como estou sempre atualizando o master já não está tão simples.&lt;/p&gt;
+&lt;p&gt;Para usá-lo, rode o &lt;strong&gt;startproject&lt;/strong&gt; da seguinte forma:&lt;/p&gt;
+&lt;pre&gt;django-admin startproject --template=https://github.com/gileno/django-template-project/archive/master.zip --extension=conf --name=Makefile --name=local_settings.py.example project_name&lt;/pre&gt;
+
+&lt;p&gt;Substitua o &lt;em&gt;project_name&lt;/em&gt; pelo nome do seu projeto. Esse meu template tem uma base de um outro criado pelo &lt;a href="https://twitter.com/allisson"&gt;Allisson&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;https://github.com/allisson/django-project-template&lt;/p&gt;
+&lt;p&gt;Eu adaptei para algumas necessidades minhas e adicionei algumas funções, templatetag's e uma app base, &lt;strong&gt;core&lt;/strong&gt;. Nessa primeira parte eu vou apresentar apenas a estrutura base do projeto e a app &lt;strong&gt;core&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A estrutura base não tem uma pasta para para os templates pois eu uso a pasta &lt;strong&gt;templates&lt;/strong&gt; dentro da app &lt;strong&gt;core&lt;/strong&gt; a mesma coisa eu faço para os arquivos estáticos, usando a pasta &lt;strong&gt;static&lt;/strong&gt;, isso evita criar uma pasta templates e uma static fora das apps, além de evitar alterar duas settings: &lt;em&gt;TEMPLATES_DIRS&lt;/em&gt; e &lt;em&gt;STATIC_DIRS&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Eu também adiciono um Makefile para algumas tarefas, normalmente têm mais opções mas esse do template é uma versão simplificada. Além disso, vão alguns arquivos de configuração que serão utilizados no servidor, como o &lt;strong&gt;nginx.conf&lt;/strong&gt; e o &lt;strong&gt;supervisor.conf&lt;/strong&gt;, por fim adiciono um gunicorn_start que é um shell script que será utilizado para levantar o processo do gunicorn.&lt;/p&gt;
+&lt;p&gt;Enfim, nesta primeira parte eu mostrei apenas a base do template de projeto que eu utilizo, ainda faltam alguns utilitários, como: funções, templatetag's, models...&lt;/p&gt;
+&lt;p&gt;Parte II - http://gilenofilho.com.br/iniciando-um-projeto-django-arquitetura-organizacao-e-dicas-parte-ii/&lt;/p&gt;
+&lt;p&gt;Atualizado: Ao postar esse artigo no PUG-PE o &lt;a href="http://www.dirtycoder.net"&gt;João&lt;/a&gt; me indicou o &lt;a href="https://github.com/audreyr/cookiecutter"&gt;cookiecutter&lt;/a&gt; e mencionou que existe um para o django &lt;a href="https://github.com/pydanny/cookiecutter-django"&gt;cookiecutter-django&lt;/a&gt;. Por hora o sistema atual do django é suficiente para mim e eu costumo ser preguiçoso, isto é, procuro o mais simples e direto possível, mas no final da série é provável que faça uma versão final usando o cookiecutter.&lt;/p&gt;
+&lt;h3&gt;Curso de Django&lt;/h3&gt;
+&lt;p&gt;No dia 11 de novembro irá iniciar uma nova turma do meu curso de Django pelo PyCursos. Iremos utilizar Python 3 e a versão mais atual do Django 1.6 e 1.7. Mais detalhes em:&lt;/p&gt;
+&lt;p&gt;http://pycursos.com/django/&lt;/p&gt;</summary><category term="python"></category><category term="django"></category></entry><entry><title>Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte I</title><link href="http://www.gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i" rel="alternate"></link><updated>2014-10-07T11:24:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-10-07:tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;O que são modelos de regressão e como usá-los na avaliação de bens em geral usando Python.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Esse é um post migrado do Medium.&lt;/p&gt;
+&lt;h3&gt;Introdução&lt;/h3&gt;
+&lt;p&gt;Na estatística, a &lt;a href="http://pt.wikipedia.org/wiki/Regress%C3%A3o"&gt;Regressão&lt;/a&gt; é um meio de inferir o valor de uma dada variável dependente com base em variáveis independentes, também chamadas de variáveis explicativas. Em outras palavras, a ideia é gerar um modelo que possa explicar o comportamento de determinado conjunto de dados, em perspectiva de uma variável, na avaliação de bens, a variável tende a ser o preço do bem a ser avaliado.&lt;/p&gt;
+&lt;p&gt;A &lt;a href="http://pt.wikipedia.org/wiki/Engenharia_de_avalia%C3%A7%C3%B5es"&gt;Engenharia de Avaliação&lt;/a&gt; é o ramo da engenharia que se concentra em estudar as diversas formas de se gerar o valor de um bem — avaliação do bem — e em geral é associada a avaliação imobiliária mas pode ser usada para avaliar outros bens como: máquinas, empresas, veículos…&lt;/p&gt;
+&lt;p&gt;Existem modelos de regressão que usam inferência estatística e outros que usam técnicas de inteligência artificial — como uma rede neural que pode ser usada tanto para classificação como para regressão. Nesta primeira parte irei mostrar o modelo clássico de regressão linear múltipla[1][2] — usando o método dos mínimos quadrados[3] — uma técnica estatística que visa gerar um modelo matemático — função linear — que será usada para inferir o valor da variável dependente com base nas variáveis independentes, o final o modelo fica assim:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Equação do Modelo de Regressão" src="/content/images/2014/10/regression-multiple.png" /&gt;&lt;/p&gt;
+&lt;p&gt;No modelo, o Y chapéu é a variável dependente, os X's são as variáveis independentes, o beta zero é o intercepto e os outros beta's são os parâmetros gerados pelo modelo que indica o declive da reta de regressão em relação a variável que ele está associado.&lt;/p&gt;
+&lt;p&gt;O método dos mínimos quadrados (MMQ) ou Ordinary Least Squares (OLS), é uma otimização matemática que visa minimizar a soma do quadrado dos erros, aproximando a equação linear para o conjunto de dados [3] — este link da wikipédia explica em detalhes como é feito essa regressão. Está é uma versão geral, para mais detalhes olhar as referências.&lt;/p&gt;
+&lt;h3&gt;Regressão Linear em Python&lt;/h3&gt;
+&lt;p&gt;Em python temos algumas bibliotecas que já fazem a regressão linear:&lt;/p&gt;
+&lt;p&gt;http://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html&lt;/p&gt;
+&lt;p&gt;http://pysal.readthedocs.org/en/v1.7/library/spreg/ols.html&lt;/p&gt;
+&lt;p&gt;Marcel Caraciolo fez um artigo em inglês muito bom fazendo uma implementação em Python, vale a pena conferir: http://aimotion.blogspot.com.br/2011/10/machine-learning-with-python-linear.html&lt;/p&gt;
+&lt;p&gt;Uma simples implementação de regressão usando a biblioteca científica &lt;a href="http://www.numpy.org/"&gt;numpy&lt;/a&gt; — apenas para uso didático:&lt;/p&gt;
+&lt;p&gt;https://gist.github.com/gileno/1b58b43e7b1d13eabfaa&lt;/p&gt;
+&lt;h3&gt;Referências&lt;/h3&gt;
+&lt;p&gt;[1] DANTAS, Rubens Alves. Engenharia de Avaliações — Uma Introdução à Metodologia Científica. 1ª Edição, Editora Pini, 1998&lt;/p&gt;
+&lt;p&gt;[2] http://pt.wikipedia.org/wiki/Regress%C3%A3o_linear&lt;/p&gt;
+&lt;p&gt;[3] http://pt.wikipedia.org/wiki/M%C3%A9todo_dos_m%C3%ADnimos_quadrados&lt;/p&gt;</summary><category term="python"></category><category term="engenharia-de-avaliações"></category></entry><entry><title>Python substitui Java como 1° LP no curso de SI da UFPE</title><link href="http://www.gilenofilho.com.br/python-substitui-java-como-1-lp-no-curso-de-si-da-ufpe" rel="alternate"></link><updated>2014-10-01T14:25:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-10-01:python-substitui-java-como-1-lp-no-curso-de-si-da-ufpe</id><summary type="html">&lt;p&gt;Os últimos dois semestres da Universidade Federal de Pernambuco (UFPE), 2013.2 e 2014.1, os alunos do curso de Sistemas de Informação (SI) do CIn/UFPE (Centro de Informática da UFPE) que reprovavam a disciplina de Introdução a Programação com Java (IP), cursavam no semestre posterior uma disciplina extra de IP que usava Python ao invés de Java como linguagem. Eu participei dessas turmas extras como monitor do professor &lt;a href="www.cin.ufpe.br/~faps/"&gt;Airton&lt;/a&gt;, e me senti muito feliz em saber que no semestre de 2014.2 os resultados foram satisfatórios e agora a disciplina de IP não será mais com Java e sim com Python.&lt;/p&gt;
+&lt;p&gt;Entretanto o que eu percebi é que não é apenas usando Python como primeira LP que é possível melhorar o ensino de programação nas universidades, a melhora está na metodologia, no espírito de comunidade e na cultura que essa linguagem representa, e isso eu posso representar em 2 termos: Software Livre e Comunidade Apaixonada.&lt;/p&gt;
+&lt;p&gt;Quando foi anunciado que a disciplina de IP teria uma turma extra com Python, muitos membros da comunidade Python se dispuseram a ajudar, logo surgiram muitas ideias e possibilidades. Eu, que estava afastado da universidade, fiz questão de ajudar e tive uma liberdade muito grande do professor para levar o meu conhecimento acadêmico e profissional à disciplina como monitor. O professor deixou a disciplina muito mais prática, houve até uma pequena maratona de programação (salve as devidas proporções).&lt;/p&gt;
+&lt;p&gt;Enfim, o que eu aprendi é que uma linguagem de programação é apenas uma ferramenta, mas como tal, deve ser cuidadosamente escolhida para um melhor aproveitamento e para mim Python é a melhor linguagem para o ensino de programação em cursos de Computação, não falo de modo geral porque pode (e deve) existir melhores formas de ensinar programação em outros ambientes.&lt;/p&gt;
+&lt;p&gt;Complementando para quem não viu, Python se tornou a linguagem mais popular no ensino de programação das principais universidades dos Estados Unidos:&lt;/p&gt;
+&lt;p&gt;http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Créditos&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Além de mim e do professor Airton, houveram outros monitores e professores envolvidos que foram importantes para essa mudança, mais detalhes podem ser vistos na página da disciplina: https://sites.google.com/site/if968isturma2/&lt;/p&gt;</summary><category term="python"></category><category term="universidade"></category></entry><entry><title>Workshop de Python na FASE (Olinda) - Divulgação dos Cursos Presenciais</title><link href="http://www.gilenofilho.com.br/workshop-de-python-na-fase-olinda-divulgacao-dos-cursos-presenciais" rel="alternate"></link><updated>2014-05-26T08:29:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-05-26:workshop-de-python-na-fase-olinda-divulgacao-dos-cursos-presenciais</id><summary type="html">&lt;p&gt;Olá pessoal, no sábado passado (24/05/2014), eu e &lt;a href="https://twitter.com/pbcmiranda"&gt;Péricles Miranda&lt;/a&gt; demos um workshop de Python na Faculdade Santa Emília - FASE. Mostramos uma visão geral sobre Python e o seu ecossistema, após a apresentação começamos a mostrar exemplos de código em Python e demonstrando o seu poder em diversos ambientes: Desktop, Web, Computação Científica ...&lt;/p&gt;
+&lt;p&gt;Esse workshop faz parte de uma sério de workshop's que iremos fazer em Recife e região metropolitana para divulgar os cursos presencias que irão ocorrer em Julho, após a Copa do Mundo de Futebol.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://pycursos.com/python3-para-desenvolvedores/"&gt;Python para Desenvolvedores&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pycursos.com/jornada-web-django/"&gt;Python na Web com Django&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O código está no github: &lt;a href="https://github.com/gileno/workshop-fase"&gt;https://github.com/gileno/workshop-fase&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;E os slides estão abaixo:&lt;/p&gt;
+&lt;script async class="speakerdeck-embed" data-id="1d14f150c67e0131b2ca32a12605ad89" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;</summary><category term="python"></category><category term="comunidade"></category></entry><entry><title>XXXIII Encontro do PUG-PE</title><link href="http://www.gilenofilho.com.br/xxxiii-encontro-do-pug-pe" rel="alternate"></link><updated>2014-05-18T21:17:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-05-18:xxxiii-encontro-do-pug-pe</id><summary type="html">&lt;p&gt;Olá pessoal, este último dia 17 - 17/05/2014 - aconteceu o 33º Encontro do PUG-PE (Python User Group Pernambuco). Eu dei uma palestra sobre bibliotecas científicas com Python, foi uma palestra bem simples e genérica mas deu para ver um exemplo de uso delas com a criação de um classificador KNN (K Nearest Neighbors).&lt;/p&gt;
+&lt;p&gt;Abaixo segue a palestra:&lt;/p&gt;
+&lt;script async class="speakerdeck-embed" data-id="a65e16a0bfef0131c2e10239d959ba18" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;
+
+&lt;p&gt;O link para o código no github:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/gileno/brincando-de-cientista-com-python"&gt;https://github.com/gileno/brincando-de-cientista-com-python&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="inteligência-artificial"></category><category term="comunidade"></category></entry><entry><title>Migrando da Amazon para a DigitalOcean</title><link href="http://www.gilenofilho.com.br/migrando-da-amazon-para-a-digitalocean" rel="alternate"></link><updated>2014-05-08T15:46:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-05-08:migrando-da-amazon-para-a-digitalocean</id><summary type="html">&lt;p&gt;Olá pessoal, recentemente migrei alguns sistemas (PyCursos e Pingmind) da &lt;a href="https://aws.amazon.com/"&gt;AWS&lt;/a&gt; (Amazon Web Services) para a &lt;a href="https://www.digitalocean.com/?refcode=7e3d1a0c801e"&gt;DigitalOcean&lt;/a&gt; e vou falar um pouco sobre essa experiência.&lt;/p&gt;
+&lt;p&gt;A migração não foi uma decisão fácil, afinal nunca problemas com a AWS - apenas 1 em 2 anos de uso - e a AWS oferece muito mais do que simplesmente uma VPS Linux, ela tem diversos serviços como o &lt;a href="https://aws.amazon.com/pt/rds/"&gt;RDS&lt;/a&gt; e o &lt;a href="https://aws.amazon.com/pt/s3/"&gt;S3&lt;/a&gt; que tiram a responsabilidade do desenvolvedor de gerenciar alguns recursos e ferramentas. Mas então porque sair da AWS? A primeira coisa é o custo, em muitos casos não irá compensar mas no meu caso passei de uma conta de $ 160 - $ 190 por mês para exatos $ 45 (+ $ 60 por ano do &lt;a href="https://vimeo.com/"&gt;Vimeo&lt;/a&gt;), uma economia considerável. Engraçado é que depois que eu mudei para a DigitalOcean o &lt;a href="https://www.linode.com/"&gt;Linode&lt;/a&gt; baixa os preços e coloca SSD, se tivesse feito antes é provável que eu voltasse para o Linode (usava ele antes da AWS).&lt;/p&gt;
+&lt;p&gt;Outro fator é a dependência com a AWS, conversando com um professor da UFPE da área de sistemas distribuídos, ele comentou essa questão da dependência com empresas de Computação na Nuvem. As empresas oferecem diversos serviços extra (considerando que uma VPS é o básico) e quando você precisa mudar sua arquitetura ou trocar de ferramenta você terá muitos problemas, e de fato isto aconteceu comigo. Tive problemas na organização dos arquivos estáticos que antes eram servidos pelo S3 e os vídeos que usavam o &lt;a href="http://aws.amazon.com/pt/cloudfront/"&gt;Cloud Front&lt;/a&gt;. Felizmente o código está razoavelmente estruturado e genérico - na medida do possível - e para os vídeos que eram o maior problemas migramos para o Vimeo - particularmente uma das melhores coisas que eu já fiz na minha vida.&lt;/p&gt;
+&lt;p&gt;De modo geral foram esses os argumentos mais fortes que me fizeram fazer essa mgiração, mas houveram outros pequenos detalhes como armazenamento em SSD, API simples e mais direta - existem menos serviços - suporte via e-mail muito bom e uma área para a comunidade com fórum e tutoriais.&lt;/p&gt;
+&lt;p&gt;No fim, o que eu desejo passar neste post é o seguinte: antes de contratar um provedor de nuvem, análise todos os aspectos técnicos e financeiros dele, por mais que AWS seja muito boa eu me sinto muito mais feliz usando a DigitalOcean pois oferece um ótimo serviço e estou livre para montar minha infra do jeito que eu quiser, e caso eu queira migrar para outro provedor - como o Linode - será muito mais tranquilo. Eu não sou contra ficar preso a alguns tipos de serviços, eu mesmo estou usando o Vimeo e alguns outros serviços como mailchimp, mas são serviços mais gerais, serviços gerenciais e é mais fácil mudar se assim eu desejar.&lt;/p&gt;
+&lt;p&gt;O próximo passo será organizar minhas instâncias (droplets) na DigitalOcean para fazer auto scale e separar melhor as instâncias que serão responsáveis pelas app's e a instância do banco de dados, já vi alguns tutoriais e será algo divertido e que me trará um aprendizado legal.&lt;/p&gt;
+&lt;p&gt;Num próximo post eu falo mais detalhes técnicos dessa mudança e explico como está a estrutura de minhas instâncias, de toda forma abaixo segue alguns links interessantes que eu usei, eu já tenho uma experiência legal em montar a infra básica de uma app Django mas é sempre bom ver o que a galera faz por ai, na própria &lt;a href="https://www.digitalocean.com/community/"&gt;DigitalOcean&lt;/a&gt; existem muita coisa:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/"&gt;http://michal.karzynski.pl/blog/2013/06/09/django-nginx-gunicorn-virtualenv-supervisor/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.digitalocean.com/community/articles/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn"&gt;https://www.digitalocean.com/community/articles/how-to-install-and-configure-django-with-postgres-nginx-and-gunicorn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pypass.gr/tutorial/django-digitalocean-droplet"&gt;http://pypass.gr/tutorial/django-digitalocean-droplet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Obs: não estou ganhando nada para falar da DigitalOcean hein :) mas o link acima é com o meu refcode.&lt;/em&gt;&lt;/p&gt;</summary><category term="deploy"></category><category term="django"></category></entry><entry><title>Curso de Python na Web com Django</title><link href="http://www.gilenofilho.com.br/curso-de-python-na-web-com-django" rel="alternate"></link><updated>2014-04-09T08:44:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-04-09:curso-de-python-na-web-com-django</id><summary type="html">&lt;p&gt;Olá pessoal, eu resolvi deixar público uma aula do meu curso de &lt;a href="http://pycursos.com/django/"&gt;Django&lt;/a&gt; no &lt;a href="http://pycursos.com/"&gt;PyCursos&lt;/a&gt; para o pessoal ver a minha didática e ter uma ideia de como as aulas são gravadas. Essa aula faz parte do desenvolvimento de uma aplicação chamada Simple MOOC, que é uma plataforma de ensino a distância. A ideia dessa plataforma é ser o mais simples e objetiva possível mantendo funcionalidades básicas para o ensino a distância, no curso cada aula eu divido em 4 ou 5 vídeo aulas de curta duração para deixar o curso mais dinâmico e o usuário poder acessar a qualquer momento, sem aquela necessidade de ter muito tempo livre para poder estudar.&lt;/p&gt;
+&lt;p&gt;Além das vídeo-aulas o curso é composto por códigos de exemplo, slides, uma wiki com alguns tutoriais, fórum de dúvidas exclusivo do curso, onde eu respondo a todas as dúvidas rapidamente e os alunos também costumam interagir e dar boas sugestões e soluções para os problemas.&lt;/p&gt;
+&lt;p&gt;O curso tem um foco bem prático onde iremos ver os conteúdos descritos na ementa de uma forma dinâmica de acordo com o desenvolvimento da aplicação Simple MOOC. Apesar de ser um curso de backend (Python/Django), eu também exploro um pouco de html/css usando um framework css chamado &lt;a href="http://purecss.io/"&gt;PureCSS&lt;/a&gt; e fazendo ajustes no css sempre que necessário. O curso pode ser acessado de qualquer lugar com acesso a internet e sem limitações de acesso e o fim do curso não é determinado, eu sempre fico atualizando os conteúdos e o aluno poderá acessar todo o conteúdo por tempo indeterminado.&lt;/p&gt;
+&lt;p&gt;Para se inscrever no curso acesse: &lt;a href="http://pycursos.com/django/"&gt;http://pycursos.com/django/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Abaixo seguem as vídeo-aulas em ordem:&lt;/p&gt;
+&lt;iframe src="//player.vimeo.com/video/91448543" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;iframe src="//player.vimeo.com/video/91448544" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;iframe src="//player.vimeo.com/video/91462902" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;iframe src="//player.vimeo.com/video/91462903" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;iframe src="//player.vimeo.com/video/91462904" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="python"></category><category term="django"></category><category term="video-aula"></category></entry><entry><title>Aula sobre Arquivos com Python</title><link href="http://www.gilenofilho.com.br/aula-sobre-arquivos-com-python" rel="alternate"></link><updated>2014-02-10T21:37:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-02-10:aula-sobre-arquivos-com-python</id><summary type="html">&lt;p&gt;Olá pessoal, hoje eu dei aula de monitoria para a primeira turma de IP (Introdução a Programação) do CIn (Centro de Informática) - UFPE que está adotando Python como primeira LP (linguagem de programação).&lt;/p&gt;
+&lt;p&gt;Por enquanto apenas o curso de Sistema de Informação que está testando o uso de Python como primeira LP e em modo de teste, tradicionalmente os cursos do CIn tem Java como primeira LP e recentemente para o curso de Engenharia de Computação mudou para C.&lt;/p&gt;
+&lt;p&gt;Hoje foi uma aula bem simples sobre arquivos e eu fiz alguns slides para guiar e servir como revisão. Abaixo segue os slides no &lt;a href="https://speakerdeck.com/gileno/aula-sobre-arquivos-com-python"&gt;Speaker Deck&lt;/a&gt;:&lt;/p&gt;
+&lt;script async class="speakerdeck-embed" data-id="9fa75ba074b201312eb91a125ab0a9e4" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;</summary><category term="python"></category><category term="universidade"></category></entry><entry><title>Seminário de Tópicos Avançados em Inteligência Artificial</title><link href="http://www.gilenofilho.com.br/seminario-de-topicos-avancados-em-inteligencia-artificial" rel="alternate"></link><updated>2014-02-04T14:58:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2014-02-04:seminario-de-topicos-avancados-em-inteligencia-artificial</id><summary type="html">&lt;p&gt;Olá pessoal, segue abaixo a apresentação que eu fiz sobre um artigo da área de detecção de comunidades em redes.&lt;/p&gt;
+&lt;p&gt;O nome do artigo é:
+"A Modularity Maximization Algorithm for Community Detection in Social Networks with Low Time Complexity"&lt;/p&gt;
+&lt;p&gt;Os autores são:&lt;/p&gt;
+&lt;p&gt;Mohsen Arab - Department of Computer Science IASBSZanjan, Iran&lt;/p&gt;
+&lt;p&gt;Mohsen Afsharchi - Department of Computer Engineering University of ZanjanZanjan, Iran&lt;/p&gt;
+&lt;script async class="speakerdeck-embed" data-id="8a70d2706ff201319e4e7acd4122f569" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;</summary><category term="universidade"></category><category term="inteligência-artificial"></category><category term="redes-complexas"></category></entry><entry><title>Ambiente Virtual em Python com pip</title><link href="http://www.gilenofilho.com.br/ambiente-virtual-em-python-com-pip" rel="alternate"></link><updated>2013-09-29T23:58:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2013-09-29:ambiente-virtual-em-python-com-pip</id><summary type="html">&lt;p&gt;Olá pessoal, infelizmente por padrão a instalação de Python não vêm com os mecanismos para isolamento de um ambiente, evitando conflitos de versões entre bibliotecas de tercerios e até da versão Python utilizada em diferentes projetos. Assim resolvi fazer um vídeo que se encaixa na categoria do "Minuto Python", promovido pela &lt;a href="http://pycursos.com"&gt;PyCursos&lt;/a&gt;, falando de forma rápida como usar o gerenciador de pacotes python (pip), criar um ambiente virtual com virtualenv e usar os atalhos oferecidos pelo virtualenvwrapper para facilitar a criação de ambientes virtuais.&lt;/p&gt;
+&lt;p&gt;Abaixo segue o vídeo do youtube&lt;/p&gt;
+&lt;div class="flash-video"&gt;&lt;div&gt;&lt;iframe width="560" height="315" src="//www.youtube.com/embed/LhVVVUfYmqQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;</summary><category term="python"></category></entry><entry><title>10 Dicas sobre Empreendedorismo e Negócios</title><link href="http://www.gilenofilho.com.br/10-dicas-sobre-empreendedorismo-e-negocios" rel="alternate"></link><updated>2013-09-29T19:16:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2013-09-29:10-dicas-sobre-empreendedorismo-e-negocios</id><summary type="html">&lt;p&gt;Olá pessoal, na quinta-feira 26/09/2013 ocorreu o IV Workshop da empresa júnior de engenharia de produção da UFRN, com o tema: "Transforme sua insatisfação em próposito"&lt;/p&gt;
+&lt;p&gt;O Pingmind foi um dos convidados e eu fui lá representá-lo. Na ocasião não tinha feito slides mas acabei montando posteriormente os slides com base nos tópicos que citei na palestra, segue abaixo os slides:&lt;/p&gt;
+&lt;script async class="speakerdeck-embed" data-id="04dca0100b82013138ea6a7020213b05" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;</summary><category term="startup"></category><category term="evento"></category></entry><entry><title>Aulão no PyCursos sobre Django Class-based Views</title><link href="http://www.gilenofilho.com.br/aulao-no-pycursos-sobre-django-class-based-views" rel="alternate"></link><updated>2013-09-11T17:11:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2013-09-11:aulao-no-pycursos-sobre-django-class-based-views</id><summary type="html">&lt;p&gt;Olá pessoal, recentemente eu fiz um outro aulão sobre Django Class-based Views no &lt;a href="http://pycursos.com"&gt;PyCursos&lt;/a&gt; e como não tinha publicado anteriormente no blog estou colocando agora para ficar registrado.&lt;/p&gt;
+&lt;p&gt;Abaixo segue o vídeo do youtube com a gravação do aulão.&lt;/p&gt;
+&lt;div class="flash-video"&gt;&lt;div&gt;&lt;iframe width="560" height="315" src="//www.youtube.com/embed/0WVCCQz5A_k" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;</summary><category term="python"></category><category term="video-aula"></category><category term="django"></category></entry><entry><title>Aulão sobre Python e Excel - xlwt e xlrd</title><link href="http://www.gilenofilho.com.br/aulao-sobre-python-e-excel-xlwt-e-xlrd" rel="alternate"></link><updated>2013-09-11T16:24:00-03:00</updated><author><name>Gileno Filho</name></author><id>tag:www.gilenofilho.com.br,2013-09-11:aulao-sobre-python-e-excel-xlwt-e-xlrd</id><summary type="html">&lt;p&gt;Olá pessoal, a um tempo atrás eu tinha feito um aulão no mutirão do PyCursos sobre manipulação de planilhas do excel com Python, usando as bibliotecas &lt;a href="http://www.python-excel.org/" title="Link da Biblioteca"&gt;xlrd e xlwt&lt;/a&gt;. Na época não tinha postado nada sobre isso e para ficar registrado aqui no blog e para eu me lembrar de ficar postando algo aqui, resolvi criar esse post&lt;/p&gt;
+&lt;p&gt;Abaixo segue o vídeo do youtube com a gravação do aulão.&lt;/p&gt;
+&lt;div class="flash-video"&gt;&lt;div&gt;&lt;iframe width="560" height="315" src="//www.youtube.com/embed/7PjWa0pBLQk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;&lt;/div&gt;</summary><category term="python"></category><category term="dados"></category><category term="video-aula"></category></entry></feed>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml"
+    itemscope itemtype="http://schema.org/Blog"
+    lang="pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <meta http-equiv="content-language" content="pt-br">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="Website Gileno Filho"/>
+        <meta name="keywords" content="programação, python, recife, desenvolvimento, data science"/>
+        <meta name="author" content="Gileno Filho">
+        <meta name="generator" content="Feito com Materialize, Pelican,
+        Python e VIM. ">
+        <title>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte I | Gileno Filho</title>
+
+        <!-- Feeds -->
+            <link href="http://www.gilenofilho.com.br/feeds.atom" type="application/atom+xml" rel="alternate" title="Gileno Filho ATOM Feed"/>
+            <link href="http://www.gilenofilho.com.br/feeds.rss" type="application/rss+xml" rel="alternate" title="Gileno Filho RSS Feed"/>
+
+        <!-- CSS  -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="http://www.gilenofilho.com.br/theme/css/font-awesome.min.css">
+        <link href="http://www.gilenofilho.com.br/theme/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="http://www.gilenofilho.com.br/theme/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="http://www.gilenofilho.com.br/theme/css/animate.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="http://www.gilenofilho.com.br/theme/css/pygments/perldoc.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link href="http://www.gilenofilho.com.br/theme/css/article.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+        <style type="text/css">
+          .hero {
+            height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) repeat scroll 0 0%, rgba(0, 0, 0, 0) url('http://www.gilenofilho.com.br/images/foto-bairrorecife.jpg'); repeat scroll 0 0;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            overflow: hidden;
+          }
+        </style>
+        <!-- Metadata -->
+    <!-- OpenGraph -->
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte I"/>
+    <meta property="og:url" content="http://www.gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i"/>
+    <meta property="og:site_name" content="Gileno Filho"/>
+    <meta property="og:description" content="Introdução Olá pessoal, a algum tempo que estou organizando minha agenda para voltar a trabalhar em alguns Web Crawlers para capturar dados ..."/>
+    <meta property="og:image" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@gilenofilho"/>
+    <meta name="twitter:creator" content="@gilenofilho"/>
+    <meta name="twitter:domain" content="www.gilenofilho.com.br"/>
+    <meta name="twitter:title" content="Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte I"/>
+    <meta name="twitter:description" content="Introdução Olá pessoal, a algum tempo que estou organizando minha agenda para voltar a trabalhar em alguns Web Crawlers para capturar dados ..."/>
+    <meta name="twitter:image:src" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- Article meta -->
+    <meta property="article:author" content="Gileno Filho"/>
+    <meta property="article:section" content="tutoriais"/>
+    <meta property="article:tag" content="python, dados"/>
+    <meta property="article:published_time" content="2015-06-25T14:23:00-03:00"/>
+
+    <!-- Google+ -->
+    <meta itemprop="name" content="Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte I"/>
+    <meta itemprop="description" content="Introdução Olá pessoal, a algum tempo que estou organizando minha agenda para voltar a trabalhar em alguns Web Crawlers para capturar dados ..."/>
+    <meta itemprop="image" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- General purpose meta -->
+    <meta name="description" content="Introdução Olá pessoal, a algum tempo que estou organizando minha agenda para voltar a trabalhar em alguns Web Crawlers para capturar dados ..."/>
+    <meta name="keywords" content="python, dados"/>
+
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-15015773-2', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+    </head>
+
+    <body class="blue-grey lighten-5">
+        <header>
+            <!-- Navigation -->
+<div class="navbar-fixed">
+    <nav class="blue-grey role="navigation">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a id="logo-container" href="/" class="brand-logo">
+                    Gileno Filho
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li ><a href="http://www.gilenofilho.com.br/sobre">Sobre</a></li>
+                    <li ><a href="http://www.gilenofilho.com.br/categorias/cursos/">Cursos</a></li>
+                    <li ><a href="http://www.gilenofilho.com.br/categorias/palestras/">Palestas</a></li>
+                    <li ><a href="http://www.gilenofilho.com.br/categorias/tutoriais/">Tutoriais</a></li>
+                    <li ><a href="http://www.gilenofilho.com.br/categorias/utils/">Utils</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li class="blue-grey lighten-1" id="nav-mobile-header">
+                        <div class="row center">
+                            <div class="col s12" id="nav-mobile-header-img">
+                                <a href="/" alt="Gileno Filho" title="Gileno Filho">
+                                    <img class="circle responsive-img valign z-depth-1" alt="Gileno Filho Logo" title="Gileno Filho" src="http://www.gilenofilho.com.br/">
+                                </a>
+                            </div>
+                            <div class="col s12" id="nav-mobile-header-text">
+                                <span class="blue-grey-text text-lighten-5">Gileno Filho</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li ><a href="http://www.gilenofilho.com.br/sobre">Sobre</a></li>
+                    <li ><a href="http://www.gilenofilho.com.br/categorias/cursos/">Cursos</a></li>
+                    <li ><a href="http://www.gilenofilho.com.br/categorias/palestras/">Palestas</a></li>
+                    <li ><a href="http://www.gilenofilho.com.br/categorias/tutoriais/">Tutoriais</a></li>
+                    <li ><a href="http://www.gilenofilho.com.br/categorias/utils/">Utils</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </div>
+    </nav>
+</div>
+            <!-- Banner -->
+        </header>
+        <main>
+            <!-- Content -->
+<div class="container content-container">
+    <div style="bottom: 45px; right: 24px;" class="fixed-action-btn">
+        <a title="Código fonte no GitHub" class="btn-floating btn-large" href="http://github.com/gileno/gileno.github.io/tree/pelican/content/articles/2015-06-25-usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i.markdown" target="_blank">
+            <i class="fa fa-code"></i> Código Fonte
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align animated bounceInDown slow article-meta">
+            <h1>Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte I</h1>
+            <div class="article-metadata blue-grey-text text-lighten-5">
+                <span class="article-author-name">
+                <a href="http://www.gilenofilho.com.br/autores/gileno-filho" title="Gileno Filho" class="blue-grey-text text-lighten-5">
+                        <i class="fa fa-user"></i> Gileno Filho
+                    </a>
+                </span>
+                <span class="article-category">
+                <a href="http://www.gilenofilho.com.br/categorias/tutoriais" title="tutoriais" class="blue-grey-text text-lighten-5">
+                        <i class="fa fa-folder"></i> tutoriais
+                    </a>
+                </span>
+                <span class="article-datetime">
+                    <i class="fa fa-calendar"></i> <time datetime="2015-06-25T14:23:00-03:00">Qui 25 Junho 2015</time>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col s12 m12 l12 white z-depth-2 article">
+<ul class="breadcrumb">
+    <li>
+    <a class="grey-text text-darken-1" title="Gileno Filho Home" href="/"><i class="fa fa-home grey-text text-darken-2"></i></i></a>
+    </li>
+        <li>
+        <a class="grey-text text-darken-1" title="Gileno Filho|escape" href="http://www.gilenofilho.com.br/blog">Gileno Filho</a>
+        </li>
+        <li>
+        <a class="grey-text text-darken-1" title="tutoriais|escape" href="http://www.gilenofilho.com.br/categorias/tutoriais">tutoriais</a>
+        </li>
+        <li class="grey-text text-lighten-1">Usando o Scrapy e o Rethinkdb para capturar e armazenar dados imobiliários - Parte I</li>
+</ul>            <div class="article-contents">
+            <h3>Introdução</h3>
+<p>Olá pessoal, a algum tempo que estou organizando minha agenda para voltar a trabalhar em alguns <a href="https://pt.wikipedia.org/wiki/Web_crawler">Web Crawlers</a> para capturar dados imobiliários que é um tipo de dado que gosto de trabalhar. Assim resolvi publicar esse artigo, que fará parte de uma série de 3, onde irei mostrar como fazer um crawler usando o <a href="http://scrapy.org/">Scrapy</a> e como armazenar num banco de dados que muito me interessa, o <a href="http://www.rethinkdb.com/">rethinkdb</a>.</p>
+<h3>Agenda</h3>
+<ul>
+<li><a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-i/">Parte I - Configurando e rodando o Scrapy</a></li>
+<li><a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-ii/">Parte II - Instalando, configurando e armazenando os dados no Rethinkdb</a></li>
+<li><a href="http://gilenofilho.com.br/usando-o-scrapy-e-o-rethinkdb-para-capturar-e-armazenar-dados-imobiliarios-parte-iii/">Parte III - Deploy do projeto Scrapy</a></li>
+</ul>
+<h3>Vamos lá</h3>
+<p>O Scrapy é um framework para facilitar o desenvolvimento de crawlers, pois mesmo sendo fácil fazer um crawler usando o built-in do Python como o <a href="https://docs.python.org/2/library/urllib.html">urllib</a>, ou bibliotecas externas como <a href="http://docs.python-requests.org/en/latest/">requests</a>, fica mais rápido e prático utilizar um conjunto de ferramentas desenhados para este fim, é o famoso "batteries included".</p>
+<p>Para instalar o Scrapy vamos utilizar o pip (supondo que já esteja num <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a>):</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+pip install scrapy</p>
+<p>Após instalar o scrapy você terá disponível o comando "scrapy" mais detalhes sobre as opções dele aqui:</p>
+<p>http://doc.scrapy.org/en/1.0/topics/commands.html</p>
+<p>O scrapy é composto de "spiders" que é a parte do código que irá definir que páginas serão acessadas para capturar informações, "items" que são as informações que serão extraídas das páginas e os "pipelines" que irão definir como esses "items" serão processados.</p>
+<p>Um exemplo simples de um crawler utilizando o Scrapy:</p>
+<script src="https://gist.github.com/gileno/8579ef62f5a700ca99d4.js"></script>
+
+<p>Para rodar basta utilizar o comando scrapy:</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+scrapy runspider gilenofilho.py</p>
+<p>Você verá algo assim:</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+...
+2015-06-22 18:26:07 [scrapy] DEBUG: Redirecting (301) to <GET http://gilenofilho.com.br/> from <GET http://www.gilenofilho.com.br/>
+2015-06-22 18:26:07 [scrapy] DEBUG: Crawled (200) <GET http://gilenofilho.com.br/> (referer: None)
+2015-06-22 18:26:07 [gilenofilho] DEBUG: Hello World: http://gilenofilho.com.br/
+2015-06-22 18:26:07 [scrapy] INFO: Closing spider (finished)
+2015-06-22 18:26:07 [scrapy] INFO: Dumping Scrapy stats:
+...</p>
+<p>Uma Spider é basicamente uma classe que herda de <code>scrapy.Spider</code> o atributo <code>start_urls</code> está definindo as urls que devem ser acessadas inicialmente, você pode definir um método <code>starts_requests</code> que deve retornar uma lista de <code>scrapy.Request</code> através da keyword <code>yield</code>, assim:</p>
+<p>Obs: a implementação padrão do <code>starts_requests</code> procura o atributo <code>start_urls</code> e chama o método <code>parse</code>.</p>
+<script src="https://gist.github.com/gileno/83720a8c73a52685e399.js"></script>
+
+<p>Deve se utilizar <code>yield</code> e passar um <strong>callback</strong> para a <code>scrapy.Request</code> pois o scrapy faz requisições assíncronas, isto é, não espera a requisição inicial acabar para fazer uma nova requisição, e desta forma utiliza o conceito de geradores em Python, você pode ver mais detalhes de como geradores funcionam acessando as palestras de Luciano Ramalho em: http://pt.slideshare.net/ramalho/.</p>
+<p>O scrapy tem o conceito de projeto onde ficam organizados as "Spiders", "items" e "pipelines". Para criar um projeto scrapy basta utilizar o comando:</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+scrapy startproject nome_do_projeto</p>
+<p>Você verá que uma estrutura de diretórios e arquivos será criada para que facilite o crescimento do seu crawler. Eu criei um projeto chamado <strong>scrapy_olx</strong> e meu sistema de diretórios ficou assim:</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+scrapy_olx
+- scrapy_olx
+- - spiders
+- - - <strong>init</strong>.py
+- - <strong>init</strong>.py
+- - items.py
+- - pipelines.py
+- - settings.py
+- scrapy.cfg</p>
+<p>Agora vamos criar nosso primeiro Spider, com o comando:</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+scrapy genspider olx pe.olx.com.br</p>
+<p>Estou criando um crawler para capturar os imóveis de Pernambuco (PE) e esta é a url inicial no OLX. Dentro do diretório <strong>spiders</strong> foi criado um arquivo chamado olx.py contendo o esqueleto do nosso código, vou modificar o <strong>starts_urls</strong> para começar com a url dos imóveis para alugar, o arquivo modificado vai ficar assim:</p>
+<script src="https://gist.github.com/gileno/e533443087a86b4a5fb5.js"></script>
+
+<p>Para rodar este código basta utilizar o comando:</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+scrapy crawl olx</p>
+<p>Se antes usamos a opção <code>runspider</code> agora que estamos num projeto scrapy usamos a opção <code>crawl</code> passando o nome da <strong>spider</strong>, no caso <strong>olx</strong>.</p>
+<p>Agora vamos modificar o método <code>parse</code> para adicionar a lógica de verificar os links para os imóveis que a página contém, após isso iremos acessar a página do imóvel para só então capturar os dados do imóvel.</p>
+<script src="https://gist.github.com/gileno/b9013b0aa9b2d518fe6c.js"></script>
+
+<p>Agora no método parse usamos <strong>xpath</strong> para percorrer a estrutura do html e encontrar todos os <strong>li</strong> que contém a <strong>class</strong> css <strong>item</strong>, cada elemento deste tipo irá ter um imóvel e assim fazemos um for para buscar o <strong>href</strong> do link único para o imóvel. Ao pegar o link de cada imóvel retornamos através do <strong>yield</strong> uma nova requisição para o scrapy realizar e passamos desta vez outro callback, o <code>parse_detail</code>. Nesse primeiro momento ele apenas vai fazer o log da url.</p>
+<p>Rodando novamente o código será possível que o scrapy irá realizar 51 requisições, 1 para cada imóvel - 50 por página - e a primeira para acessar a página inicial.</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+scrapy crawl olx</p>
+<p>Após fazer a lógica de acessar cada imóvel vamos adicionar a parte de verificar se existe uma próxima página, visto que são exibidos 50 imóveis por página mas no final da página há uma paginação.</p>
+<p>O código ficará assim:</p>
+<script src="https://gist.github.com/gileno/39d3d663a314a56c8e2b.js"></script>
+
+<p>Obs: Atualizei o código com a dica do <a href="https://twitter.com/eliasdorneles">Elias Dorneles</a> sobre o <strong>normalize-path</strong>, essa função do <strong>xpath</strong> serve para remover o excesso de caracteres em branco e outros caracteres que a renderização do html ignora mas que está presente no código fonte.</p>
+<p>Veja que após o <code>for</code> usamos novamente o xpath para encontrar o link que contém o texto <strong>Próxima página</strong> que está no final da página do OLX - basta examinar o html. Se houver o link mandamos outra requisição ao scrapy, só que desta vez o callback é o mesmo método que estamos, o <code>parse</code>. Para acrescentar fazemos o log do título do imóvel, dando uma ideia de como podemos pegar outras informações sobre o imóvel, mais detalhes sobre isso no próximo artigo.</p>
+<p>Para rodar, basta novamente enviar o comando:</p>
+<p _="%" endhighlight="endhighlight">{% highlight sh %}
+scrapy crawl olx</p>
+<p>Para perceber que o scrapy é assíncrono nas suas requisições, basta ver que ele acessar a próxima página antes de acabar as requisições dos imóveis da primeira página.</p>
+<p>Enfim, essa primeira parte fica por aqui, na próxima irei mostrar os conceitos de <strong>Item</strong> e <strong>Pipeline</strong> que o scrapy possui para capturar e processar os dados armazenados.</p>
+<h3>Referências</h3>
+<ul>
+<li><a href="https://speakerdeck.com/eliasdorneles/explorando-scrapy-alem-do-tutorial">Explorando Scrapy além do tutorial</a></li>
+<li><a href="http://doc.scrapy.org/en/1.0/index.html">Documentação Oficinal do Scrapy</a></li>
+</ul>
+            </div>
+            <div class="article-tags">
+                <span class="icon"><i title="Tags do artigo" class="fa fa-tags"></i></i></span>
+                <span class="pill blue-grey lighten-2"><a class="white-text" href="http://www.gilenofilho.com.br/tags/python" title="Tag 'python'">python</a></span>
+                <span class="pill blue-grey lighten-2"><a class="white-text" href="http://www.gilenofilho.com.br/tags/dados" title="Tag 'dados'">dados</a></span>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="row" id="comments">
+        <div class="col s12 m12 l12 white z-depth-2">
+            <h4>Comentários</h4>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'gilenofilho'; // required: replace example with your forum shortname
+                var disqus_identifier = 'gilenofilho.com.br' + window.location.pathname;
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function () {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </section>
+</div>"
+
+            <!-- Footer -->
+<footer class="page-footer blue-grey darken-3">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Sobre</h5>
+                <p class="grey-text text-lighten-4">
+                
+    Website e Blog de Gileno Filho, escrevo sobre: Desenvolvimento,
+    Python, Django, Ciência de Dados, Engenharia de Avaliações,
+    Inteligência Artificial e Design Minimalista.
+
+                </p>
+
+
+            </div>
+            <div class="col l3 offset-l3 s12">
+                <h5 class="white-text">Social</h5>
+                <ul class="social-links">
+                    <li>
+                        <a class="white-text" href="https://github.com/gileno" title="GitHub">
+                            <i class="fa fa-github"></i> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://twitter.com/gilenofilho" title="Twitter">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.facebook.com/gilenofilho" title="Facebook">
+                            <i class="fa fa-facebook"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="mailto:contato@gilenofilho.com.br" title="E-mail">
+                            <i class="fa fa-envelope"></i> E-mail
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright blue-grey darken-4">
+        <div class="container">
+            Feito com
+            <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            e
+            <a class="orange-text text-lighten-3" href="https://github.com/getpelican/pelican">Pelican</a>
+            utilizando o tema
+            <a class="orange-text text-lighten-3" href="https://github.com/grupydf/malt">Malt</a>.
+        </div>
+    </div>
+</footer>
+            <!-- Scripts -->
+            <script src="http://www.gilenofilho.com.br/theme/js/jquery-2.1.1.min.js"></script>
+            <script src="http://www.gilenofilho.com.br/theme/js/materialize.min.js"></script>
+            <script src="http://www.gilenofilho.com.br/theme/js/parallax.js"></script>
+            <script src="http://www.gilenofilho.com.br/theme/js/init.js"></script>
+        </main>
+    </body>
+</html>
