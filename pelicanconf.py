@@ -34,7 +34,7 @@ EXTRA_PATH_METADATA = {
 
 WELCOME_TITLE = u'Seja bem vindo ao {}!'.format(SITENAME)
 WELCOME_TEXT = u'''
-    Programação, Python, Django, Web, Inteligência Artificial, Engenharia de Avaliações, Ensino e Minimalismo. Recife, Brasil
+    programador, cientista, pythonista e minimalista. Recife, Brasil
 '''
 SITE_BACKGROUND_IMAGE = 'images/foto-bairrorecife.jpg'
 FOOTER_ABOUT = u'''
@@ -45,32 +45,32 @@ FOOTER_ABOUT = u'''
 
 DEFAULT_LANG = u'pt'
 
-ARTICLE_URL = '{slug}'
+ARTICLE_URL = '/{slug}'
 ARTICLE_SAVE_AS = '{slug}/index.html'
 
-PAGE_URL = '{slug}'
+PAGE_URL = '/{slug}'
 PAGE_SAVE_AS = '{slug}.html'
 
-CATEGORIES_URL = 'categorias'
+CATEGORIES_URL = '/categorias'
 CATEGORIES_SAVE_AS = 'categorias/index.html'
-CATEGORY_URL = 'categorias/{slug}'
+CATEGORY_URL = '/categorias/{slug}'
 CATEGORY_SAVE_AS = 'categorias/{slug}/index.html'
 
-TAG_URL = 'tags/{slug}'
+TAG_URL = '/tags/{slug}'
 TAG_SAVE_AS = 'tags/{slug}/index.html'
-TAGS_URL = 'tags'
+TAGS_URL = '/tags'
 TAGS_SAVE_AS = 'tags/index.html'
 
-AUTHOR_URL = 'autores/{slug}'
+AUTHOR_URL = '/autores/{slug}'
 AUTHOR_SAVE_AS = 'autores/{slug}/index.html'
-AUTHORS_URL = 'autores'
+AUTHORS_URL = '/autores'
 AUTHORS_SAVE_AS = 'autores/index.html'
 
 INDEX_SAVE_AS = "index.html"
 
 PAGINATION_PATTERNS = (
-    (1, '{base_name}/', '{base_name}/index.html'),
-    (2, '{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
+    (1, '/{base_name}/', '{base_name}/index.html'),
+    (2, '/{base_name}/page/{number}/', '{base_name}/page/{number}/index.html'),
 )
 
 TRANSLATION_FEED_ATOM = None
@@ -110,23 +110,23 @@ OPEN_GRAPH_IMAGE = "images/eu.jpg"
 NAVBAR_HOME_LINKS = [
     {
         "title": u"Sobre",
-        "href": "sobre",
+        "href": "/sobre",
     },
     {
         "title": u"Cursos",
-        "href": "categorias/cursos/",
+        "href": "/categorias/cursos/",
     },
     {
         "title": u"Palestas",
-        "href": "categorias/palestras/",
+        "href": "/categorias/palestras/",
     },
     {
         "title": u"Tutoriais",
-        "href": "categorias/tutoriais/",
+        "href": "/categorias/tutoriais/",
     },
     {
         "title": u"Utils",
-        "href": "categorias/utils/",
+        "href": "/categorias/utils/",
     },
 ]
 

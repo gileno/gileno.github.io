@@ -14,8 +14,7 @@
         <meta name="description" content="{{ META_DESCRIPTION }}"/>
         <meta name="keywords" content="{{ META_KEYWORDS|join(', ') }}"/>
         <meta name="author" content="{{ AUTHOR }}">
-        <meta name="generator" content="Feito com Materialize, Pelican,
-        Python e VIM. ">
+        <meta name="generator" content="Pelican">
         <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
 
         <!-- Feeds -->
@@ -28,28 +27,16 @@
 
         <!-- CSS  -->
         {% block styles %}
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/font-awesome.min.css">
-        <link href="{{ SITEURL }}/theme/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{{ SITEURL }}/theme/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{{ SITEURL }}/theme/css/animate.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="{{ SITEURL }}/theme/css/pygments/{{ PYGMENTS_STYLE }}.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="stylesheet" href="/theme/css/font-awesome.min.css">
+        <link href="/theme/css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+        <link href="/theme/css/pygments/{{ PYGMENTS_STYLE }}.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
         {% endblock %}
-
-        <style type="text/css">
-          .hero {
-            height: 600px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) repeat scroll 0 0%, rgba(0, 0, 0, 0) url('{{ SITEURL }}/{{ SITE_BACKGROUND_IMAGE }}'); repeat scroll 0 0;
-            background-position: 50% 50%;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            overflow: hidden;
-          }
-        </style>
         <!-- Metadata -->
         {% block seo %}
         <meta property="og:type" content="website"/>
@@ -72,33 +59,72 @@
         {% endif %}
     </head>
 
-    <body class="{{ MALT_BASE_COLOR }} lighten-5">
+    <body>
         <header>
-            <!-- Navigation -->
             {% block navbar %}
             {% include "includes/navbar-blog.html" %}
             {% endblock %}
-
-            <!-- Banner -->
-            {% block banner %}
-            <div class="hero parallax-effect">
+            <div id="blue">
                 <div class="container">
-                    <div class="hero-content animated bounceInDown slow">
-                        {% block bannerimage %}
-                        {% endblock %}
-                        {% block bannertext %}
-                        <h1>{{ WELCOME_TITLE }}</h1>
-                        <p>{{ WELCOME_TEXT }}</p>
-                        {% endblock %}
-                    </div>
-                </div>
-            </div>
-            {% endblock %}
+                    <div class="row">
+                        <h3>{{ WELCOME_TEXT }}</h3>
+                    </div><!-- /row -->
+                </div> <!-- /container -->
+            </div><!-- /blue -->
         </header>
         <main>
             <!-- Content -->
-            {% block content %}
-            {% endblock %}
+            <div class="container mtb">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+                <div class="col-md-4">
+                    <h4><a href="https://www.udemy.com/construa-um-e-commerce-com-python-3-e-django/?couponCode=websitegilenofilho">Construa um E-Commerce com Python e Django</a></h4>
+                    <a href="https://www.udemy.com/construa-um-e-commerce-com-python-3-e-django/?couponCode=websitegilenofilho">
+                        <img src="/images/django-udemy.jpg" alt="Construa um E-Commerce com Python e Django" class="img-responsive" />
+                    </a>
+    		 		<h4>Pesquisar</h4>
+    		 		<div class="hline"></div>
+		 			<p>
+		 				<br>
+                        <form class="" action="https://www.google.com/search" method="get">
+                            <input name="q" type="text" class="form-control" placeholder="Pesquisar..." />
+                            <input type="hidden" name="sitesearch" value="{{ SITEURL }}">
+                        </form>
+		 			</p>
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Categorias</h4>
+    		 		<div class="hline"></div>
+                    {% for category, cat_articles in categories %}
+                        <p><a href="{{ category.url }}"><i class="fa fa-angle-right"></i> {{ category.name }}</a> <span class="badge badge-theme pull-right">{{ cat_articles|length }}</span></p>
+                    {% endfor %}
+
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Artigos Recentes</h4>
+    		 		<div class="hline"></div>
+					<ul class="popular-posts">
+                        {% for recent_article in articles[:4] %}
+		                <li>
+		                    <p><a href="{{ recent_article.url }}">{{ recent_article.title }}</a></p>
+		                    <em>Publicado em {{ recent_article.locale_date }}</em>
+		                </li>
+                        {% endfor %}
+		            </ul>
+
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Tags</h4>
+    		 		<div class="hline"></div>
+		 			<p>
+                        {% for tag, tag_articles in tags %}
+		            	<a class="btn btn-theme" href="{{ tag.url }}" role="button">{{ tag.name }}</a>
+                        {% endfor %}
+		 			</p>
+                </div>
+            </div>
 
             <!-- Footer -->
             {% block footer %}
@@ -107,10 +133,8 @@
 
             <!-- Scripts -->
             {% block scripts %}
-            <script src="{{ SITEURL }}/theme/js/jquery-2.1.1.min.js"></script>
-            <script src="{{ SITEURL }}/theme/js/materialize.min.js"></script>
-            <script src="{{ SITEURL }}/theme/js/parallax.js"></script>
-            <script src="{{ SITEURL }}/theme/js/init.js"></script>
+            <script src="/theme/js/jquery-2.1.1.min.js"></script>
+            <script src="/theme/js/bootstrap.min.js"></script>
             {% endblock %}
         </main>
     </body>

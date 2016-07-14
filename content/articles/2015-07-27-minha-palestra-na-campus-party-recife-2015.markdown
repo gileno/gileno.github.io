@@ -4,7 +4,7 @@ layout: post
 slug: minha-palestra-na-campus-party-recife-2015
 author: Gileno Filho
 date: 2015-07-27 14:29:00
-category: palestra
+category: palestras
 tags: python,comunidade
 ---
 

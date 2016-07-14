@@ -1,18 +1,9 @@
-{% set BREADCRUMB_ELEMENTS = [("{}".format(SITENAME), "blog"), ("Categorias", "categorias"), (category.name, None)] %}
+{% set BREADCRUMB_ELEMENTS = [("Categorias", "/categorias"), (category.name, None)] %}
 {% set HIDE_AUTHOR_AVATAR = True %}
 {% set HIDE_CATEGORY = True %}
 
 {% extends "index.html" %}
 
-{% block styles %}
-    {{ super() }}
-    <link href="{{ SITEURL }}/theme/css/tag-category-author-index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-{% endblock %}
-
 {% block title %}
 Artigos na Categoria '{{ category.name }}' | {{ SITENAME }}
-{% endblock %}
-
-{% block bannertext %}
-<h1>Artigos na Categoria '{{ category.name }}'</h1>
 {% endblock %}

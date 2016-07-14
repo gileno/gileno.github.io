@@ -2,50 +2,14 @@
 
 {% block title %}{{ page.title }} | {{ SITENAME }}{% endblock %}
 
-{% block styles %}
-    {{ super() }}
-    <link href="{{ SITEURL }}/theme/css/page.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-{% endblock %}
-
-{% block banner %}{% endblock %}
-
 {% block content %}
-<div class="container content-container">
-    <div style="bottom: 45px; right: 24px;" class="fixed-action-btn">
-        <a title="Código fonte no GitHub" class="btn-floating btn-large" href="{{ GET_ARTICLE_AT_GITHUB(page, GITHUB_REPO, GITHUB_BRANCH) }}" target="_blank">
-            <i class="fa fa-code"></i> Código Fonte
-        </a>
-    </div>
-
-    <div class="row">
-        <div class="col s12 m12 l12 center-align animated bounceInDown slow page-meta">
-            <h1 class="white-text">{{ page.title }}</h1>
-            <div class="page-metadata {{ MALT_BASE_COLOR }}-text text-lighten-5">
-                <span class="page-author-name">
-                    <a href="{{ SITEURL }}/{{ page.author.url }}" title="{{ page.author.name|escape }}" class="{{ MALT_BASE_COLOR }}-text text-lighten-5">
-                        <i class="fa fa-user"></i> {{ page.author.name }}
-                    </a>
-                </span>
-                <span class="page-datetime">
-
-                </span>
-            </div>
-        </div>
-    </div>
-
-    {% set BREADCRUMB_ELEMENTS = [("{}".format(SITENAME), "blog"), (page.title, None)] %}
-
-    <div class="row">
-        <div class="col s12 m12 l12 white z-depth-2 page">
-            {% include "includes/breadcrumbs.html" %}
-            <div class="page-contents">
-            {{ page.content }}
-            </div>
-        </div>
-    </div>
-
-    {% if page.comments != "closed" %}
-        {% include "includes/comments.html" %}
-    {% endif %}
-</div>
+<h1>{{ page.title }}</h1>
+{% set BREADCRUMB_ELEMENTS = [(page.title, None)] %}
+{% include "includes/breadcrumbs.html" %}
+<article class="">
+    {{ page.content }}
+</article>
+{% if page.comments != "closed" %}
+    {% include "includes/comments.html" %}
+{% endif %}
 {% endblock %}
