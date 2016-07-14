@@ -58,29 +58,29 @@
         {% if articles_page.has_previous() %}
         {% set num = articles_page.previous_page_number() %}
         <li class="">
-            <a href="/{{ articles_previous_page.url }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            <a href="{{ articles_previous_page.url }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
         </li>
         {% else %}
         <li class="disabled">
-            <a href="/{{ articles_previous_page.url }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            <a href="{{ articles_previous_page.url }}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
         </li>
         {% endif %}
         {% for num in articles_paginator.page_range %}
             {% if num == articles_page.number %}
                 <li class="active"><a href="">{{ num }}</a></li>
             {% else %}
-                <li><a href="{{ SITEURL }}/{{ articles_paginator.page(num).url }}">{{ num }}</a></li>
+                <li><a href="{{ articles_paginator.page(num).url }}">{{ num }}</a></li>
             {% endif %}
         {% endfor %}
         {% if articles_page.has_next() %}
         <li>
-          <a href="{{ SITEURL }}/{{ articles_next_page.url }}" aria-label="Next">
+          <a href="{{ articles_next_page.url }}" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
         {% else %}
         <li class="disabled">
-          <a href="{{ SITEURL }}/{{ articles_next_page.url }}" aria-label="Next">
+          <a href="{{ articles_next_page.url }}" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
           </a>
         </li>
