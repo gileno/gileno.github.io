@@ -25,9 +25,9 @@ O Scrapy é um framework para facilitar o desenvolvimento de crawlers, pois mesm
 
 Para instalar o Scrapy vamos utilizar o pip (supondo que já esteja num [virtualenv](https://virtualenv.pypa.io/en/latest/)):
 
-{% highlight sh %}
+```
 pip install scrapy
-{% endhighlight %}
+```
 
 Após instalar o scrapy você terá disponível o comando "scrapy" mais detalhes sobre as opções dele aqui:
 
@@ -41,13 +41,13 @@ Um exemplo simples de um crawler utilizando o Scrapy:
 
 Para rodar basta utilizar o comando scrapy:
 
-{% highlight sh %}
+```
 scrapy runspider gilenofilho.py
-{% endhighlight %}
+```
 
 Você verá algo assim:
 
-{% highlight sh %}
+```
 ...
 2015-06-22 18:26:07 [scrapy] DEBUG: Redirecting (301) to <GET http://gilenofilho.com.br/> from <GET http://www.gilenofilho.com.br/>
 2015-06-22 18:26:07 [scrapy] DEBUG: Crawled (200) <GET http://gilenofilho.com.br/> (referer: None)
@@ -55,7 +55,7 @@ Você verá algo assim:
 2015-06-22 18:26:07 [scrapy] INFO: Closing spider (finished)
 2015-06-22 18:26:07 [scrapy] INFO: Dumping Scrapy stats:
 ...
-{% endhighlight %}
+```
 
 Uma Spider é basicamente uma classe que herda de `scrapy.Spider` o atributo `start_urls` está definindo as urls que devem ser acessadas inicialmente, você pode definir um método `starts_requests` que deve retornar uma lista de `scrapy.Request` através da keyword `yield`, assim:
 
@@ -67,13 +67,13 @@ Deve se utilizar `yield` e passar um **callback** para a `scrapy.Request` pois o
 
 O scrapy tem o conceito de projeto onde ficam organizados as "Spiders", "items" e "pipelines". Para criar um projeto scrapy basta utilizar o comando:
 
-{% highlight sh %}
+```
 scrapy startproject nome_do_projeto
-{% endhighlight %}
+```
 
 Você verá que uma estrutura de diretórios e arquivos será criada para que facilite o crescimento do seu crawler. Eu criei um projeto chamado **scrapy_olx** e meu sistema de diretórios ficou assim:
 
-{% highlight sh %}
+```
 scrapy_olx
 - scrapy_olx
 - - spiders
@@ -83,13 +83,13 @@ scrapy_olx
 - - pipelines.py
 - - settings.py
 - scrapy.cfg
-{% endhighlight %}
+```
 
 Agora vamos criar nosso primeiro Spider, com o comando:
 
-{% highlight sh %}
+```
 scrapy genspider olx pe.olx.com.br
-{% endhighlight %}
+```
 
 Estou criando um crawler para capturar os imóveis de Pernambuco (PE) e esta é a url inicial no OLX. Dentro do diretório **spiders** foi criado um arquivo chamado olx.py contendo o esqueleto do nosso código, vou modificar o **starts_urls** para começar com a url dos imóveis para alugar, o arquivo modificado vai ficar assim:
 
@@ -97,9 +97,9 @@ Estou criando um crawler para capturar os imóveis de Pernambuco (PE) e esta é 
 
 Para rodar este código basta utilizar o comando:
 
-{% highlight sh %}
+```
 scrapy crawl olx
-{% endhighlight %}
+```
 
 Se antes usamos a opção `runspider` agora que estamos num projeto scrapy usamos a opção `crawl` passando o nome da **spider**, no caso **olx**.
 
@@ -111,9 +111,9 @@ Agora no método parse usamos **xpath** para percorrer a estrutura do html e enc
 
 Rodando novamente o código será possível que o scrapy irá realizar 51 requisições, 1 para cada imóvel - 50 por página - e a primeira para acessar a página inicial.
 
-{% highlight sh %}
+```
 scrapy crawl olx
-{% endhighlight %}
+```
 
 Após fazer a lógica de acessar cada imóvel vamos adicionar a parte de verificar se existe uma próxima página, visto que são exibidos 50 imóveis por página mas no final da página há uma paginação.
 
@@ -127,9 +127,9 @@ Veja que após o `for` usamos novamente o xpath para encontrar o link que conté
 
 Para rodar, basta novamente enviar o comando:
 
-{% highlight sh %}
+```
 scrapy crawl olx
-{% endhighlight %}
+```
 
 Para perceber que o scrapy é assíncrono nas suas requisições, basta ver que ele acessar a próxima página antes de acabar as requisições dos imóveis da primeira página.
 

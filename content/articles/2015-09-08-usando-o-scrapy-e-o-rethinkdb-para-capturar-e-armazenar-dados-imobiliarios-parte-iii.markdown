@@ -54,14 +54,14 @@ Considerando que já está no terminal do seu VPS, faça:
 Obs1: você pode criar um virtualenv ou se preferir instalar globalmente verifique se está acessando com o usuário **root** ou no grupo **sudo**.
 Obs2: linhas com o caractere "$" são comandos executados, linhas sem esse caractere é a saída esperada.
 
-{% highlight sh %}
+```
 $ cd /caminho/no/vps/para/o/projeto
 $ pip install scrapyd
-{% endhighlight %}
+```
 
 Após a instalação do scrapyd, um novo comando estará disponível:
 
-{% highlight sh %}
+```
 $ scrapyd
 2015-09-07 20:55:03-0400 [-] Log opened.
 2015-09-07 20:55:03-0400 [-] twistd 15.2.1 (/usr/bin/python 2.7.6) starting up.
@@ -69,15 +69,15 @@ $ scrapyd
 2015-09-07 20:55:03-0400 [-] Site starting on 6800
 2015-09-07 20:55:03-0400 [-] Starting factory <twisted.web.server.Site instance at 0x7f883b0adb48>
 2015-09-07 20:55:03-0400 [Launcher] Scrapyd 1.0.2 started: max_proc=4, runner='scrapyd.runner'
-{% endhighlight %}
+```
 
 Ao rodar este comando você verá que ele irá ativar um servidor web na porta 6800, entretanto você não vai querer rodar o servidor dessa forma, você irá precisar colocar ele em modo daemon para que possa realizar outras atividades e deixá-lo rodando. Como estou acostumado com o supervisor, utilizei ele para monitorar e iniciar o processo do scrapyd - nesse caso ele não vai rodar o crawler em específico, vai rodar o scrapyd e este vai ser responsável pela execução dos crawlers.
 
 Para esse experimento estou utilizando uma máquina com Ubuntu, assim posso instalar o Supervisor dessa forma:
 
-{% highlight sh %}
+```
 $ apt-get install supervisor
-{% endhighlight %}
+```
 
 Caso utilize outra distribuição Linux procure os pacotes relacionados ao Supervisor ou instale via pip:
 
@@ -85,19 +85,19 @@ http://supervisord.org/installing.html#installing-via-pip
 
 Quando instalado via gerenciador de pacotes da distribuição ele já é executado assim que iniciar a máquina, assim basta criar um arquivo de configuração para o processo relativo ao Scrapyd:
 
-{% highlight sh %}
+```
 $ cd /etc/supervisor/conf.d/
 $ vi scrapyd.conf
-{% endhighlight %}
+```
 
 Em seguida coloque o seguinte conteúdo no arquivo **scrapyd.conf**:
 
-{% highlight sh %}
+```
 [program:scrapyd]
 command=scrapyd
 user=root
 autostart=true
-{% endhighlight %}
+```
 
 Não é recomendado utilizar o usuário root mas para fins de teste irei indicar este usuário, mas lembre-se de criar um usuário para o scrapyd quando for colocar em produção.
 
@@ -107,14 +107,14 @@ http://supervisord.org/configuration.html
 
 Agora para ativar o scrapyd iremos executar o comando:
 
-{% highlight sh %}
+```
 $ supervisorctl reread
 scrapyd: available
 $ supervisorctl reload
 Restarted supervisord
 $ upervisorctl status
 scrapyd       RUNNING    pid 1382, uptime 0:00:15
-{% endhighlight %}
+```
 
 Agora já podemos acessar a interface web fornecida pelo scrapyd, basta ir no navegador e digitar:
 
@@ -124,36 +124,36 @@ Se tudo deu certo, você verá uma interface extremamente simples, agora saia do
 
 Acessando a basta do projeto localmente - com o virtualenv ativado caso esteja utilizando, instale:
 
-{% highlight sh %}
+```
 $ pip install scrapyd-client
-{% endhighlight %}
+```
 
 Com esse pacote iremos ter um facilitador para o deploy do nosso projeto no servidor onde está o scrapyd, pois o scrapyd fornece uma API REST para fazer upload do nosso projeto no formato [EGG](https://wiki.python.org/moin/egg). O scrapyd-client fornece um comando `scrapyd-deploy` que facilita essa geração do egg e em seguida upload para o servidor, assim no arquivo **scrapy.cfg** do seu projeto adicione no final (ou substitua caso já tenha algum valor para a configuração **deploy**):
 
-{% highlight sh %}
+```
 [deploy]
 url = http://<IP-DO-VPS>:6800/
 username = root
 password = <senha>
-{% endhighlight %}
+```
 
 Em seguida faça o deploy do seu projeto:
 
-{% highlight sh %}
+```
 $ scrapyd-deploy -p <nome-do-projeto>
 Packing version 1441674561
 Deploying to project "<nome-do-projeto>" in http://<IP-DO-VPS>:6800/addversion.json
 Server response (200):
 {"status": "ok", "project": "<nome-do-projeto>", "version": "1441674561", "spiders": 2, "node_name": "<nome-do-servidor>"}
-{% endhighlight %}
+```
 
 Obs: No exemplo da série o nome do projeto é **scrapy_olx**.
 
 Agora você já pode colocar um crawler para rodar, para isso é preciso acessar a API REST do Scrapyd:
 
-{% highlight sh %}
+```
 curl http://<IP-DO-VPS>:6800/schedule.json -d project=<nome-do-projeto> -d spider=<nome-do-spider>
-{% endhighlight %}
+```
 
 Eu utilizei o [curl](http://curl.haxx.se/), mas você poderia utilizar qualquer ferramenta que possa fazer um GET ou POST dependendo do que deseja fazer, todas as opções da API do Scrapyd, você pode ver em:
 
