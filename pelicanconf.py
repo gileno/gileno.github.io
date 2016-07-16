@@ -86,7 +86,6 @@ PLUGIN_PATHS = []
 PLUGINS = []
 
 RESPONSIVE_IMAGES = True
-PYGMENTS_STYLE = "perldoc"
 SITEMAP = {
     'format': 'xml',
     'priorities': {
