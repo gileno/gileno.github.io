@@ -2,10 +2,10 @@
 layout: post
 title: Como funciona o ORM do Django
 slug: como-funciona-o-orm-do-django
-date: 2016-07-18 09:00:00
+date: 2016-07-15 22:00:00
 author: Gileno Filho
 category: tutoriais
-tags: django,database
+tags: python,django,database
 ---
 
 Uma das coisas mais interessantes do framework [Django](https://djangoproject.com/) é sem dúvidas o seu [ORM](https://pt.wikipedia.org/wiki/Mapeamento_objeto-relacional). E o que o torna interessante é a sua simplicidade e objetividade quando se utiliza os [Lookups](https://docs.djangoproject.com/en/1.9/ref/models/lookups/) para realizar consultas simples e até as complexas que envolvem join's.
@@ -123,7 +123,7 @@ Com o lookup `icontains` eu posso filtrar campos de texto procurando por parte d
 
 O `icontains` é apenas um dos lookups disponíveis, para ver todos os lookups possívels acesse: [https://docs.djangoproject.com/en/1.9/ref/models/querysets/#field-lookups](https://docs.djangoproject.com/en/1.9/ref/models/querysets/#field-lookups)
 
-No entanto é comum realizar consultas que verificam mais de um campo, para condições do tipo ***AND*** é possível utilizar o `filter` normalmente apenas indicando separando as condições com vírgula, isto é, passando vários parâmetros de uma vez ou realizar a consulta encadeada:
+No entanto é comum realizar consultas que verificam mais de um campo, para condições do tipo ***AND*** é possível utilizar o `filter` normalmente apenas indicando as condições com vírgula, isto é, passando vários parâmetros de uma vez ou realizando a consulta encadeada:
 
 ```
 >>> import datetime as dt
@@ -144,7 +144,9 @@ Para consultas do tipo ***OR*** é necessário chamar o objeto `Q`, ele é o res
 [<Activity: [Admin] gerenciar>, <Activity: [Fulano] nadar>]
 ```
 
-A barra vertical entre as duas chamadas de `Q` serve para criar o ***OR*** entre as condições, isto funciona porque o objeto `Q` implementa o método mágico `__or__`. Essa é a grande sacada das melhores libs e frameworks Python, utilizar-se dos métodos mágicos para sobreescrever operadores e açucares sintáticos previstos na definição de Python. É possível combinar ***OR*** e ***AND*** até que a consulta deseja seja gerada, para usar o ***AND*** basta utilizar o `&` ao invés da barra vertical.
+A barra vertical entre as duas chamadas de `Q` serve para criar o ***OR*** entre as condições, isto funciona porque o objeto `Q` implementa o método mágico `__or__`. Essa é a grande sacada das melhores libs e frameworks Python, utilizar-se dos métodos mágicos para sobreescrever operadores e açucares sintáticos previstos na definição de Python.
+
+É possível combinar ***OR*** e ***AND*** até que a consulta deseja seja gerada, para usar o ***AND*** basta utilizar o `&` ao invés da barra vertical.
 
 ```
 >>> from django.db.models import Q
@@ -153,7 +155,7 @@ A barra vertical entre as duas chamadas de `Q` serve para criar o ***OR*** entre
 [<Activity: [Fulano] nadar>, <Activity: [Fulano] passear>]
 ```
 
-Alguns lookups são específicos para determinados tipos de dados, como o `range` que verificar se uma determinada data está entre 2 datas especificadas:
+Alguns lookups são específicos para determinados tipos de dados, como o `range` que funciona com campos de data e verifica se uma determinada data está entre 2 datas especificadas:
 
 ```
 >>> import datetime as dt

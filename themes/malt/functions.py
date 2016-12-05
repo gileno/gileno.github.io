@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
-from md5 import md5
+from hashlib import md5
 import functools
 import os
 import posixpath

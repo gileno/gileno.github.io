@@ -28,6 +28,7 @@ body {
 	color: #384452;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
+	font-size: 16px;
 	}
 
 h1, h2, h3, h4, h5, h6 {
@@ -40,7 +41,7 @@ p {
 	margin-bottom: 12px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 24px;
 	color: #384452;
 	margin-top: 10px;
@@ -103,7 +104,7 @@ a:focus {
 .navbar-default .navbar-nav > li > a {
 	color: white;
 	font-weight: 700;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
@@ -127,7 +128,7 @@ a:focus {
 .dropdown-menu > li > a {
 	color: white;
 	font-weight: 700;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .btn-theme {
@@ -259,7 +260,7 @@ a:focus {
 
 .portfolio-item .title:before {border-radius:0; display:none}
 .portfolio-item p {margin:0px 0 30px;}
-.portfolio-item h3 {margin:-10px 0 10px; font-size:16px; text-transform:uppercase;}
+.portfolio-item h3 {margin:-10px 0 10px; font-size:18px; text-transform:uppercase;}
 
 
 .tpl6 h3
@@ -267,14 +268,14 @@ a:focus {
 	color:#fff;
 	margin:0;
 	padding:40px 5px 0;
-	font-size:16px;
+	font-size:18px;
 	text-transform:uppercase;
 }
 .tpl6 .dmbutton
 {
 	display:inline-block;
 	margin:30px 5px 20px 5px;
-	font-size:13px;
+	font-size:15px;
 }
 
 .tpl6 .bg
@@ -316,7 +317,7 @@ a:focus {
 
 #twrap p {
 	color: white;
-	font-size: 15px;
+	font-size: 17px;
 	line-height: 30px;
 }
 
@@ -382,11 +383,11 @@ a:focus {
 }
 
 csmall {
-	font-size: 12px;
+	font-size: 14px;
 	color: #b3b3b3;
 }
 csmall2 {
-	font-size: 12px;
+	font-size: 14px;
 	color: #f39c12
 }
 
@@ -445,7 +446,7 @@ csmall2 {
 
 .popular-posts li em {
 	font-family: 'Lato', sans-serif;
-	font-size: 12px;
+	font-size: 14px;
 	color: #b3b3b3
 	}
 
