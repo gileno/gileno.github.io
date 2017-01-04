@@ -8,12 +8,6 @@ sys.path.append(os.curdir)
 
 from collections import OrderedDict
 
-if not os.path.exists('_nb_header.html'):
-    import warnings
-    warnings.warn("_nb_header.html not found. Rerun make html to finalize build.")
-else:
-    EXTRA_HEADER = open('_nb_header.html').read().decode('utf-8')
-
 AUTHOR = u'Gileno Filho'
 SITENAME = u'Gileno Filho'
 SITEURL = 'http://localhost:8000'
@@ -32,7 +26,10 @@ MALT_BASE_COLOR = 'blue-grey'
 SITE_LOGO = ''
 SITE_LOGO_MOBILE = ''
 
-STATIC_PATHS = ['images', 'extra/CNAME', 'extra/favicon.ico']
+STATIC_PATHS = [
+    'images', 'extra/CNAME', 'extra/favicon.ico',
+    'utils',
+]
 EXTRA_PATH_METADATA = {
     'extra/CNAME': {'path': 'CNAME'},
     'extra/favicon.ico': {'path': 'favicon.ico'},
@@ -88,9 +85,10 @@ CATEGORY_FEED_RSS = None
 
 DEFAULT_PAGINATION = 5
 
-PLUGIN_PATHS = ['pelican-plugins']
+MARKUP = ('md',)
+PLUGIN_PATHS = ['plugins', 'pelican-plugins']
 PLUGINS = [
-    'liquid_tags.notebook'
+    'ipynb.liquid'
 ]
 
 NOTEBOOK_DIR = 'notebooks'
@@ -173,6 +171,8 @@ MEMBROS = OrderedDict((
         "github": "gileno"
     }),
 ))
+
+IPYNB_IGNORE_CSS = False
 
 MALT_HOME = []
 

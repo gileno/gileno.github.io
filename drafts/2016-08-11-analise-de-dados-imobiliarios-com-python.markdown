@@ -75,5 +75,3 @@ Eu já peguei alguns dados que estão disponíveis no repositório desse tutoria
 
 <div id="exploracao"></div>
 ### Análise Exploratória
-
-Com os dados em mãos iremos realizar uma análise exploratória
