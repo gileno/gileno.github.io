@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml"
+    itemscope itemtype="http://schema.org/Blog"
+    lang="pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <meta http-equiv="content-language" content="pt-br">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="Website Gileno Filho"/>
+        <meta name="keywords" content="programação, python, recife, desenvolvimento, data science"/>
+        <meta name="author" content="Gileno Filho">
+        <meta name="generator" content="Pelican">
+        <title>Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II | Gileno Filho</title>
+
+        <!-- Feeds -->
+            <link href="http://www.gilenofilho.com.br/feeds.atom" type="application/atom+xml" rel="alternate" title="Gileno Filho ATOM Feed"/>
+            <link href="http://www.gilenofilho.com.br/feeds.rss" type="application/rss+xml" rel="alternate" title="Gileno Filho RSS Feed"/>
+
+        <!-- CSS  -->
+        <link rel="stylesheet" href="/theme/css/font-awesome.min.css">
+        <link href="/theme/css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+<link href="/theme/css/pygments.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <!-- Metadata -->
+    <!-- OpenGraph -->
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II"/>
+    <meta property="og:url" content="http://www.gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-ii"/>
+    <meta property="og:site_name" content="Gileno Filho"/>
+    <meta property="og:description" content="Parte I - http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/ Introdução Na primeira parte desta..."/>
+    <meta property="og:image" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@gilenofilho"/>
+    <meta name="twitter:creator" content="@gilenofilho"/>
+    <meta name="twitter:domain" content="www.gilenofilho.com.br"/>
+    <meta name="twitter:title" content="Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II"/>
+    <meta name="twitter:description" content="Parte I - http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/ Introdução Na primeira parte desta..."/>
+    <meta name="twitter:image:src" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- Article meta -->
+    <meta property="article:author" content="Gileno Filho"/>
+    <meta property="article:section" content="tutoriais"/>
+    <meta property="article:tag" content="python, engenharia-de-avaliações"/>
+    <meta property="article:published_time" content="2014-10-24T17:49:00-03:00"/>
+
+    <!-- Google+ -->
+    <meta itemprop="name" content="Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II"/>
+    <meta itemprop="description" content="Parte I - http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/ Introdução Na primeira parte desta..."/>
+    <meta itemprop="image" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- General purpose meta -->
+    <meta name="description" content="Parte I - http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/ Introdução Na primeira parte desta..."/>
+    <meta name="keywords" content="python, engenharia-de-avaliações"/>
+
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-15015773-2', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+    </head>
+
+    <body>
+        <header>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Gileno Filho</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Início</a></li>
+          <li ><a href="/sobre">Sobre</a></li>
+          <li ><a href="/categorias/cursos/">Cursos</a></li>
+          <li ><a href="/categorias/palestras/">Palestas</a></li>
+          <li ><a href="/categorias/tutoriais/">Tutoriais</a></li>
+          <li ><a href="/categorias/utils/">Utils</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>            <div id="blue">
+                <div class="container">
+                    <div class="row">
+                        <h3>
+    programador, cientista, pythonista e minimalista. Recife, Brasil
+</h3>
+                    </div><!-- /row -->
+                </div> <!-- /container -->
+            </div><!-- /blue -->
+        </header>
+        <main>
+            <!-- Content -->
+            <div class="container mtb">
+                <div class="col-md-8">
+
+<ol class="breadcrumb">
+    <li>
+    <a title="Gileno Filho Home" href="/"><i class="fa fa-home pr-10"></i> Início</a>
+    </li>
+        <li>
+        <a title="tutoriais|escape" href="/categorias/tutoriais">tutoriais</a>
+        </li>
+        <li>Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II</li>
+</ol><article>
+    <a href="/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-ii"><h3 class="ctitle">Técnicas de Regressão aplicadas a Avaliações de Bens com Python — Parte II</h3></a>
+    <p>
+        Publicado em:  <time datetime="2014-10-24T17:49:00-03:00">Sex 24 outubro 2014</time>.
+        |
+        Por: <a href="/autores/gileno-filho">Gileno Filho</a>
+        |
+        Arquivado em: <a href="/categorias/tutoriais">tutoriais</a>
+    </p>
+    <p>Parte I - http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/</p>
+<h2>Introdução</h2>
+<p>Na primeira parte desta série eu escrevi de forma bem simples sobre o que seria a regressão linear mútipla e a Engenharia de Avaliações. Fui bem objetivo pois este assunto é bastante longo e eu achei melhor deixar algumas referências caso tenham interesse em se aprofundar.</p>
+<p>Nesta segunda parte irei mostrar como funciona a avaliação de bens no Brasil. Ela é regida por normas técnicas da ABNT (Associação Brasileira de Normas Técnicas), essas normas são criadas por comissões de estudo formadas por produtores, consumidores e neutros (laboratórios, universidades e outros). No caso das normas para avaliação de imóveis que é a área que tenho mais interesse, elas foram construídas por uma comissão de estudo da construção civil, abaixo seguem as normas da área:</p>
+<ul>
+<li><a href="https://dl.dropboxusercontent.com/u/9069443/NBR_14653-1_Norma_de_Avaliacoes_de_Bens_-_Procedimentos_Gerais.pdf">NBR 14653-1: Avaliação de Bens - Procedimentos Gerais 2010</a></li>
+<li><a href="https://dl.dropboxusercontent.com/u/9069443/NBR_14.653-2_Imoveis_Urbanos_Revisada_2010.pdf">NBR 14.653-2: Avaliação de Imóveis Urbanos 2010</a></li>
+<li><a href="https://dl.dropboxusercontent.com/u/9069443/NBR_14653-3_Avaliacao_de_Imoveis_Rurais_1.pdf">NBR 14653-3: Avaliação de Imóveis Rurais 2010</a></li>
+</ul>
+<p>Os principais métodos aprovados pela normal são os seguintes:</p>
+<h3>Método comparativo direto de dados de mercado</h3>
+<p>É o método que identifica o valor de um bem através do tratamento técnico dos atributos que o constitui comparando-os com uma determinada amostra, isto é, o bem é avaliado com base na comparação direta de seus atributos com os atributos de uma amostra a qual têm já definido os seus valores. Na <a href="http://gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-i/">parte I</a> quando eu mostrei a regressão linear, eu estava demonstrando o uso do método comparativo.</p>
+<p>A norma permite outras formas de avaliação utilizando-se de dados do mercado, por exemplo, é possível utilizar uma rede neural. Além de disso a norma também explica detalhes técnico-científicos para que uma avaliação seja qualificada, isto é, existe uma formalidade metodológica para a avaliação.</p>
+<h3>Método Involutivo</h3>
+<p>Este método identifica o valor do bem com base num estudo de viabilidade técnico-econômico considerando o seu aproveitamento eficiente. Um exemplo seria uma avaliação de uma <a href="http://legislacao.planalto.gov.br/legisla/legislacao.nsf/8b6939f8b38f377a03256ca200686171/a05d1c9a21be8cc603256a1f0044905a?OpenDocument">Gleba</a>, onde o método considera os custos de urbanização, impostos, lucro entre outros fatores para a criação de um empreendimento, no caso a venda de lotes. No fim, é possível chegar ao valor da Gleba e assim a avaliação.</p>
+<h3>Método Evolutivo</h3>
+<p>O método evolutivo trabalha em cima do somatório dos componentes do bem a ser avaliado, para o caso de obter o valor de mercado se faz necessário adicionar um fator de comercialização que irá multiplicar o somatório. O somatório seria o valor de reedição ou custo de reprodução do bem nos dias atuais, isto é, considerando fatores de depreciação por exemplo.</p>
+<h2>Onde entra Python?</h2>
+<p>Esta parte II ficou apenas na teoria, foi uma breve (<strong>muito breve</strong>) conversa sobre Engenharia de Avaliações. Na verdade eu deveria ter começado com essa parte teórica mas como meus pensamentos são turvos comecei do meio e voltei ao início. Nas próximas partes irei detalhar cada método e implementá-lo em Python, mas o foco será o método comparativo de mercado, pois como o título do artigo diz, a ideia é ver técnicas de regressão.</p>
+    <div class="hline"></div>
+    <div class="spacing"></div>
+    <p>
+        <a class="btn btn-theme" href="/tags/python" role="button" title="Tag 'python'">python</a>
+        <a class="btn btn-theme" href="/tags/engenharia-de-avaliacoes" role="button" title="Tag 'engenharia-de-avaliações'">engenharia-de-avaliações</a>
+    </p>
+    <div class="spacing"></div>
+    <h6>COMPARTILHAR:</h6>
+    <p class="share">
+		<a target="_blank" href="https://twitter.com/home?status=T%C3%A9cnicas%20de%20Regress%C3%A3o%20aplicadas%20a%20Avalia%C3%A7%C3%B5es%20de%20Bens%20com%20Python%E2%80%8A%E2%80%94%E2%80%8AParte%20II%20http%3A//www.gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-ii"><i class="fa fa-twitter"></i></a>
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.gilenofilho.com.br/tecnicas-de-regressao-aplicadas-a-avaliacoes-de-bens-com-python-parte-ii"><i class="fa fa-facebook"></i></a>
+	</p>
+</article>
+
+    <section class="row" id="comments">
+        <div class="col-md-12">
+            <h4>Comentários</h4>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'gilenofilho'; // required: replace example with your forum shortname
+                var disqus_identifier = 'gilenofilho.com.br' + window.location.pathname;
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function () {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </section>
+                </div>
+                <div class="col-md-4">
+                    <h4><a href="https://www.udemy.com/construa-um-e-commerce-com-python-3-e-django/?couponCode=websitegilenofilho">Construa um E-Commerce com Python e Django</a></h4>
+                    <a href="https://www.udemy.com/construa-um-e-commerce-com-python-3-e-django/?couponCode=websitegilenofilho">
+                        <img src="/images/django-udemy.jpg" alt="Construa um E-Commerce com Python e Django" class="img-responsive" />
+                    </a>
+    		 		<h4>Pesquisar</h4>
+    		 		<div class="hline"></div>
+		 			<p>
+		 				<br>
+                        <form class="" action="https://www.google.com/search" method="get">
+                            <input name="q" type="text" class="form-control" placeholder="Pesquisar..." />
+                            <input type="hidden" name="sitesearch" value="http://www.gilenofilho.com.br">
+                        </form>
+		 			</p>
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Categorias</h4>
+    		 		<div class="hline"></div>
+                        <p><a href="/categorias/cursos"><i class="fa fa-angle-right"></i> cursos</a> <span class="badge badge-theme pull-right">6</span></p>
+                        <p><a href="/categorias/palestras"><i class="fa fa-angle-right"></i> palestras</a> <span class="badge badge-theme pull-right">5</span></p>
+                        <p><a href="/categorias/tutoriais"><i class="fa fa-angle-right"></i> tutoriais</a> <span class="badge badge-theme pull-right">12</span></p>
+                        <p><a href="/categorias/utils"><i class="fa fa-angle-right"></i> utils</a> <span class="badge badge-theme pull-right">4</span></p>
+
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Artigos Recentes</h4>
+    		 		<div class="hline"></div>
+					<ul class="popular-posts">
+		                <li>
+		                    <p><a href="/python-datasets">Bibliotecas Python para carregar Dataset's</a></p>
+		                    <em>Publicado em Seg 02 janeiro 2017</em>
+		                </li>
+		                <li>
+		                    <p><a href="/como-funciona-o-orm-do-django">Como funciona o ORM do Django</a></p>
+		                    <em>Publicado em Sex 15 julho 2016</em>
+		                </li>
+		                <li>
+		                    <p><a href="/curso-gratuito-de-django-com-python-3">Curso Gratuito de Django com Python 3</a></p>
+		                    <em>Publicado em Qua 23 março 2016</em>
+		                </li>
+		                <li>
+		                    <p><a href="/programacao-felicidade-mercado-e-outras-coisas">Programação, felicidade, mercado e outras coisas...</a></p>
+		                    <em>Publicado em Ter 10 novembro 2015</em>
+		                </li>
+		            </ul>
+
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Tags</h4>
+    		 		<div class="hline"></div>
+		 			<p>
+		            	<a class="btn btn-theme" href="/tags/python" role="button">python</a>
+		            	<a class="btn btn-theme" href="/tags/dados" role="button">dados</a>
+		            	<a class="btn btn-theme" href="/tags/django" role="button">django</a>
+		            	<a class="btn btn-theme" href="/tags/database" role="button">database</a>
+		            	<a class="btn btn-theme" href="/tags/video-aula" role="button">video-aula</a>
+		            	<a class="btn btn-theme" href="/tags/lifestyle" role="button">lifestyle</a>
+		            	<a class="btn btn-theme" href="/tags/comunidade" role="button">comunidade</a>
+		            	<a class="btn btn-theme" href="/tags/startup" role="button">startup</a>
+		            	<a class="btn btn-theme" href="/tags/design" role="button">design</a>
+		            	<a class="btn btn-theme" href="/tags/inteligencia-artificial" role="button">inteligência-artificial</a>
+		            	<a class="btn btn-theme" href="/tags/universidade" role="button">universidade</a>
+		            	<a class="btn btn-theme" href="/tags/pythonbrasil" role="button">pythonbrasil</a>
+		            	<a class="btn btn-theme" href="/tags/engenharia-de-avaliacoes" role="button">engenharia-de-avaliações</a>
+		            	<a class="btn btn-theme" href="/tags/deploy" role="button">deploy</a>
+		            	<a class="btn btn-theme" href="/tags/evento" role="button">evento</a>
+		 			</p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+<div id="footerwrap">
+   <div class="container">
+       <div class="row">
+           <div class="col-md-6">
+               <h4>Sobre</h4>
+               <div class="hline-w"></div>
+               <p>
+    Website e Blog de Gileno Filho, escrevo sobre: Desenvolvimento,
+    Python, Django, Ciência de Dados, Engenharia de Avaliações,
+    Inteligência Artificial e Design Minimalista.
+</p>
+           </div>
+           <div class="col-md-6">
+               <h4>Social</h4>
+               <div class="hline-w"></div>
+               <p>
+                   <a class="white-text" href="https://github.com/gileno" title="GitHub">
+                       <i class="fa fa-github"></i>
+                   </a>
+                   <a class="white-text" href="https://twitter.com/gilenofilho" title="Twitter">
+                       <i class="fa fa-twitter"></i>
+                   </a>
+                   <a class="white-text" href="https://www.facebook.com/gilenofilho" title="Facebook">
+                       <i class="fa fa-facebook"></i>
+                   </a>
+                   <a class="white-text" href="mailto:contato@gilenofilho.com.br" title="E-mail">
+                       <i class="fa fa-envelope"></i>
+                   </a>
+               </p>
+           </div>
+       </div>
+   </div>
+</div>
+            <!-- Scripts -->
+            <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+            <script src="/theme/js/bootstrap.min.js"></script>
+        </main>
+    </body>
+</html>

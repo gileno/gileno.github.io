@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:og="http://ogp.me/ns#"
+    xmlns:fb="https://www.facebook.com/2008/fbml"
+    itemscope itemtype="http://schema.org/Blog"
+    lang="pt">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <meta http-equiv="content-language" content="pt-br">
+        <meta name="robots" content="index, follow">
+        <meta name="description" content="Website Gileno Filho"/>
+        <meta name="keywords" content="programação, python, recife, desenvolvimento, data science"/>
+        <meta name="author" content="Gileno Filho">
+        <meta name="generator" content="Pelican">
+        <title>Como funciona o ORM do Django | Gileno Filho</title>
+
+        <!-- Feeds -->
+            <link href="http://www.gilenofilho.com.br/feeds.atom" type="application/atom+xml" rel="alternate" title="Gileno Filho ATOM Feed"/>
+            <link href="http://www.gilenofilho.com.br/feeds.rss" type="application/rss+xml" rel="alternate" title="Gileno Filho RSS Feed"/>
+
+        <!-- CSS  -->
+        <link rel="stylesheet" href="/theme/css/font-awesome.min.css">
+        <link href="/theme/css/bootstrap.css" type="text/css" rel="stylesheet" />
+        <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+<link href="/theme/css/pygments.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <!-- Metadata -->
+    <!-- OpenGraph -->
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Como funciona o ORM do Django"/>
+    <meta property="og:url" content="http://www.gilenofilho.com.br/como-funciona-o-orm-do-django"/>
+    <meta property="og:site_name" content="Gileno Filho"/>
+    <meta property="og:description" content="Uma das coisas mais interessantes do framework Django é sem dúvidas o seu ORM. E o que o torna interessante é a sua simplicidade e objetividade..."/>
+    <meta property="og:image" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@gilenofilho"/>
+    <meta name="twitter:creator" content="@gilenofilho"/>
+    <meta name="twitter:domain" content="www.gilenofilho.com.br"/>
+    <meta name="twitter:title" content="Como funciona o ORM do Django"/>
+    <meta name="twitter:description" content="Uma das coisas mais interessantes do framework Django é sem dúvidas o seu ORM. E o que o torna interessante é a sua simplicidade e objetividade..."/>
+    <meta name="twitter:image:src" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- Article meta -->
+    <meta property="article:author" content="Gileno Filho"/>
+    <meta property="article:section" content="tutoriais"/>
+    <meta property="article:tag" content="python, django, database"/>
+    <meta property="article:published_time" content="2016-07-15T22:00:00-03:00"/>
+
+    <!-- Google+ -->
+    <meta itemprop="name" content="Como funciona o ORM do Django"/>
+    <meta itemprop="description" content="Uma das coisas mais interessantes do framework Django é sem dúvidas o seu ORM. E o que o torna interessante é a sua simplicidade e objetividade..."/>
+    <meta itemprop="image" content="http://www.gilenofilho.com.brimages/eu.jpg"/>
+
+    <!-- General purpose meta -->
+    <meta name="description" content="Uma das coisas mais interessantes do framework Django é sem dúvidas o seu ORM. E o que o torna interessante é a sua simplicidade e objetividade..."/>
+    <meta name="keywords" content="python, django, database"/>
+
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-15015773-2', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+    </head>
+
+    <body>
+        <header>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Gileno Filho</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Início</a></li>
+          <li ><a href="/sobre">Sobre</a></li>
+          <li ><a href="/categorias/cursos/">Cursos</a></li>
+          <li ><a href="/categorias/palestras/">Palestas</a></li>
+          <li ><a href="/categorias/tutoriais/">Tutoriais</a></li>
+          <li ><a href="/categorias/utils/">Utils</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>            <div id="blue">
+                <div class="container">
+                    <div class="row">
+                        <h3>
+    programador, cientista, pythonista e minimalista. Recife, Brasil
+</h3>
+                    </div><!-- /row -->
+                </div> <!-- /container -->
+            </div><!-- /blue -->
+        </header>
+        <main>
+            <!-- Content -->
+            <div class="container mtb">
+                <div class="col-md-8">
+
+<ol class="breadcrumb">
+    <li>
+    <a title="Gileno Filho Home" href="/"><i class="fa fa-home pr-10"></i> Início</a>
+    </li>
+        <li>
+        <a title="tutoriais|escape" href="/categorias/tutoriais">tutoriais</a>
+        </li>
+        <li>Como funciona o ORM do Django</li>
+</ol><article>
+    <a href="/como-funciona-o-orm-do-django"><h3 class="ctitle">Como funciona o ORM do Django</h3></a>
+    <p>
+        Publicado em:  <time datetime="2016-07-15T22:00:00-03:00">Sex 15 julho 2016</time>.
+        |
+        Por: <a href="/autores/gileno-filho">Gileno Filho</a>
+        |
+        Arquivado em: <a href="/categorias/tutoriais">tutoriais</a>
+    </p>
+    <p>Uma das coisas mais interessantes do framework <a href="https://djangoproject.com/">Django</a> é sem dúvidas o seu <a href="https://pt.wikipedia.org/wiki/Mapeamento_objeto-relacional">ORM</a>. E o que o torna interessante é a sua simplicidade e objetividade quando se utiliza os <a href="https://docs.djangoproject.com/en/1.9/ref/models/lookups/">Lookups</a> para realizar consultas simples e até as complexas que envolvem join's.</p>
+<p>Neste artigo irei explorar algumas coisas básicas para quem está iniciando mas também irei mostrar casos de uso mais avançados como uso de funções próprias do banco de dados. Para demonstrar as consultas irei utilizar uma modelagem simples para uma aplicação de atividades realizadas, os modelos estão abaixo:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">()</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s1">&#39;users&#39;</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+<span class="k">class</span> <span class="nc">Activity</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateField</span><span class="p">()</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TimeField</span><span class="p">()</span>
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TimeField</span><span class="p">()</span>
+    <span class="n">special</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">db_table</span> <span class="o">=</span> <span class="s1">&#39;activities&#39;</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;[{}] {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Dados de teste:</p>
+<table class="table">
+    <thead>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>age</th>
+    </thead>
+    <tbody>
+    <tr><td>1</td><td>Gileno Filho</td><td>contato@gilenofilho.com.br</td><td>28</td></tr>
+    <tr><td>2</td><td>Admin</td><td>admin@admin.com</td><td>30</td></tr>
+    <tr><td>3</td><td>Fulano</td><td>fulano@gilenofilho.com.br</td><td>18</td></tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <th>id</th>
+        <th>user</th>
+        <th>title</th>
+        <th>date</th>
+        <th>start_time</th>
+        <th>end_time</th>
+        <th>special</th>
+        <th>score</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td><td>Gileno Filho</td><td>escrever</td>
+        <td>10/07/2016</td><td>10:00</td><td>13:00</td>
+        <td>True</td><td>4</td>
+    </tr>
+    <tr>
+        <td>2</td><td>Gileno Filho</td><td>gravar</td>
+        <td>11/07/2016</td><td>12:00</td><td>17:00</td>
+        <td>True</td><td>3</td>
+    </tr>
+    <tr>
+        <td>3</td><td>Admin</td><td>gerenciar</td>
+        <td>12/07/2016</td><td>10:00</td><td>12:00</td>
+        <td>False</td><td>2</td>
+    </tr>
+    <tr>
+        <td>4</td><td>Fulano</td><td>nadar</td>
+        <td>12/07/2016</td><td>15:00</td><td>17:00</td>
+        <td>False</td><td>1</td>
+    </tr>
+    <tr>
+        <td>5</td><td>Fulano</td><td>passear</td>
+        <td>15/07/2016</td><td>10:00</td><td>11:00</td>
+        <td>True</td><td>5</td>
+    </tr>
+    </tbody>
+</table>
+
+<p>Para acessar qualquer objeto salvo no banco de dados é preciso acessar primeiro o <code>Manager</code> do <code>Model</code>, isto é, o atributo <code>objects</code> presente em todo <code>Model</code>. Esse <code>Manager</code> tem diversos métodos que no final de contas vão chamar um objeto do tipo <code>QuerySet</code>, este é que fica responsável pelas consultas de fato. Eu vou separar a explicação das consultas por partes:</p>
+<ul>
+<li><a href="#simples">Consultas Simples</a></li>
+<li><a href="#relacionamento">Consultas Relacionamento</a></li>
+<li><a href="#aggregation">Aggregate e Annotate</a></li>
+<li><a href="#manuais">Consultas Manuais</a></li>
+<li><a href="#funcoes">Funções do Banco de Dados</a></li>
+</ul>
+<p><a id="simples"></a></p>
+<h3>Consultas Simples</h3>
+<p>O principal método da <code>QuerySet</code> é o <code>filter</code>, o <code>Manager</code> tem um atalho para ele com o mesmo nome. Com esse método você irá realizar as consultas passando as condições da seguinte forma:</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; User.objects.filter(NOMEDOCAMPO__LOOKUP)
+</pre></div>
+
+
+<p>Os dois underlines/underscores servem para indicar ao Django qual o nome do campo e qual o lookup será utilizado, pois o django vai receber esse parâmetro de forma dinâmica, também conhecido como parâmetros <code>**kwargs</code> de uma função. Abaixo seguem alguns exemplos de uso com os modelos definidos anteriormente:</p>
+<p>Com o lookup <code>icontains</code> eu posso filtrar campos de texto procurando por parte da palavra, no caso qualquer usuário que tenha a palavra <code>gileno</code> no nome.</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; User.objects.filter(name__icontains=&#39;gileno&#39;)
+[&lt;User: Gileno Filho&gt;]
+</pre></div>
+
+
+<p>O <code>icontains</code> é apenas um dos lookups disponíveis, para ver todos os lookups possívels acesse: <a href="https://docs.djangoproject.com/en/1.9/ref/models/querysets/#field-lookups">https://docs.djangoproject.com/en/1.9/ref/models/querysets/#field-lookups</a></p>
+<p>No entanto é comum realizar consultas que verificam mais de um campo, para condições do tipo <strong><em>AND</em></strong> é possível utilizar o <code>filter</code> normalmente apenas indicando as condições com vírgula, isto é, passando vários parâmetros de uma vez ou realizando a consulta encadeada:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">start_time</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;gerenciar&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Admin</span><span class="p">]</span> <span class="n">gerenciar</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="n">start_time</span><span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;gerenciar&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Admin</span><span class="p">]</span> <span class="n">gerenciar</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Para consultas do tipo <strong><em>OR</em></strong> é necessário chamar o objeto <code>Q</code>, ele é o responsável por transcrever a consulta que será realizada. Quando utilizamos o <code>filter</code> ele é chamado de forma implicíta, para utilizar de forma explicíta basta passá-lo como parâmetro posicional no <code>filter</code>:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">email__icontains</span><span class="o">=</span><span class="s1">&#39;@gilenofilho.com.br&#39;</span><span class="p">))</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">User</span><span class="p">:</span> <span class="n">Gileno</span> <span class="n">Filho</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">User</span><span class="p">:</span> <span class="n">Fulano</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;nadar&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;gerenciar&#39;</span><span class="p">))</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Admin</span><span class="p">]</span> <span class="n">gerenciar</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Fulano</span><span class="p">]</span> <span class="n">nadar</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>A barra vertical entre as duas chamadas de <code>Q</code> serve para criar o <strong><em>OR</em></strong> entre as condições, isto funciona porque o objeto <code>Q</code> implementa o método mágico <code>__or__</code>. Essa é a grande sacada das melhores libs e frameworks Python, utilizar-se dos métodos mágicos para sobreescrever operadores e açucares sintáticos previstos na definição de Python.</p>
+<p>É possível combinar <strong><em>OR</em></strong> e <strong><em>AND</em></strong> até que a consulta deseja seja gerada, para usar o <strong><em>AND</em></strong> basta utilizar o <code>&amp;</code> ao invés da barra vertical.</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">user_fulano</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user_fulano</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">special</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;nadar&#39;</span><span class="p">)))</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Fulano</span><span class="p">]</span> <span class="n">nadar</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Fulano</span><span class="p">]</span> <span class="n">passear</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Alguns lookups são específicos para determinados tipos de dados, como o <code>range</code> que funciona com campos de data e verifica se uma determinada data está entre 2 datas especificadas:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">start_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">date__range</span><span class="o">=</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">))</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Gileno</span> <span class="n">Filho</span><span class="p">]</span> <span class="n">escrever</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Gileno</span> <span class="n">Filho</span><span class="p">]</span> <span class="n">gravar</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p><a id="relacionamento"></a></p>
+<h3>Consultas Relacionamento</h3>
+<p>O objeto <code>Q</code> além de entender diversos lookups, ele também entende quando o atributo a ser utilizado na condição é uma <strong><em>ForeignKey</em></strong> e deseja-se aplicar a condição sobre um valor presente no objeto relacionado. Para isto utiliza-se novamente o dois underlines/underscores, assim ele irá realizar o join necessário para a consulta encadeada:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user__email</span><span class="o">=</span><span class="err">&#39;</span><span class="n">admin</span><span class="p">@</span><span class="n">admin</span><span class="p">.</span><span class="n">com</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="nl">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Admin</span><span class="p">]</span> <span class="n">gerenciar</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">filter</span><span class="p">(</span><span class="n">user__email__icontains</span><span class="o">=</span><span class="err">&#39;</span><span class="p">@</span><span class="n">gilenofilho</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="n">br</span><span class="err">&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="nl">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Gileno</span> <span class="n">Filho</span><span class="p">]</span> <span class="n">escrever</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nl">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Gileno</span> <span class="n">Filho</span><span class="p">]</span> <span class="n">gravar</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nl">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Fulano</span><span class="p">]</span> <span class="n">nadar</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nl">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Fulano</span><span class="p">]</span> <span class="n">passear</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Em todo relacionamento o Django cria o acesso inverso, isto é, se o model <code>Activity</code> tem um atributo chamado <code>user</code> que faz o relacionamento com a classe <code>User</code>, o <code>User</code> terá um atributo criado automaticamente com o padrão:</p>
+<div class="highlight"><pre><span></span>nome_da_classe_set
+</pre></div>
+
+
+<p>Assim é possível acessar os objetos da classe <code>Activity</code> através de uma instância de <code>User</code>:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">gileno</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">gileno</span><span class="p">.</span><span class="n">activity_set</span><span class="p">.</span><span class="n">all</span><span class="p">()</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="nl">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Gileno</span> <span class="n">Filho</span><span class="p">]</span> <span class="n">escrever</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nl">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Gileno</span> <span class="n">Filho</span><span class="p">]</span> <span class="n">gravar</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Esse atributo é uma <code>QuerySet</code> previamente filtrada e que pode ser aplicado outras condições como qualquer <code>QuerySet</code>.</p>
+<p>As consultas que envolvem relacionamentos também permitem realizar o fluxo inverso, isto é, filtrar a classe <em>filha</em> para depois consultar a classe <em>mãe</em>. Isto é bastante útil quando você deseja obter objetos que tem algum tipo de pré-requisito relacionado aos seus <em>filhos</em>:</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; activities = Activity.objects.filter(special=True).values_list(&#39;user&#39;)
+&gt;&gt;&gt; activities
+[(1,), (1,), (3,)]
+&gt;&gt;&gt; User.objects.filter(pk__in=activities)
+[&lt;User: Gileno Filho&gt;, &lt;User: Fulano&gt;]
+</pre></div>
+
+
+<p>O objeto <code>activities</code> é um tipo especial de <code>QuerySet</code> que armazena apenas o valor dos campos indicados na chamada do <code>values_list</code>.</p>
+<p><a id="aggregation"></a></p>
+<h3>Aggregate e Annotate</h3>
+<p>Como o nome já diz, o <strong><em>Aggregate</em></strong> irá agregar o resultado de uma consulta em apenas uma linha, normalmente apenas um valor. Na prática se utiliza quando deseja-se somar, verificar o máximo e mínimo, contar e outras operações semelhantes:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Max</span><span class="p">,</span> <span class="n">Min</span><span class="p">,</span> <span class="n">Sum</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">Max</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">),</span> <span class="n">Min</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">))</span>
+<span class="p">{</span><span class="s1">&#39;date__max&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="s1">&#39;date__min&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">total_age</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">))</span>
+<span class="p">{</span><span class="s1">&#39;total_age&#39;</span><span class="p">:</span> <span class="mi">76</span><span class="p">}</span>
+</pre></div>
+
+
+<p>O retorno do <code>aggregate</code> é um dicionário, e caso a chamada for com parâmetros não nomeados ele gera a chave para cada valor de acordo com o nome do atributo e o tipo do <em>Aggregate</em>.</p>
+<p>Já o <strong><em>Annotate</em></strong> serve para adicionar informações no objeto que está sendo consultado, como no exemplo abaixo:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Count</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">Count</span><span class="p">(</span><span class="s1">&#39;activity&#39;</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+<span class="o">&gt;&gt;&gt;</span>     <span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">activity__count</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+</pre></div>
+
+
+<p>Isso funciona porque o model <code>User</code> sabe que tem um relacionamento com o model <code>Activity</code>, você consegue ver isso de forma dinâmica acessando a meta informação sobre a classe:</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; User._meta.get_fields()
+(&lt;ManyToOneRel: core.activity&gt;,
+ &lt;django.db.models.fields.AutoField: id&gt;,
+ &lt;django.db.models.fields.CharField: name&gt;,
+ &lt;django.db.models.fields.EmailField: email&gt;,
+ &lt;django.db.models.fields.IntegerField: age&gt;)
+</pre></div>
+
+
+<p>O <strong><em>annotate</em></strong> é bastante poderoso, por exemplo se eu quisesse as últimas atividades cadastradas do usuário, isto é, as atividades com maior ID para cada usuario. Primeiro eu precisaria fazer um select das atividades agrupadas por usuário para em seguida pegar o ID máximo. Com <strong><em>annotate</em></strong> eu posso fazer assim:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Max</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pks</span> <span class="o">=</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">max_pk</span><span class="o">=</span><span class="n">Max</span><span class="p">(</span><span class="s1">&#39;pk&#39;</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pks</span>
+<span class="p">[{</span><span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;max_pk&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;max_pk&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;max_pk&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">pk__in</span><span class="o">=</span><span class="n">pks</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;max_pk&#39;</span><span class="p">))</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Gileno</span> <span class="n">Filho</span><span class="p">]</span> <span class="n">gravar</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Admin</span><span class="p">]</span> <span class="n">gerenciar</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Activity</span><span class="p">:</span> <span class="p">[</span><span class="n">Fulano</span><span class="p">]</span> <span class="n">passear</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Com o aggregate e annotate eu também posso fazer o <strong><em>group by</em></strong> em Django:</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Avg</span><span class="p">,</span> <span class="n">Sum</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">users</span> <span class="o">=</span> <span class="n">Activity</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">(</span><span class="s1">&#39;user__name&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">users</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">total_score</span><span class="o">=</span><span class="n">Sum</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">),</span> <span class="n">avg_score</span><span class="o">=</span><span class="n">Avg</span><span class="p">(</span><span class="s1">&#39;score&#39;</span><span class="p">))</span>
+<span class="p">[{</span><span class="s1">&#39;total_score&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;user__name&#39;</span><span class="p">:</span> <span class="s1">&#39;Admin&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_score&#39;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;total_score&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;user__name&#39;</span><span class="p">:</span> <span class="s1">&#39;Fulano&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_score&#39;</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;total_score&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;user__name&#39;</span><span class="p">:</span> <span class="s1">&#39;Gileno Filho&#39;</span><span class="p">,</span> <span class="s1">&#39;avg_score&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">}]</span>
+</pre></div>
+
+
+<p><a id="manuais"></a></p>
+<h3>Consultas Manuais</h3>
+<p>Mesmo com tantas possibilidades que o ORM do Django nos fornece, algumas vezes precisamos fazer uma consulta mais "manual". Podemos realizar consultas utilizando o método <code>extra</code> da seguinda forma:</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; sql = &quot;users.id in (select activities.user_id from activities where activities.special=%s)&quot;
+&gt;&gt;&gt; User.objects.extra(where=[sql], params=[True])
+[&lt;User: Gileno Filho&gt;, &lt;User: Fulano&gt;]
+</pre></div>
+
+
+<p>No caso acima não era realmente necessário escrever o SQL da clásula <em>where</em> manualmente, mas eu o fiz para demonstrar que se não for possível realizar alguma consulta com os métodos descritos anteriormente, você pode utilizar o método <code>extra</code> e escrever a consulta de forma manual. Lembrando que no caso é preciso saber o nome da tabela e se houver parâmetros devem ser passados como no exemplo para que o Django faça o <em>escape</em> para evitar <a href="https://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_SQL">SQL Injection</a>.</p>
+<p>O Django também permite se realizar uma consulta <em>raw</em>, isto é, você faz toda a consulta SQL e só vai indicar o modelo que irá representar o resultado dessa consulta, isso é possível utilizando o método <code>raw</code>.</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; users = User.objects.raw(&#39;select name, email, age from users&#39;)
+&gt;&gt;&gt; for user in users:
+        print(user)
+
+Gileno Filho
+Admin
+Fulano
+</pre></div>
+
+
+<p>O uso do <code>raw</code> é interessante quando existe alguma consulta mais complexa em que os valores do campos virão de outras tabelas ou de algum cálculo de alguma função no banco de dados, assim basta que o resultado da consulta tenha os campos que o model tenha.</p>
+<p><a id="funcoes"></a></p>
+<h3>Funções do Banco de Dados</h3>
+<p>Em geral, os bancos de dados relacionais, têm uma série de funções que auxiliam a criação de scripts SQL. Se você deseja utilizar essas funções para fazer cálculos diretamente no seu <a href="https://pt.wikipedia.org/wiki/Sistema_de_gerenciamento_de_banco_de_dados">SGBD</a>, o Django permite da seguinte forma:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+
+<span class="k">class</span> <span class="nc">TimeDiff</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Func</span><span class="p">):</span>
+
+    <span class="n">function</span> <span class="o">=</span> <span class="s1">&#39;timediff&#39;</span>
+    <span class="n">output_field</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TimeField</span><span class="p">()</span>
+</pre></div>
+
+
+<p>O parâmetro <code>function</code> é o nome da função no banco de dados, nesse exemplo esto considerando um banco de dados MySQL onde existe essa função. O parâmetro <code>output_field</code> indica que tipo de <code>Field</code> será retornado.</p>
+<div class="highlight"><pre><span></span>&gt;&gt;&gt; activities = Activity.objects.annotate(duration=TimeDiff(&#39;end_time&#39;, &#39;start_time&#39;))
+&gt;&gt;&gt; for activity in activities:
+        print(activity.duration)
+03:00:00
+05:00:00
+02:00:00
+02:00:00
+01:00:00
+</pre></div>
+
+
+<p>Ainda existe mais coisas a se explorar no ORM do Django mas eu vou parar por aqui, espero que esse artigo lhe ajude a compreender mais as opções que o ORM do Django disponibiliza. Se tiver outras dicas ou críticas comenta ai :)</p>
+<hr />
+<div class="thumbnail">
+    <a href="https://www.udemy.com/construa-um-e-commerce-com-python-3-e-django/?couponCode=websitegilenofilho">
+        <img src="/images/django-udemy-large.jpg" alt="Construa um E-Commerce com Python e Django" class="img-responsive" />
+    </a>
+    <div class="caption">
+        <h3><a href="https://www.udemy.com/construa-um-e-commerce-com-python-3-e-django/?couponCode=websitegilenofilho">Quer aprender Django desenvolvendo um projeto real desde a concepção até o deploy seguindo as melhores práticas do mercado?</a></h3>
+        <p>Com o conhecimento adquirido neste curso será possível tirar seus projetos do papel, criando incríveis aplicações web com Python/Django além de utilizar as melhores práticas do mercado, pois iremos desenvolver uma aplicação real chamada Django E-Commerce - uma plataforma de comércio eletrônico. Vamos passar por diversos problemas encontrados no desenvolvimento web, desde a concepção do projeto ao deploy num servidor real.</p>
+    </div>
+</div>
+    <div class="hline"></div>
+    <div class="spacing"></div>
+    <p>
+        <a class="btn btn-theme" href="/tags/python" role="button" title="Tag 'python'">python</a>
+        <a class="btn btn-theme" href="/tags/django" role="button" title="Tag 'django'">django</a>
+        <a class="btn btn-theme" href="/tags/database" role="button" title="Tag 'database'">database</a>
+    </p>
+    <div class="spacing"></div>
+    <h6>COMPARTILHAR:</h6>
+    <p class="share">
+		<a target="_blank" href="https://twitter.com/home?status=Como%20funciona%20o%20ORM%20do%20Django%20http%3A//www.gilenofilho.com.br/como-funciona-o-orm-do-django"><i class="fa fa-twitter"></i></a>
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.gilenofilho.com.br/como-funciona-o-orm-do-django"><i class="fa fa-facebook"></i></a>
+	</p>
+</article>
+
+    <section class="row" id="comments">
+        <div class="col-md-12">
+            <h4>Comentários</h4>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'gilenofilho'; // required: replace example with your forum shortname
+                var disqus_identifier = 'gilenofilho.com.br' + window.location.pathname;
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function () {
+                    var dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </section>
+                </div>
+                <div class="col-md-4">
+                    <h4><a href="https://www.udemy.com/construa-um-e-commerce-com-python-3-e-django/?couponCode=websitegilenofilho">Construa um E-Commerce com Python e Django</a></h4>
+                    <a href="https://www.udemy.com/construa-um-e-commerce-com-python-3-e-django/?couponCode=websitegilenofilho">
+                        <img src="/images/django-udemy.jpg" alt="Construa um E-Commerce com Python e Django" class="img-responsive" />
+                    </a>
+    		 		<h4>Pesquisar</h4>
+    		 		<div class="hline"></div>
+		 			<p>
+		 				<br>
+                        <form class="" action="https://www.google.com/search" method="get">
+                            <input name="q" type="text" class="form-control" placeholder="Pesquisar..." />
+                            <input type="hidden" name="sitesearch" value="http://www.gilenofilho.com.br">
+                        </form>
+		 			</p>
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Categorias</h4>
+    		 		<div class="hline"></div>
+                        <p><a href="/categorias/cursos"><i class="fa fa-angle-right"></i> cursos</a> <span class="badge badge-theme pull-right">6</span></p>
+                        <p><a href="/categorias/palestras"><i class="fa fa-angle-right"></i> palestras</a> <span class="badge badge-theme pull-right">5</span></p>
+                        <p><a href="/categorias/tutoriais"><i class="fa fa-angle-right"></i> tutoriais</a> <span class="badge badge-theme pull-right">12</span></p>
+                        <p><a href="/categorias/utils"><i class="fa fa-angle-right"></i> utils</a> <span class="badge badge-theme pull-right">4</span></p>
+
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Artigos Recentes</h4>
+    		 		<div class="hline"></div>
+					<ul class="popular-posts">
+		                <li>
+		                    <p><a href="/python-datasets">Bibliotecas Python para carregar Dataset's</a></p>
+		                    <em>Publicado em Seg 02 janeiro 2017</em>
+		                </li>
+		                <li>
+		                    <p><a href="/como-funciona-o-orm-do-django">Como funciona o ORM do Django</a></p>
+		                    <em>Publicado em Sex 15 julho 2016</em>
+		                </li>
+		                <li>
+		                    <p><a href="/curso-gratuito-de-django-com-python-3">Curso Gratuito de Django com Python 3</a></p>
+		                    <em>Publicado em Qua 23 março 2016</em>
+		                </li>
+		                <li>
+		                    <p><a href="/programacao-felicidade-mercado-e-outras-coisas">Programação, felicidade, mercado e outras coisas...</a></p>
+		                    <em>Publicado em Ter 10 novembro 2015</em>
+		                </li>
+		            </ul>
+
+    		 		<div class="spacing"></div>
+
+    		 		<h4>Tags</h4>
+    		 		<div class="hline"></div>
+		 			<p>
+		            	<a class="btn btn-theme" href="/tags/python" role="button">python</a>
+		            	<a class="btn btn-theme" href="/tags/dados" role="button">dados</a>
+		            	<a class="btn btn-theme" href="/tags/django" role="button">django</a>
+		            	<a class="btn btn-theme" href="/tags/database" role="button">database</a>
+		            	<a class="btn btn-theme" href="/tags/video-aula" role="button">video-aula</a>
+		            	<a class="btn btn-theme" href="/tags/lifestyle" role="button">lifestyle</a>
+		            	<a class="btn btn-theme" href="/tags/comunidade" role="button">comunidade</a>
+		            	<a class="btn btn-theme" href="/tags/startup" role="button">startup</a>
+		            	<a class="btn btn-theme" href="/tags/design" role="button">design</a>
+		            	<a class="btn btn-theme" href="/tags/inteligencia-artificial" role="button">inteligência-artificial</a>
+		            	<a class="btn btn-theme" href="/tags/universidade" role="button">universidade</a>
+		            	<a class="btn btn-theme" href="/tags/pythonbrasil" role="button">pythonbrasil</a>
+		            	<a class="btn btn-theme" href="/tags/engenharia-de-avaliacoes" role="button">engenharia-de-avaliações</a>
+		            	<a class="btn btn-theme" href="/tags/deploy" role="button">deploy</a>
+		            	<a class="btn btn-theme" href="/tags/evento" role="button">evento</a>
+		 			</p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+<div id="footerwrap">
+   <div class="container">
+       <div class="row">
+           <div class="col-md-6">
+               <h4>Sobre</h4>
+               <div class="hline-w"></div>
+               <p>
+    Website e Blog de Gileno Filho, escrevo sobre: Desenvolvimento,
+    Python, Django, Ciência de Dados, Engenharia de Avaliações,
+    Inteligência Artificial e Design Minimalista.
+</p>
+           </div>
+           <div class="col-md-6">
+               <h4>Social</h4>
+               <div class="hline-w"></div>
+               <p>
+                   <a class="white-text" href="https://github.com/gileno" title="GitHub">
+                       <i class="fa fa-github"></i>
+                   </a>
+                   <a class="white-text" href="https://twitter.com/gilenofilho" title="Twitter">
+                       <i class="fa fa-twitter"></i>
+                   </a>
+                   <a class="white-text" href="https://www.facebook.com/gilenofilho" title="Facebook">
+                       <i class="fa fa-facebook"></i>
+                   </a>
+                   <a class="white-text" href="mailto:contato@gilenofilho.com.br" title="E-mail">
+                       <i class="fa fa-envelope"></i>
+                   </a>
+               </p>
+           </div>
+       </div>
+   </div>
+</div>
+            <!-- Scripts -->
+            <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+            <script src="/theme/js/bootstrap.min.js"></script>
+        </main>
+    </body>
+</html>
